@@ -68,5 +68,14 @@ namespace Unapec.HumanResourcesM.Resources {
                 return ResourceManager.GetString("AppName", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Las credenciales de acceso introducidas son incorrectas..
+        /// </summary>
+        public static string Message_WrongCredentials {
+            get {
+                return ResourceManager.GetString("Message_WrongCredentials", resourceCulture);
+            }
+        }
     }
 }

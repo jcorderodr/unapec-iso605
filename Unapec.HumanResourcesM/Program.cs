@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using Unapec.HumanResourcesM.Framework.Data;
 
 namespace Unapec.HumanResourcesM
 {
@@ -13,7 +14,25 @@ namespace Unapec.HumanResourcesM
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Forms.MainForm());
+
+            var signIn = new Forms.Security.SignIn();
+            var signInResult = signIn.ShowDialog();
+            if (signInResult != DialogResult.OK && signInResult != DialogResult.Ignore) return;
+
+            if(signInResult == DialogResult.Ignore)
+            {
+                Application.Run(new Forms.Candidates.NewApplicationWizard());
+                Application.Restart();
+            }
+            else
+            {
+                Application.Run(new Forms.MainForm());
+            }
+            
         }
+
+        public readonly static string AppName = Resources.Strings.AppName;
+
+        public static Employee SignedUser { get; internal set; }
     }
 }

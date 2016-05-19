@@ -16,5 +16,28 @@ namespace Unapec.HumanResourcesM.Forms
         {
             InitializeComponent();
         }
+
+
+        private void ShowForm<T>() where T : Form, new()
+        {
+            var form = new T();
+            AddOwnedForm(form);
+
+            ActiveMdiChild?.Close();
+
+            form.MaximizeBox = false;
+            form.MinimizeBox = false;
+            form.ControlBox = false;
+            form.FormBorderStyle = FormBorderStyle.None;
+            form.MdiParent = this;
+            form.Show();
+            form.WindowState = FormWindowState.Maximized;
+        }
+
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

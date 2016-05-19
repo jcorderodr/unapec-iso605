@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using Unapec.HumanResourcesM.Framework.Data;
 
 namespace Unapec.HumanResourcesM.Framework.Services
@@ -17,12 +13,12 @@ namespace Unapec.HumanResourcesM.Framework.Services
             _context = new DataContext();
         }
 
-        public User DoLogin(string username, string password)
+        public Employee DoLogin(string username, string password)
         {
             var decrypted = password;
 
             var user = _context.Users.SingleOrDefault(p => p.Username == username && p.Password == decrypted);
-            return user;
+            return user?.Employee;
         }
 
         public bool Create(User user)

@@ -7,26 +7,16 @@ using System.Threading.Tasks;
 
 namespace Unapec.HumanResourcesM.Framework.Data
 {
-    public class DataContext : DbContext
+
+    class CustomDataInitializer: CreateDatabaseIfNotExists<DataContext>
     {
-        public DataContext()
-            :base("SqlConnection")
-        {
-            Database.SetInitializer(new CreateDatabaseIfNotExists<DataContext>());
-        }
 
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
-            base.OnModelCreating(modelBuilder);
-            
-            modelBuilder.Entity<User>().HasMany(p => p.Roles);
-            
-            Seed(this);
-        }
 
-        private void Seed(DataContext context)
+        protected override void Seed(DataContext context)
         {
-            if(!context.Catalogs.DefaultIfEmpty().Any())
+            base.Seed(context);
+
+            if (!context.Catalogs.DefaultIfEmpty().Any())
             {
                 var catalogs = new List<Catalog>
                 {
@@ -40,14 +30,26 @@ namespace Unapec.HumanResourcesM.Framework.Data
                 };
 
                 context.Set<Catalog>().AddRange(catalogs);
-                
             }
-
-
-
             context.SaveChanges();
         }
-        
+    }
+
+    public class DataContext : DbContext
+    {
+        public DataContext()
+            :base("SqlConnection")
+        {
+            Database.SetInitializer(new CustomDataInitializer());
+        }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+            
+            modelBuilder.Entity<User>().HasMany(p => p.Roles);
+
+        }
 
         public DbSet<Catalog> Catalogs { get; set; }
         public DbSet<User> Users { get; set; }

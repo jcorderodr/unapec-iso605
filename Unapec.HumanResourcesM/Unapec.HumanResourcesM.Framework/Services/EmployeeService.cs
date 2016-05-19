@@ -57,6 +57,7 @@ namespace Unapec.HumanResourcesM.Framework.Services
 
         public Employee Create(Employee employee)
         {
+            employee.Code = String.Format("{0:00000}", _context.Employees.LastOrDefault().Id++);
             _context.Employees.Add(employee);
             _context.SaveChanges();
             return employee;

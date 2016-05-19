@@ -120,4 +120,7 @@
   <data name="AppName" xml:space="preserve">
     <value>UNAPEC Gestor RRHH</value>
   </data>
+  <data name="Message_WrongCredentials" xml:space="preserve">
+    <value>Las credenciales de acceso introducidas son incorrectas.</value>
+  </data>
 </root>

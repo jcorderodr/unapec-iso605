@@ -21,6 +21,8 @@ namespace Unapec.HumanResourcesM.Framework.Data
         public DateTime CreateDate { get; set; }
         public DateTime LastLoginDate { get; set; }
 
+        public virtual Employee Employee { get; set; }
+
         public virtual ICollection<Role> Roles { get; set; }
     }
 }

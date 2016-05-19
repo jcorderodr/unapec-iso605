@@ -25,6 +25,8 @@ namespace Unapec.HumanResourcesM.Framework.Data
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
+        [StringLength(5)]
+        public string Code { get; set; }
         [StringLength(20)]
         public string Username { get; set; }
         [StringLength(500)]
