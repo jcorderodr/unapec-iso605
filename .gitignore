@@ -1,0 +1,12 @@
+*.suo
+*.user
+bin
+packages
+obj
+*.orig
+*.BACKUP.*
+*.BASE.*
+*.LOCAL.*
+*.REMOTE.*
+TestResults
+TestResults/*

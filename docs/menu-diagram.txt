@@ -1,0 +1,33 @@
+
+# Empleado
+
+Archivo
+	- Cerrar sesión
+	- Salir
+Editar
+	- Guardar Cambios
+	- Descartar Cambios
+Candidatos
+	- Puestos / Posiciones Abiertas [add, update, delete]
+	- Lista de Aplicantes
+Empleados
+	- Registrar Empleado
+	- Cancelar Empleado
+	- Listado de Empleados
+Herramientas
+	- Gestión de Permisos
+	- Gestión de Usuarios
+	-------------
+	- Opciones
+Ayuda
+	- Ayuda
+
+# Candidato
+
+Archivo
+	- Aplicar para puesto
+	- Finalizar Aplicación
+	- Salir
+Ayuda
+	- Ayuda
+

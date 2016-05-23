@@ -1,0 +1,47 @@
+
+# Informacion Basica
+
+Cedula
+Nombre
+Apellido
+Sexo
+Fecha de Nacimiento
+Lugar de Nacimiento
+Direccion 
+Telefono Casa
+Telefono Movil
+
+
+
+
+# Información Academica
+
+Titulo de Estudio (+1)
+Lugar de Estudio
+Año de finalizacion
+
+Mayor Nivel Academico Actual
+
+Cursos (+1)
+
+# Experiencia Laboral
+
+Nombre del Puesto 
+Lugar de Trabajo
+Tiempo / Duracion
+
+NOTA: Se van a solicitar los ultimos tres puestos. Debe contener un campo para indicar el puesto actual
+
+Habilidades
+- Liderazgo, Trabajo en equipo, trabajo bajo presión, auto-didacta, 
+
+# Adicionales
+
+Practicas algún deporte? Cuál?
+
+Sufres de alguna enfermdad y/o alergia?
+
+En caso de ocurrir una emergencia, a quién deberíamos llamar?
+
+
+
