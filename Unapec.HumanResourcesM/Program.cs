@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using Unapec.HumanResourcesM.Framework.Data;
+using Unapec.HumanResourcesM.Framework.Entities;
 
 namespace Unapec.HumanResourcesM
 {

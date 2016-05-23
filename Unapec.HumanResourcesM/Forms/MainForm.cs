@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -18,7 +19,7 @@ namespace Unapec.HumanResourcesM.Forms
         }
 
 
-        private void ShowForm<T>() where T : Form, new()
+        private Form ShowForm<T>() where T : Form, new()
         {
             var form = new T();
             AddOwnedForm(form);
@@ -32,12 +33,27 @@ namespace Unapec.HumanResourcesM.Forms
             form.MdiParent = this;
             form.Show();
             form.WindowState = FormWindowState.Maximized;
+            return form;
         }
 
 
+        private void LoadPermissions()
+        {
+            
+        }
+
         private void MainForm_Load(object sender, EventArgs e)
         {
+            LoadPermissions();
+        }
 
+        private void txtGlobalSearch_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if((Keys)e.KeyChar == Keys.Enter)
+            {
+                var form = ShowForm<Utilities.GlobalSearch>() as Utilities.GlobalSearch;
+                form.SetInitialSearch(txtGlobalSearch.Text);
+            }
         }
     }
 }

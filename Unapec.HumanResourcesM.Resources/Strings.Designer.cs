@@ -61,6 +61,15 @@ namespace Unapec.HumanResourcesM.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Todos.
+        /// </summary>
+        public static string All {
+            get {
+                return ResourceManager.GetString("All", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to UNAPEC Gestor RRHH.
         /// </summary>
         public static string AppName {
@@ -70,11 +79,39 @@ namespace Unapec.HumanResourcesM.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Candidato.
+        /// </summary>
+        public static string Candidate {
+            get {
+                return ResourceManager.GetString("Candidate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Empleado.
+        /// </summary>
+        public static string Employee {
+            get {
+                return ResourceManager.GetString("Employee", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Las credenciales de acceso introducidas son incorrectas..
         /// </summary>
         public static string Message_WrongCredentials {
             get {
                 return ResourceManager.GetString("Message_WrongCredentials", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;Estás a punto de cerrar el proceso y guardar tus datos. &quot; + Environment.NewLine +
+        ///                            &quot;Estás seguro que has revisa y completado tu información correctamente?&quot;.
+        /// </summary>
+        public static string Question_WizardNewApplicationSubmit {
+            get {
+                return ResourceManager.GetString("Question_WizardNewApplicationSubmit", resourceCulture);
             }
         }
     }

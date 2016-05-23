@@ -80,6 +80,14 @@
     <Compile Include="Forms\Security\SignIn.Designer.cs">
       <DependentUpon>SignIn.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\UIExtensions.cs" />
+    <Compile Include="Forms\Utilities\GlobalSearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Utilities\GlobalSearch.Designer.cs">
+      <DependentUpon>GlobalSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Utilities\GlobalSearchMode.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\Candidates\NewApplicationWizard.resx">
@@ -90,6 +98,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Security\SignIn.resx">
       <DependentUpon>SignIn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Utilities\GlobalSearch.resx">
+      <DependentUpon>GlobalSearch.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -123,6 +134,9 @@
       <Project>{9008d8e7-7396-46e6-a5bf-e9dd8cb6d171}</Project>
       <Name>Unapec.HumanResourcesM.Framework</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Forms\Reports\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

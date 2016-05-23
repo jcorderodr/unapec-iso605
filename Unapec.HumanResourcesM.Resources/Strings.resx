@@ -117,10 +117,23 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="All" xml:space="preserve">
+    <value>Todos</value>
+  </data>
   <data name="AppName" xml:space="preserve">
     <value>UNAPEC Gestor RRHH</value>
   </data>
+  <data name="Candidate" xml:space="preserve">
+    <value>Candidato</value>
+  </data>
+  <data name="Employee" xml:space="preserve">
+    <value>Empleado</value>
+  </data>
   <data name="Message_WrongCredentials" xml:space="preserve">
     <value>Las credenciales de acceso introducidas son incorrectas.</value>
+  </data>
+  <data name="Question_WizardNewApplicationSubmit" xml:space="preserve">
+    <value>"Estás a punto de cerrar el proceso y guardar tus datos. " + Environment.NewLine +
+                            "Estás seguro que has revisa y completado tu información correctamente?"</value>
   </data>
 </root>
