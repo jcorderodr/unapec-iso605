@@ -28,11 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnContinue = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
             this.wizardTabControl = new System.Windows.Forms.TabControl();
             this.wizardTabPage1 = new System.Windows.Forms.TabPage();
+            this.wizardTab1_jobOfferComboBox = new System.Windows.Forms.ComboBox();
+            this.label29 = new System.Windows.Forms.Label();
+            this.wizardTab1_txtIdentification = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.wizardTab1_personalImagePictureBox = new System.Windows.Forms.PictureBox();
             this.wizardTab1_groupBox1 = new System.Windows.Forms.GroupBox();
             this.wizardTab1_radioButton2 = new System.Windows.Forms.RadioButton();
@@ -54,8 +60,14 @@
             this.wizardTab1_txtPhoneHouse = new System.Windows.Forms.TextBox();
             this.wizardTabPage2 = new System.Windows.Forms.TabPage();
             this.wizardTab2_groupBox2 = new System.Windows.Forms.GroupBox();
-            this.wizardTab2_gradesDtaGridView = new System.Windows.Forms.DataGridView();
+            this.wizardTab2_gradesDataGridView = new System.Windows.Forms.DataGridView();
+            this.ColumnTitle = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnInstitution = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnStartDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnEndDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnActionDelete = new System.Windows.Forms.DataGridViewImageColumn();
             this.wizardTab2_groupBox3 = new System.Windows.Forms.GroupBox();
+            this.wizardTab2_addAcademicInfo = new System.Windows.Forms.Button();
             this.wizardTab2_ToDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.wizardTab2_FromDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.label16 = new System.Windows.Forms.Label();
@@ -105,17 +117,14 @@
             this.label10 = new System.Windows.Forms.Label();
             this.wizardTab4_languageListView = new System.Windows.Forms.ListView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.wizardTab1_txtIdentification = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label29 = new System.Windows.Forms.Label();
-            this.wizardTab1_jobOfferComboBox = new System.Windows.Forms.ComboBox();
+            this.helpProvider = new System.Windows.Forms.HelpProvider();
             this.wizardTabControl.SuspendLayout();
             this.wizardTabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.wizardTab1_personalImagePictureBox)).BeginInit();
             this.wizardTab1_groupBox1.SuspendLayout();
             this.wizardTabPage2.SuspendLayout();
             this.wizardTab2_groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.wizardTab2_gradesDtaGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.wizardTab2_gradesDataGridView)).BeginInit();
             this.wizardTab2_groupBox3.SuspendLayout();
             this.wizardTab2_groupBox4.SuspendLayout();
             this.wizardTabPage3.SuspendLayout();
@@ -203,6 +212,40 @@
             this.wizardTabPage1.TabIndex = 0;
             this.wizardTabPage1.Text = "Información Personal";
             this.wizardTabPage1.UseVisualStyleBackColor = true;
+            // 
+            // wizardTab1_jobOfferComboBox
+            // 
+            this.wizardTab1_jobOfferComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.wizardTab1_jobOfferComboBox.FormattingEnabled = true;
+            this.wizardTab1_jobOfferComboBox.Location = new System.Drawing.Point(145, 15);
+            this.wizardTab1_jobOfferComboBox.Name = "wizardTab1_jobOfferComboBox";
+            this.wizardTab1_jobOfferComboBox.Size = new System.Drawing.Size(255, 21);
+            this.wizardTab1_jobOfferComboBox.TabIndex = 8;
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Location = new System.Drawing.Point(26, 18);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(106, 13);
+            this.label29.TabIndex = 7;
+            this.label29.Text = "Puesto al que aplica:";
+            // 
+            // wizardTab1_txtIdentification
+            // 
+            this.wizardTab1_txtIdentification.Location = new System.Drawing.Point(145, 42);
+            this.wizardTab1_txtIdentification.Name = "wizardTab1_txtIdentification";
+            this.wizardTab1_txtIdentification.Size = new System.Drawing.Size(255, 20);
+            this.wizardTab1_txtIdentification.TabIndex = 6;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(89, 45);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(43, 13);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Cédula:";
             // 
             // wizardTab1_personalImagePictureBox
             // 
@@ -381,7 +424,7 @@
             // 
             // wizardTab2_groupBox2
             // 
-            this.wizardTab2_groupBox2.Controls.Add(this.wizardTab2_gradesDtaGridView);
+            this.wizardTab2_groupBox2.Controls.Add(this.wizardTab2_gradesDataGridView);
             this.wizardTab2_groupBox2.Controls.Add(this.wizardTab2_groupBox3);
             this.wizardTab2_groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.wizardTab2_groupBox2.Location = new System.Drawing.Point(3, 70);
@@ -391,22 +434,68 @@
             this.wizardTab2_groupBox2.TabStop = false;
             this.wizardTab2_groupBox2.Text = "Cursos / Talleres";
             // 
-            // wizardTab2_gradesDtaGridView
+            // wizardTab2_gradesDataGridView
             // 
-            this.wizardTab2_gradesDtaGridView.AllowUserToAddRows = false;
-            this.wizardTab2_gradesDtaGridView.AllowUserToDeleteRows = false;
-            this.wizardTab2_gradesDtaGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.wizardTab2_gradesDataGridView.AllowUserToAddRows = false;
+            this.wizardTab2_gradesDataGridView.AllowUserToDeleteRows = false;
+            this.wizardTab2_gradesDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.wizardTab2_gradesDtaGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.wizardTab2_gradesDtaGridView.Location = new System.Drawing.Point(3, 113);
-            this.wizardTab2_gradesDtaGridView.Name = "wizardTab2_gradesDtaGridView";
-            this.wizardTab2_gradesDtaGridView.ReadOnly = true;
-            this.wizardTab2_gradesDtaGridView.Size = new System.Drawing.Size(581, 150);
-            this.wizardTab2_gradesDtaGridView.TabIndex = 1;
+            this.wizardTab2_gradesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.wizardTab2_gradesDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ColumnTitle,
+            this.ColumnInstitution,
+            this.ColumnStartDate,
+            this.ColumnEndDate,
+            this.ColumnActionDelete});
+            this.wizardTab2_gradesDataGridView.Location = new System.Drawing.Point(3, 113);
+            this.wizardTab2_gradesDataGridView.Name = "wizardTab2_gradesDataGridView";
+            this.wizardTab2_gradesDataGridView.ReadOnly = true;
+            this.wizardTab2_gradesDataGridView.Size = new System.Drawing.Size(581, 150);
+            this.wizardTab2_gradesDataGridView.TabIndex = 1;
+            this.wizardTab2_gradesDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.wizardTab2_gradesDataGridView_CellContentClick);
+            // 
+            // ColumnTitle
+            // 
+            this.ColumnTitle.HeaderText = "Titulo Obtenido";
+            this.ColumnTitle.Name = "ColumnTitle";
+            this.ColumnTitle.ReadOnly = true;
+            // 
+            // ColumnInstitution
+            // 
+            this.ColumnInstitution.HeaderText = "Institución";
+            this.ColumnInstitution.Name = "ColumnInstitution";
+            this.ColumnInstitution.ReadOnly = true;
+            // 
+            // ColumnStartDate
+            // 
+            dataGridViewCellStyle7.Format = "D";
+            dataGridViewCellStyle7.NullValue = null;
+            this.ColumnStartDate.DefaultCellStyle = dataGridViewCellStyle7;
+            this.ColumnStartDate.HeaderText = "Fecha de Inicio";
+            this.ColumnStartDate.Name = "ColumnStartDate";
+            this.ColumnStartDate.ReadOnly = true;
+            // 
+            // ColumnEndDate
+            // 
+            dataGridViewCellStyle8.Format = "D";
+            dataGridViewCellStyle8.NullValue = null;
+            this.ColumnEndDate.DefaultCellStyle = dataGridViewCellStyle8;
+            this.ColumnEndDate.HeaderText = "Fecha de Finalización";
+            this.ColumnEndDate.Name = "ColumnEndDate";
+            this.ColumnEndDate.ReadOnly = true;
+            // 
+            // ColumnActionDelete
+            // 
+            this.ColumnActionDelete.HeaderText = "";
+            this.ColumnActionDelete.Name = "ColumnActionDelete";
+            this.ColumnActionDelete.ReadOnly = true;
+            this.ColumnActionDelete.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.ColumnActionDelete.Width = 32;
             // 
             // wizardTab2_groupBox3
             // 
+            this.wizardTab2_groupBox3.Controls.Add(this.wizardTab2_addAcademicInfo);
             this.wizardTab2_groupBox3.Controls.Add(this.wizardTab2_ToDateTimePicker);
             this.wizardTab2_groupBox3.Controls.Add(this.wizardTab2_FromDateTimePicker);
             this.wizardTab2_groupBox3.Controls.Add(this.label16);
@@ -415,11 +504,21 @@
             this.wizardTab2_groupBox3.Controls.Add(this.wizardTab2_txtDescription);
             this.wizardTab2_groupBox3.Controls.Add(this.label14);
             this.wizardTab2_groupBox3.Controls.Add(this.label12);
-            this.wizardTab2_groupBox3.Location = new System.Drawing.Point(39, 19);
+            this.wizardTab2_groupBox3.Location = new System.Drawing.Point(6, 19);
             this.wizardTab2_groupBox3.Name = "wizardTab2_groupBox3";
-            this.wizardTab2_groupBox3.Size = new System.Drawing.Size(508, 88);
+            this.wizardTab2_groupBox3.Size = new System.Drawing.Size(575, 88);
             this.wizardTab2_groupBox3.TabIndex = 0;
             this.wizardTab2_groupBox3.TabStop = false;
+            // 
+            // wizardTab2_addAcademicInfo
+            // 
+            this.wizardTab2_addAcademicInfo.Location = new System.Drawing.Point(521, 51);
+            this.wizardTab2_addAcademicInfo.Name = "wizardTab2_addAcademicInfo";
+            this.wizardTab2_addAcademicInfo.Size = new System.Drawing.Size(48, 20);
+            this.wizardTab2_addAcademicInfo.TabIndex = 6;
+            this.wizardTab2_addAcademicInfo.Text = "add";
+            this.wizardTab2_addAcademicInfo.UseVisualStyleBackColor = true;
+            this.wizardTab2_addAcademicInfo.Click += new System.EventHandler(this.wizardTab2_addAcademicInfo_Click);
             // 
             // wizardTab2_ToDateTimePicker
             // 
@@ -810,6 +909,7 @@
             this.wizardTab4_addLang.TabIndex = 3;
             this.wizardTab4_addLang.Text = "OK";
             this.wizardTab4_addLang.UseVisualStyleBackColor = true;
+            this.wizardTab4_addLang.Click += new System.EventHandler(this.wizardTab4_addLang_Click);
             // 
             // wizardTab4_LanguageLvlComboBox
             // 
@@ -860,46 +960,12 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Location = new System.Drawing.Point(182, 182);
+            this.groupBox2.Location = new System.Drawing.Point(357, 25);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(200, 100);
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Competencias";
-            // 
-            // wizardTab1_txtIdentification
-            // 
-            this.wizardTab1_txtIdentification.Location = new System.Drawing.Point(145, 42);
-            this.wizardTab1_txtIdentification.Name = "wizardTab1_txtIdentification";
-            this.wizardTab1_txtIdentification.Size = new System.Drawing.Size(255, 20);
-            this.wizardTab1_txtIdentification.TabIndex = 6;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(89, 45);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(43, 13);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "Cédula:";
-            // 
-            // label29
-            // 
-            this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(26, 18);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(106, 13);
-            this.label29.TabIndex = 7;
-            this.label29.Text = "Puesto al que aplica:";
-            // 
-            // wizardTab1_jobOfferComboBox
-            // 
-            this.wizardTab1_jobOfferComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.wizardTab1_jobOfferComboBox.FormattingEnabled = true;
-            this.wizardTab1_jobOfferComboBox.Location = new System.Drawing.Point(148, 15);
-            this.wizardTab1_jobOfferComboBox.Name = "wizardTab1_jobOfferComboBox";
-            this.wizardTab1_jobOfferComboBox.Size = new System.Drawing.Size(252, 21);
-            this.wizardTab1_jobOfferComboBox.TabIndex = 8;
             // 
             // NewApplicationWizard
             // 
@@ -921,7 +987,7 @@
             this.wizardTab1_groupBox1.PerformLayout();
             this.wizardTabPage2.ResumeLayout(false);
             this.wizardTab2_groupBox2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.wizardTab2_gradesDtaGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.wizardTab2_gradesDataGridView)).EndInit();
             this.wizardTab2_groupBox3.ResumeLayout(false);
             this.wizardTab2_groupBox3.PerformLayout();
             this.wizardTab2_groupBox4.ResumeLayout(false);
@@ -968,7 +1034,7 @@
         private System.Windows.Forms.TextBox wizardTab1_txtPhoneHouse;
         private System.Windows.Forms.TabPage wizardTabPage2;
         private System.Windows.Forms.GroupBox wizardTab2_groupBox2;
-        private System.Windows.Forms.DataGridView wizardTab2_gradesDtaGridView;
+        private System.Windows.Forms.DataGridView wizardTab2_gradesDataGridView;
         private System.Windows.Forms.GroupBox wizardTab2_groupBox3;
         private System.Windows.Forms.DateTimePicker wizardTab2_ToDateTimePicker;
         private System.Windows.Forms.DateTimePicker wizardTab2_FromDateTimePicker;
@@ -1023,5 +1089,12 @@
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.TextBox wizardTab1_txtIdentification;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button wizardTab2_addAcademicInfo;
+        private System.Windows.Forms.HelpProvider helpProvider;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTitle;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnInstitution;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnStartDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnEndDate;
+        private System.Windows.Forms.DataGridViewImageColumn ColumnActionDelete;
     }
 }

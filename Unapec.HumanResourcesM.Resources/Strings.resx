@@ -133,7 +133,7 @@
     <value>Las credenciales de acceso introducidas son incorrectas.</value>
   </data>
   <data name="Question_WizardNewApplicationSubmit" xml:space="preserve">
-    <value>"Estás a punto de cerrar el proceso y guardar tus datos. " + Environment.NewLine +
-                            "Estás seguro que has revisa y completado tu información correctamente?"</value>
+    <value>Estás a punto de cerrar el proceso y guardar tus datos. 
+Estás seguro que has revisado y completado tu información correctamente?</value>
   </data>
 </root>

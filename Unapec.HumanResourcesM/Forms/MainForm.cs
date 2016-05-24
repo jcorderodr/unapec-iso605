@@ -36,7 +36,6 @@ namespace Unapec.HumanResourcesM.Forms
             return form;
         }
 
-
         private void LoadPermissions()
         {
             
@@ -54,6 +53,46 @@ namespace Unapec.HumanResourcesM.Forms
                 var form = ShowForm<Utilities.GlobalSearch>() as Utilities.GlobalSearch;
                 form.SetInitialSearch(txtGlobalSearch.Text);
             }
+        }
+
+        private void jobsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowForm<Jobs.NewJobOffer>();
+        }
+
+        private void employeesViewToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowForm<Employees.EmployeesView>();
+        }
+
+        private void candidatesViewToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowForm<Candidates.CandidatesView>();
+        }
+
+        private void registerEmployeeFromCandidateToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowForm<Candidates.EmployeeSelectionFromCandidate>();
+        }
+
+        private void availableCoursesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowForm<Learning.NewLearningOffer>();
+        }
+
+        private void permissionsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowForm<Security.UsersPermissions>();
+        }
+
+        private void usersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowForm<Security.UsersView>();
+        }
+
+        private void optionsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowForm<Utilities.Options>();
         }
     }
 }

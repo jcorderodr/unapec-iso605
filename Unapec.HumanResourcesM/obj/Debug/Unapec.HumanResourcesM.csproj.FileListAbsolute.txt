@@ -1,10 +1,8 @@
-C:\Users\José\Documents\UNAPEC\UNAPEC-ISO605\Unapec.HumanResourcesM\bin\Debug\Unapec.HumanResourcesM.exe.config
 C:\Users\José\Documents\UNAPEC\UNAPEC-ISO605\Unapec.HumanResourcesM\bin\Debug\Unapec.HumanResourcesM.exe
-C:\Users\José\Documents\UNAPEC\UNAPEC-ISO605\Unapec.HumanResourcesM\bin\Debug\Unapec.HumanResourcesM.pdb
-C:\Users\José\Documents\UNAPEC\UNAPEC-ISO605\Unapec.HumanResourcesM\bin\Debug\EntityFramework.dll
-C:\Users\José\Documents\UNAPEC\UNAPEC-ISO605\Unapec.HumanResourcesM\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\José\Documents\UNAPEC\UNAPEC-ISO605\Unapec.HumanResourcesM\bin\Debug\Unapec.HumanResourcesM.Framework.dll
 C:\Users\José\Documents\UNAPEC\UNAPEC-ISO605\Unapec.HumanResourcesM\bin\Debug\Unapec.HumanResourcesM.Resources.dll
+C:\Users\José\Documents\UNAPEC\UNAPEC-ISO605\Unapec.HumanResourcesM\bin\Debug\EntityFramework.dll
+C:\Users\José\Documents\UNAPEC\UNAPEC-ISO605\Unapec.HumanResourcesM\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\José\Documents\UNAPEC\UNAPEC-ISO605\Unapec.HumanResourcesM\bin\Debug\Unapec.HumanResourcesM.Resources.pdb
 C:\Users\José\Documents\UNAPEC\UNAPEC-ISO605\Unapec.HumanResourcesM\bin\Debug\Unapec.HumanResourcesM.Framework.pdb
 C:\Users\José\Documents\UNAPEC\UNAPEC-ISO605\Unapec.HumanResourcesM\bin\Debug\EntityFramework.xml
@@ -18,3 +16,5 @@ C:\Users\José\Documents\UNAPEC\UNAPEC-ISO605\Unapec.HumanResourcesM\obj\Debug\U
 C:\Users\José\Documents\UNAPEC\UNAPEC-ISO605\Unapec.HumanResourcesM\obj\Debug\Unapec.HumanResourcesM.csproj.GenerateResource.Cache
 C:\Users\José\Documents\UNAPEC\UNAPEC-ISO605\Unapec.HumanResourcesM\obj\Debug\Unapec.HumanResourcesM.exe
 C:\Users\José\Documents\UNAPEC\UNAPEC-ISO605\Unapec.HumanResourcesM\obj\Debug\Unapec.HumanResourcesM.pdb
+C:\Users\José\Documents\UNAPEC\UNAPEC-ISO605\Unapec.HumanResourcesM\bin\Debug\Unapec.HumanResourcesM.exe.config
+C:\Users\José\Documents\UNAPEC\UNAPEC-ISO605\Unapec.HumanResourcesM\bin\Debug\Unapec.HumanResourcesM.pdb

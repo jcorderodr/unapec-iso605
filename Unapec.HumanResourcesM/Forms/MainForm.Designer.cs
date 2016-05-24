@@ -54,6 +54,9 @@
             this.aboutToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.txtGlobalSearch = new System.Windows.Forms.ToolStripTextBox();
             this.searchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+            this.permissionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.usersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStripBar.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -117,12 +120,14 @@
             this.jobsToolStripMenuItem.Name = "jobsToolStripMenuItem";
             this.jobsToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
             this.jobsToolStripMenuItem.Text = "jobs";
+            this.jobsToolStripMenuItem.Click += new System.EventHandler(this.jobsToolStripMenuItem_Click);
             // 
             // employeesViewToolStripMenuItem
             // 
             this.employeesViewToolStripMenuItem.Name = "employeesViewToolStripMenuItem";
             this.employeesViewToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
             this.employeesViewToolStripMenuItem.Text = "employeesView";
+            this.employeesViewToolStripMenuItem.Click += new System.EventHandler(this.employeesViewToolStripMenuItem_Click);
             // 
             // toolStripSeparator3
             // 
@@ -134,12 +139,14 @@
             this.candidatesViewToolStripMenuItem.Name = "candidatesViewToolStripMenuItem";
             this.candidatesViewToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
             this.candidatesViewToolStripMenuItem.Text = "candidatesView";
+            this.candidatesViewToolStripMenuItem.Click += new System.EventHandler(this.candidatesViewToolStripMenuItem_Click);
             // 
             // registerEmployeeFromCandidateToolStripMenuItem
             // 
             this.registerEmployeeFromCandidateToolStripMenuItem.Name = "registerEmployeeFromCandidateToolStripMenuItem";
             this.registerEmployeeFromCandidateToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
             this.registerEmployeeFromCandidateToolStripMenuItem.Text = "registerEmployeeFromCandidate";
+            this.registerEmployeeFromCandidateToolStripMenuItem.Click += new System.EventHandler(this.registerEmployeeFromCandidateToolStripMenuItem_Click);
             // 
             // learningToolStripMenuItem
             // 
@@ -155,6 +162,7 @@
             this.availableCoursesToolStripMenuItem.Name = "availableCoursesToolStripMenuItem";
             this.availableCoursesToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
             this.availableCoursesToolStripMenuItem.Text = "courses";
+            this.availableCoursesToolStripMenuItem.Click += new System.EventHandler(this.availableCoursesToolStripMenuItem_Click);
             // 
             // courseQuorumToolStripMenuItem
             // 
@@ -176,9 +184,12 @@
             // 
             this.managementToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.competencesToolStripMenuItem,
-            this.languagesToolStripMenuItem});
+            this.languagesToolStripMenuItem,
+            this.toolStripSeparator5,
+            this.permissionsToolStripMenuItem,
+            this.usersToolStripMenuItem});
             this.managementToolStripMenuItem.Name = "managementToolStripMenuItem";
-            this.managementToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
+            this.managementToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.managementToolStripMenuItem.Text = "management";
             // 
             // competencesToolStripMenuItem
@@ -201,8 +212,9 @@
             // optionsToolStripMenuItem
             // 
             this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
-            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
+            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.optionsToolStripMenuItem.Text = "options";
+            this.optionsToolStripMenuItem.Click += new System.EventHandler(this.optionsToolStripMenuItem_Click);
             // 
             // aboutToolStripMenuItem
             // 
@@ -246,6 +258,25 @@
             this.searchToolStripMenuItem.Size = new System.Drawing.Size(74, 23);
             this.searchToolStripMenuItem.Text = "Búsqueda:";
             this.searchToolStripMenuItem.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
+            // 
+            // toolStripSeparator5
+            // 
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            this.toolStripSeparator5.Size = new System.Drawing.Size(149, 6);
+            // 
+            // permissionsToolStripMenuItem
+            // 
+            this.permissionsToolStripMenuItem.Name = "permissionsToolStripMenuItem";
+            this.permissionsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.permissionsToolStripMenuItem.Text = "permissions";
+            this.permissionsToolStripMenuItem.Click += new System.EventHandler(this.permissionsToolStripMenuItem_Click);
+            // 
+            // usersToolStripMenuItem
+            // 
+            this.usersToolStripMenuItem.Name = "usersToolStripMenuItem";
+            this.usersToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.usersToolStripMenuItem.Text = "users";
+            this.usersToolStripMenuItem.Click += new System.EventHandler(this.usersToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -293,5 +324,8 @@
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem1;
         private System.Windows.Forms.ToolStripTextBox txtGlobalSearch;
         private System.Windows.Forms.ToolStripMenuItem searchToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
+        private System.Windows.Forms.ToolStripMenuItem permissionsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem usersToolStripMenuItem;
     }
 }

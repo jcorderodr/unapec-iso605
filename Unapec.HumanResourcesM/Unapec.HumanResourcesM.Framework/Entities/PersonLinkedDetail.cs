@@ -14,5 +14,6 @@ namespace Unapec.HumanResourcesM.Framework.Entities
         [StringLength(10)]
         public string Category { get; set; }
         public int SubCategoryId { get; set; }
+        public int LevelSubCategoryId { get; set; }
     }
 }

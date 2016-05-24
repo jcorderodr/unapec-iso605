@@ -18,7 +18,8 @@ namespace Unapec.HumanResourcesM.Framework.Entities
 
         public const String GRADE_LVL = "GRADE_LVL";
         public const String LANGUAGE = "LANGUAGE";
-        public const String LANGUAGE_LVL = "LANG_LVL";
+        public const String SKILL_LVL = "SKILL_LVL";
+
         public const String Prop = "LANG_LVL";
 
     }

@@ -106,8 +106,8 @@ namespace Unapec.HumanResourcesM.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &quot;Estás a punto de cerrar el proceso y guardar tus datos. &quot; + Environment.NewLine +
-        ///                            &quot;Estás seguro que has revisa y completado tu información correctamente?&quot;.
+        ///   Looks up a localized string similar to Estás a punto de cerrar el proceso y guardar tus datos. 
+        ///Estás seguro que has revisado y completado tu información correctamente?.
         /// </summary>
         public static string Question_WizardNewApplicationSubmit {
             get {

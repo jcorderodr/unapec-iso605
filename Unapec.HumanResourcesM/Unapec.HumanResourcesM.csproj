@@ -55,17 +55,53 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\Candidates\CandidatesView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Candidates\CandidatesView.Designer.cs">
+      <DependentUpon>CandidatesView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Candidates\EmployeeSelectionFromCandidate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Candidates\EmployeeSelectionFromCandidate.Designer.cs">
+      <DependentUpon>EmployeeSelectionFromCandidate.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Candidates\NewApplicationWizard.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Candidates\NewApplicationWizard.Designer.cs">
       <DependentUpon>NewApplicationWizard.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Employees\EmployeesView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Employees\EmployeesView.Designer.cs">
+      <DependentUpon>EmployeesView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Employees\NewEmployee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Employees\NewEmployee.Designer.cs">
+      <DependentUpon>NewEmployee.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FormBase.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\FormBaseUtility.cs">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Jobs\NewJobOffer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Jobs\NewJobOffer.Designer.cs">
+      <DependentUpon>NewJobOffer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Learning\NewLearningOffer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Learning\NewLearningOffer.Designer.cs">
+      <DependentUpon>NewLearningOffer.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\MainForm.cs">
       <SubType>Form</SubType>
@@ -80,6 +116,18 @@
     <Compile Include="Forms\Security\SignIn.Designer.cs">
       <DependentUpon>SignIn.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Security\UsersPermissions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Security\UsersPermissions.Designer.cs">
+      <DependentUpon>UsersPermissions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Security\UsersView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Security\UsersView.Designer.cs">
+      <DependentUpon>UsersView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\UIExtensions.cs" />
     <Compile Include="Forms\Utilities\GlobalSearch.cs">
       <SubType>Form</SubType>
@@ -88,6 +136,12 @@
       <DependentUpon>GlobalSearch.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Utilities\GlobalSearchMode.cs" />
+    <Compile Include="Forms\Utilities\Options.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Utilities\Options.Designer.cs">
+      <DependentUpon>Options.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\Candidates\NewApplicationWizard.resx">
