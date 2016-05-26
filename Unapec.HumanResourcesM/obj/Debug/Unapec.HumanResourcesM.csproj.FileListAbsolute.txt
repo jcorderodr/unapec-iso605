@@ -18,3 +18,9 @@ C:\Users\José\Documents\UNAPEC\UNAPEC-ISO605\Unapec.HumanResourcesM\obj\Debug\U
 C:\Users\José\Documents\UNAPEC\UNAPEC-ISO605\Unapec.HumanResourcesM\obj\Debug\Unapec.HumanResourcesM.pdb
 C:\Users\José\Documents\UNAPEC\UNAPEC-ISO605\Unapec.HumanResourcesM\bin\Debug\Unapec.HumanResourcesM.exe.config
 C:\Users\José\Documents\UNAPEC\UNAPEC-ISO605\Unapec.HumanResourcesM\bin\Debug\Unapec.HumanResourcesM.pdb
+C:\Users\José\Documents\UNAPEC\UNAPEC-ISO605\Unapec.HumanResourcesM\obj\Debug\Unapec.HumanResourcesM.Forms.Security.NewUser.resources
+C:\Users\José\Documents\UNAPEC\UNAPEC-ISO605\Unapec.HumanResourcesM\obj\Debug\Unapec.HumanResourcesM.Forms.Security.UsersPermissions.resources
+C:\Users\José\Documents\UNAPEC\UNAPEC-ISO605\Unapec.HumanResourcesM\obj\Debug\Unapec.HumanResourcesM.Forms.Employees.NewEmployeeWizard.resources
+C:\Users\José\Documents\UNAPEC\UNAPEC-ISO605\Unapec.HumanResourcesM\obj\Debug\Unapec.HumanResourcesM.Forms.Employees.EmployeesView.resources
+C:\Users\José\Documents\UNAPEC\UNAPEC-ISO605\Unapec.HumanResourcesM\obj\Debug\Unapec.HumanResourcesM.Forms.Jobs.NewJobOffer.resources
+C:\Users\José\Documents\UNAPEC\UNAPEC-ISO605\Unapec.HumanResourcesM\obj\Debug\Unapec.HumanResourcesM.Forms.FormBase.resources

@@ -17,7 +17,25 @@ namespace Unapec.HumanResourcesM.Forms
 
         private void InitializeProperties()
         {
+            
+        }
+
+        private void FormBase_Load(object sender, EventArgs e)
+        {
             this.Text = Program.AppName;
         }
+
+        private void InitializeComponent()
+        {
+            this.SuspendLayout();
+            // 
+            // FormBase
+            // 
+            this.ClientSize = new System.Drawing.Size(284, 261);
+            this.Name = "FormBase";
+            this.Load += new System.EventHandler(this.FormBase_Load);
+            this.ResumeLayout(false);
+        }
+
     }
 }

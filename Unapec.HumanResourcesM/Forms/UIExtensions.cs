@@ -8,6 +8,18 @@ namespace Unapec.HumanResourcesM.Forms
     internal static class UIExtensions
     {
 
+        public static void SetComboBoxDatasource(this ComboBox comboBox, IEnumerable<object> values, string propertyToDisplay, bool includeEmptySelection = false)
+        {
+            var list = values.ToList();
+            if (includeEmptySelection)
+            {
+                list.Insert(0, "--");
+            }
+            comboBox.SelectedIndex = -1;
+            comboBox.DataSource = list;
+            comboBox.DisplayMember = propertyToDisplay;
+        }
+
         public static void SetComboBoxDatasourceWithCatalogs(this ComboBox comboBox, IEnumerable<Catalog> values)
         {
             comboBox.DataSource = values.ToList();

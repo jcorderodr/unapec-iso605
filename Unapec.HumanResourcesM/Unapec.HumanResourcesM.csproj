@@ -79,11 +79,11 @@
     <Compile Include="Forms\Employees\EmployeesView.Designer.cs">
       <DependentUpon>EmployeesView.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Employees\NewEmployee.cs">
+    <Compile Include="Forms\Employees\NewEmployeeWizard.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Employees\NewEmployee.Designer.cs">
-      <DependentUpon>NewEmployee.cs</DependentUpon>
+    <Compile Include="Forms\Employees\NewEmployeeWizard.Designer.cs">
+      <DependentUpon>NewEmployeeWizard.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\FormBase.cs">
       <SubType>Form</SubType>
@@ -110,6 +110,18 @@
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\MessagesExtensions.cs" />
+    <Compile Include="Forms\Security\ChangePassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Security\ChangePassword.Designer.cs">
+      <DependentUpon>ChangePassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Security\NewUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Security\NewUser.Designer.cs">
+      <DependentUpon>NewUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Security\SignIn.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -147,11 +159,29 @@
     <EmbeddedResource Include="Forms\Candidates\NewApplicationWizard.resx">
       <DependentUpon>NewApplicationWizard.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Employees\EmployeesView.resx">
+      <DependentUpon>EmployeesView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Employees\NewEmployeeWizard.resx">
+      <DependentUpon>NewEmployeeWizard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormBase.resx">
+      <DependentUpon>FormBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Jobs\NewJobOffer.resx">
+      <DependentUpon>NewJobOffer.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Security\NewUser.resx">
+      <DependentUpon>NewUser.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Security\SignIn.resx">
       <DependentUpon>SignIn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Security\UsersPermissions.resx">
+      <DependentUpon>UsersPermissions.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Utilities\GlobalSearch.resx">
       <DependentUpon>GlobalSearch.cs</DependentUpon>

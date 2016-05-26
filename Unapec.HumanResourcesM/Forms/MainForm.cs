@@ -13,26 +13,38 @@ namespace Unapec.HumanResourcesM.Forms
 {
     public partial class MainForm : Form
     {
+
+        private readonly IList<Form> _forms;
+
         public MainForm()
         {
             InitializeComponent();
+            this.WindowState = FormWindowState.Maximized;
+            _forms = new List<Form>();
         }
 
 
         private Form ShowForm<T>() where T : Form, new()
         {
             var form = new T();
-            AddOwnedForm(form);
 
-            ActiveMdiChild?.Close();
+            if (_forms.Any(i => i.CompanyName == form.CompanyName))
+            {
+                var tempForm = _forms.Single(i => i.CompanyName == form.CompanyName);
+                return form;
+            };
+
+            _forms.Add(form);
+            AddOwnedForm(form);
 
             form.MaximizeBox = false;
             form.MinimizeBox = false;
-            form.ControlBox = false;
-            form.FormBorderStyle = FormBorderStyle.None;
+            //form.ControlBox = false;
+            //form.FormBorderStyle = FormBorderStyle.None;
             form.MdiParent = this;
-            form.Show();
             form.WindowState = FormWindowState.Maximized;
+            form.Show();
+            
             return form;
         }
 
@@ -56,6 +68,11 @@ namespace Unapec.HumanResourcesM.Forms
         }
 
         private void jobsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void createNewJobToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ShowForm<Jobs.NewJobOffer>();
         }
@@ -94,5 +111,7 @@ namespace Unapec.HumanResourcesM.Forms
         {
             ShowForm<Utilities.Options>();
         }
+
+
     }
 }

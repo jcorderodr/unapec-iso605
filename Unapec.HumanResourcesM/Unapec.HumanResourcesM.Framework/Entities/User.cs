@@ -17,10 +17,11 @@ namespace Unapec.HumanResourcesM.Framework.Entities
         [StringLength(200)]
         public string Name { get; set; }
         public DateTime CreateDate { get; set; }
-        public DateTime LastLoginDate { get; set; }
+        public DateTime? LastLoginDate { get; set; }
+        public bool ChangePassword { get; set; }
 
         public virtual Employee Employee { get; set; }
 
-        public virtual ICollection<Role> Roles { get; set; }
+        public virtual ICollection<Permission> Permissions { get; set; }
     }
 }

@@ -1,6 +1,6 @@
-﻿namespace Unapec.HumanResourcesM.Forms.Candidates
+﻿namespace Unapec.HumanResourcesM.Forms.Employees
 {
-    partial class NewApplicationWizard
+    partial class NewEmployeeWizard
     {
         /// <summary>
         /// Required designer variable.
@@ -28,16 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnContinue = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
             this.wizardTabControl = new System.Windows.Forms.TabControl();
             this.wizardTabPage1 = new System.Windows.Forms.TabPage();
-            this.wizardTab1_jobOfferComboBox = new System.Windows.Forms.ComboBox();
-            this.label29 = new System.Windows.Forms.Label();
-            this.wizardTab1_txtIdentification = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.wizardTab1_personalImagePictureBox = new System.Windows.Forms.PictureBox();
             this.wizardTab1_groupBox1 = new System.Windows.Forms.GroupBox();
@@ -56,8 +53,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.wizardTab1_txtPhoneCell = new System.Windows.Forms.TextBox();
-            this.wizardTab1_txtPhoneHouse = new System.Windows.Forms.TextBox();
             this.wizardTabPage2 = new System.Windows.Forms.TabPage();
             this.wizardTab2_groupBox2 = new System.Windows.Forms.GroupBox();
             this.wizardTab2_gradesDataGridView = new System.Windows.Forms.DataGridView();
@@ -117,7 +112,21 @@
             this.label10 = new System.Windows.Forms.Label();
             this.wizardTab4_languageListView = new System.Windows.Forms.ListView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.wizardTabPage5 = new System.Windows.Forms.TabPage();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.wizardTab5_createInternalUser = new System.Windows.Forms.CheckBox();
+            this.label31 = new System.Windows.Forms.Label();
+            this.wizardTab5_DepartmentComboBox = new System.Windows.Forms.ComboBox();
+            this.label30 = new System.Windows.Forms.Label();
+            this.wizardTab5_JobDescription = new System.Windows.Forms.TextBox();
+            this.wizardTab5_jobPositionComboBox = new System.Windows.Forms.ComboBox();
+            this.label29 = new System.Windows.Forms.Label();
             this.helpProvider = new System.Windows.Forms.HelpProvider();
+            this.wizardTab1_txtIdentification = new System.Windows.Forms.MaskedTextBox();
+            this.wizardTab1_txtPhoneHouse = new System.Windows.Forms.MaskedTextBox();
+            this.wizardTab1_txtPhoneCell = new System.Windows.Forms.MaskedTextBox();
+            this.label32 = new System.Windows.Forms.Label();
+            this.wizardTab5_txtBoxSalary = new System.Windows.Forms.MaskedTextBox();
             this.wizardTabControl.SuspendLayout();
             this.wizardTabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.wizardTab1_personalImagePictureBox)).BeginInit();
@@ -134,6 +143,8 @@
             this.panel1.SuspendLayout();
             this.wizardTabPage4.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.wizardTabPage5.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnContinue
@@ -175,6 +186,7 @@
             this.wizardTabControl.Controls.Add(this.wizardTabPage2);
             this.wizardTabControl.Controls.Add(this.wizardTabPage3);
             this.wizardTabControl.Controls.Add(this.wizardTabPage4);
+            this.wizardTabControl.Controls.Add(this.wizardTabPage5);
             this.wizardTabControl.Dock = System.Windows.Forms.DockStyle.Top;
             this.wizardTabControl.Location = new System.Drawing.Point(0, 0);
             this.wizardTabControl.Name = "wizardTabControl";
@@ -184,8 +196,8 @@
             // 
             // wizardTabPage1
             // 
-            this.wizardTabPage1.Controls.Add(this.wizardTab1_jobOfferComboBox);
-            this.wizardTabPage1.Controls.Add(this.label29);
+            this.wizardTabPage1.Controls.Add(this.wizardTab1_txtPhoneCell);
+            this.wizardTabPage1.Controls.Add(this.wizardTab1_txtPhoneHouse);
             this.wizardTabPage1.Controls.Add(this.wizardTab1_txtIdentification);
             this.wizardTabPage1.Controls.Add(this.label1);
             this.wizardTabPage1.Controls.Add(this.wizardTab1_personalImagePictureBox);
@@ -203,8 +215,6 @@
             this.wizardTabPage1.Controls.Add(this.label7);
             this.wizardTabPage1.Controls.Add(this.label2);
             this.wizardTabPage1.Controls.Add(this.label4);
-            this.wizardTabPage1.Controls.Add(this.wizardTab1_txtPhoneCell);
-            this.wizardTabPage1.Controls.Add(this.wizardTab1_txtPhoneHouse);
             this.wizardTabPage1.Location = new System.Drawing.Point(4, 22);
             this.wizardTabPage1.Name = "wizardTabPage1";
             this.wizardTabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -213,35 +223,10 @@
             this.wizardTabPage1.Text = "Información Personal";
             this.wizardTabPage1.UseVisualStyleBackColor = true;
             // 
-            // wizardTab1_jobOfferComboBox
-            // 
-            this.wizardTab1_jobOfferComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.wizardTab1_jobOfferComboBox.FormattingEnabled = true;
-            this.wizardTab1_jobOfferComboBox.Location = new System.Drawing.Point(145, 15);
-            this.wizardTab1_jobOfferComboBox.Name = "wizardTab1_jobOfferComboBox";
-            this.wizardTab1_jobOfferComboBox.Size = new System.Drawing.Size(255, 21);
-            this.wizardTab1_jobOfferComboBox.TabIndex = 8;
-            // 
-            // label29
-            // 
-            this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(26, 18);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(106, 13);
-            this.label29.TabIndex = 7;
-            this.label29.Text = "Puesto al que aplica:";
-            // 
-            // wizardTab1_txtIdentification
-            // 
-            this.wizardTab1_txtIdentification.Location = new System.Drawing.Point(145, 42);
-            this.wizardTab1_txtIdentification.Name = "wizardTab1_txtIdentification";
-            this.wizardTab1_txtIdentification.Size = new System.Drawing.Size(255, 20);
-            this.wizardTab1_txtIdentification.TabIndex = 6;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(89, 45);
+            this.label1.Location = new System.Drawing.Point(89, 32);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(43, 13);
             this.label1.TabIndex = 5;
@@ -249,7 +234,7 @@
             // 
             // wizardTab1_personalImagePictureBox
             // 
-            this.wizardTab1_personalImagePictureBox.Location = new System.Drawing.Point(430, 22);
+            this.wizardTab1_personalImagePictureBox.Location = new System.Drawing.Point(429, 29);
             this.wizardTab1_personalImagePictureBox.Name = "wizardTab1_personalImagePictureBox";
             this.wizardTab1_personalImagePictureBox.Size = new System.Drawing.Size(151, 145);
             this.wizardTab1_personalImagePictureBox.TabIndex = 4;
@@ -259,7 +244,7 @@
             // 
             this.wizardTab1_groupBox1.Controls.Add(this.wizardTab1_radioButton2);
             this.wizardTab1_groupBox1.Controls.Add(this.wizardTab1_radioButton1);
-            this.wizardTab1_groupBox1.Location = new System.Drawing.Point(145, 190);
+            this.wizardTab1_groupBox1.Location = new System.Drawing.Point(145, 177);
             this.wizardTab1_groupBox1.Name = "wizardTab1_groupBox1";
             this.wizardTab1_groupBox1.Size = new System.Drawing.Size(167, 40);
             this.wizardTab1_groupBox1.TabIndex = 3;
@@ -291,28 +276,28 @@
             // 
             // wizardTab1_dateTimeBornDate
             // 
-            this.wizardTab1_dateTimeBornDate.Location = new System.Drawing.Point(145, 135);
+            this.wizardTab1_dateTimeBornDate.Location = new System.Drawing.Point(145, 122);
             this.wizardTab1_dateTimeBornDate.Name = "wizardTab1_dateTimeBornDate";
             this.wizardTab1_dateTimeBornDate.Size = new System.Drawing.Size(255, 20);
             this.wizardTab1_dateTimeBornDate.TabIndex = 2;
             // 
             // wizardTab1_txtAddress
             // 
-            this.wizardTab1_txtAddress.Location = new System.Drawing.Point(145, 241);
+            this.wizardTab1_txtAddress.Location = new System.Drawing.Point(145, 228);
             this.wizardTab1_txtAddress.Name = "wizardTab1_txtAddress";
             this.wizardTab1_txtAddress.Size = new System.Drawing.Size(255, 20);
             this.wizardTab1_txtAddress.TabIndex = 1;
             // 
             // wizardTab1_txtBornPlace
             // 
-            this.wizardTab1_txtBornPlace.Location = new System.Drawing.Point(145, 166);
+            this.wizardTab1_txtBornPlace.Location = new System.Drawing.Point(145, 153);
             this.wizardTab1_txtBornPlace.Name = "wizardTab1_txtBornPlace";
             this.wizardTab1_txtBornPlace.Size = new System.Drawing.Size(255, 20);
             this.wizardTab1_txtBornPlace.TabIndex = 1;
             // 
             // wizardTab1_txtLastName
             // 
-            this.wizardTab1_txtLastName.Location = new System.Drawing.Point(145, 104);
+            this.wizardTab1_txtLastName.Location = new System.Drawing.Point(145, 91);
             this.wizardTab1_txtLastName.Name = "wizardTab1_txtLastName";
             this.wizardTab1_txtLastName.Size = new System.Drawing.Size(255, 20);
             this.wizardTab1_txtLastName.TabIndex = 1;
@@ -320,7 +305,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(45, 306);
+            this.label9.Location = new System.Drawing.Point(45, 293);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(87, 13);
             this.label9.TabIndex = 0;
@@ -329,7 +314,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(24, 169);
+            this.label6.Location = new System.Drawing.Point(24, 156);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(108, 13);
             this.label6.TabIndex = 0;
@@ -338,7 +323,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(22, 273);
+            this.label8.Location = new System.Drawing.Point(22, 260);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(110, 13);
             this.label8.TabIndex = 0;
@@ -347,7 +332,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(80, 104);
+            this.label3.Location = new System.Drawing.Point(80, 91);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(52, 13);
             this.label3.TabIndex = 0;
@@ -356,7 +341,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(21, 141);
+            this.label5.Location = new System.Drawing.Point(21, 128);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(111, 13);
             this.label5.TabIndex = 0;
@@ -364,7 +349,7 @@
             // 
             // wizardTab1_txtFirstName
             // 
-            this.wizardTab1_txtFirstName.Location = new System.Drawing.Point(145, 73);
+            this.wizardTab1_txtFirstName.Location = new System.Drawing.Point(145, 60);
             this.wizardTab1_txtFirstName.Name = "wizardTab1_txtFirstName";
             this.wizardTab1_txtFirstName.Size = new System.Drawing.Size(255, 20);
             this.wizardTab1_txtFirstName.TabIndex = 1;
@@ -372,7 +357,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(77, 240);
+            this.label7.Location = new System.Drawing.Point(77, 227);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(55, 13);
             this.label7.TabIndex = 0;
@@ -381,7 +366,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(85, 71);
+            this.label2.Location = new System.Drawing.Point(85, 58);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(47, 13);
             this.label2.TabIndex = 0;
@@ -390,25 +375,11 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(98, 206);
+            this.label4.Location = new System.Drawing.Point(98, 193);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(34, 13);
             this.label4.TabIndex = 0;
             this.label4.Text = "Sexo:";
-            // 
-            // wizardTab1_txtPhoneCell
-            // 
-            this.wizardTab1_txtPhoneCell.Location = new System.Drawing.Point(145, 303);
-            this.wizardTab1_txtPhoneCell.Name = "wizardTab1_txtPhoneCell";
-            this.wizardTab1_txtPhoneCell.Size = new System.Drawing.Size(255, 20);
-            this.wizardTab1_txtPhoneCell.TabIndex = 1;
-            // 
-            // wizardTab1_txtPhoneHouse
-            // 
-            this.wizardTab1_txtPhoneHouse.Location = new System.Drawing.Point(145, 272);
-            this.wizardTab1_txtPhoneHouse.Name = "wizardTab1_txtPhoneHouse";
-            this.wizardTab1_txtPhoneHouse.Size = new System.Drawing.Size(255, 20);
-            this.wizardTab1_txtPhoneHouse.TabIndex = 1;
             // 
             // wizardTabPage2
             // 
@@ -438,8 +409,8 @@
             // 
             this.wizardTab2_gradesDataGridView.AllowUserToAddRows = false;
             this.wizardTab2_gradesDataGridView.AllowUserToDeleteRows = false;
-            this.wizardTab2_gradesDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.wizardTab2_gradesDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.wizardTab2_gradesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.wizardTab2_gradesDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -469,18 +440,18 @@
             // 
             // ColumnStartDate
             // 
-            dataGridViewCellStyle7.Format = "D";
-            dataGridViewCellStyle7.NullValue = null;
-            this.ColumnStartDate.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle3.Format = "D";
+            dataGridViewCellStyle3.NullValue = null;
+            this.ColumnStartDate.DefaultCellStyle = dataGridViewCellStyle3;
             this.ColumnStartDate.HeaderText = "Fecha de Inicio";
             this.ColumnStartDate.Name = "ColumnStartDate";
             this.ColumnStartDate.ReadOnly = true;
             // 
             // ColumnEndDate
             // 
-            dataGridViewCellStyle8.Format = "D";
-            dataGridViewCellStyle8.NullValue = null;
-            this.ColumnEndDate.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle4.Format = "D";
+            dataGridViewCellStyle4.NullValue = null;
+            this.ColumnEndDate.DefaultCellStyle = dataGridViewCellStyle4;
             this.ColumnEndDate.HeaderText = "Fecha de Finalización";
             this.ColumnEndDate.Name = "ColumnEndDate";
             this.ColumnEndDate.ReadOnly = true;
@@ -949,7 +920,7 @@
             // 
             // wizardTab4_languageListView
             // 
-            this.wizardTab4_languageListView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
+            this.wizardTab4_languageListView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.wizardTab4_languageListView.Location = new System.Drawing.Point(6, 73);
             this.wizardTab4_languageListView.Name = "wizardTab4_languageListView";
@@ -967,7 +938,144 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Competencias";
             // 
-            // NewApplicationWizard
+            // wizardTabPage5
+            // 
+            this.wizardTabPage5.Controls.Add(this.wizardTab5_txtBoxSalary);
+            this.wizardTabPage5.Controls.Add(this.label32);
+            this.wizardTabPage5.Controls.Add(this.groupBox1);
+            this.wizardTabPage5.Controls.Add(this.label31);
+            this.wizardTabPage5.Controls.Add(this.wizardTab5_DepartmentComboBox);
+            this.wizardTabPage5.Controls.Add(this.label30);
+            this.wizardTabPage5.Controls.Add(this.wizardTab5_JobDescription);
+            this.wizardTabPage5.Controls.Add(this.wizardTab5_jobPositionComboBox);
+            this.wizardTabPage5.Controls.Add(this.label29);
+            this.wizardTabPage5.Location = new System.Drawing.Point(4, 22);
+            this.wizardTabPage5.Name = "wizardTabPage5";
+            this.wizardTabPage5.Padding = new System.Windows.Forms.Padding(3);
+            this.wizardTabPage5.Size = new System.Drawing.Size(593, 339);
+            this.wizardTabPage5.TabIndex = 4;
+            this.wizardTabPage5.Text = "Institucional";
+            this.wizardTabPage5.UseVisualStyleBackColor = true;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.wizardTab5_createInternalUser);
+            this.groupBox1.Location = new System.Drawing.Point(150, 250);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(255, 83);
+            this.groupBox1.TabIndex = 16;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "groupBox1";
+            // 
+            // wizardTab5_createInternalUser
+            // 
+            this.wizardTab5_createInternalUser.AutoSize = true;
+            this.wizardTab5_createInternalUser.Location = new System.Drawing.Point(18, 19);
+            this.wizardTab5_createInternalUser.Name = "wizardTab5_createInternalUser";
+            this.wizardTab5_createInternalUser.Size = new System.Drawing.Size(220, 17);
+            this.wizardTab5_createInternalUser.TabIndex = 15;
+            this.wizardTab5_createInternalUser.Text = "Crear usuario interno de acceso a la red?";
+            this.wizardTab5_createInternalUser.UseVisualStyleBackColor = true;
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Location = new System.Drawing.Point(33, 107);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(100, 13);
+            this.label31.TabIndex = 14;
+            this.label31.Text = "Detalles del puesto:";
+            // 
+            // wizardTab5_DepartmentComboBox
+            // 
+            this.wizardTab5_DepartmentComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.wizardTab5_DepartmentComboBox.FormattingEnabled = true;
+            this.wizardTab5_DepartmentComboBox.Location = new System.Drawing.Point(150, 29);
+            this.wizardTab5_DepartmentComboBox.Name = "wizardTab5_DepartmentComboBox";
+            this.wizardTab5_DepartmentComboBox.Size = new System.Drawing.Size(255, 21);
+            this.wizardTab5_DepartmentComboBox.TabIndex = 13;
+            this.wizardTab5_DepartmentComboBox.SelectedValueChanged += new System.EventHandler(this.wizardTab5_DepartmentComboBox_SelectedValueChanged);
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Location = new System.Drawing.Point(56, 32);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(77, 13);
+            this.label30.TabIndex = 12;
+            this.label30.Text = "Departamento:";
+            // 
+            // wizardTab5_JobDescription
+            // 
+            this.wizardTab5_JobDescription.Location = new System.Drawing.Point(150, 104);
+            this.wizardTab5_JobDescription.Multiline = true;
+            this.wizardTab5_JobDescription.Name = "wizardTab5_JobDescription";
+            this.wizardTab5_JobDescription.ReadOnly = true;
+            this.wizardTab5_JobDescription.Size = new System.Drawing.Size(255, 67);
+            this.wizardTab5_JobDescription.TabIndex = 11;
+            // 
+            // wizardTab5_jobPositionComboBox
+            // 
+            this.wizardTab5_jobPositionComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.wizardTab5_jobPositionComboBox.FormattingEnabled = true;
+            this.wizardTab5_jobPositionComboBox.Location = new System.Drawing.Point(150, 67);
+            this.wizardTab5_jobPositionComboBox.Name = "wizardTab5_jobPositionComboBox";
+            this.wizardTab5_jobPositionComboBox.Size = new System.Drawing.Size(255, 21);
+            this.wizardTab5_jobPositionComboBox.TabIndex = 10;
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Location = new System.Drawing.Point(83, 70);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(50, 13);
+            this.label29.TabIndex = 9;
+            this.label29.Text = "Posición:";
+            // 
+            // wizardTab1_txtIdentification
+            // 
+            this.wizardTab1_txtIdentification.Location = new System.Drawing.Point(145, 29);
+            this.wizardTab1_txtIdentification.Mask = "000-0000000-0";
+            this.wizardTab1_txtIdentification.Name = "wizardTab1_txtIdentification";
+            this.wizardTab1_txtIdentification.Size = new System.Drawing.Size(255, 20);
+            this.wizardTab1_txtIdentification.TabIndex = 6;
+            this.wizardTab1_txtIdentification.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
+            // 
+            // wizardTab1_txtPhoneHouse
+            // 
+            this.wizardTab1_txtPhoneHouse.Location = new System.Drawing.Point(145, 257);
+            this.wizardTab1_txtPhoneHouse.Mask = "(999) 000-0000";
+            this.wizardTab1_txtPhoneHouse.Name = "wizardTab1_txtPhoneHouse";
+            this.wizardTab1_txtPhoneHouse.Size = new System.Drawing.Size(255, 20);
+            this.wizardTab1_txtPhoneHouse.TabIndex = 7;
+            // 
+            // wizardTab1_txtPhoneCell
+            // 
+            this.wizardTab1_txtPhoneCell.Location = new System.Drawing.Point(145, 290);
+            this.wizardTab1_txtPhoneCell.Mask = "(999) 000-0000";
+            this.wizardTab1_txtPhoneCell.Name = "wizardTab1_txtPhoneCell";
+            this.wizardTab1_txtPhoneCell.Size = new System.Drawing.Size(255, 20);
+            this.wizardTab1_txtPhoneCell.TabIndex = 7;
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Location = new System.Drawing.Point(49, 192);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(84, 13);
+            this.label32.TabIndex = 17;
+            this.label32.Text = "Salario mensual:";
+            // 
+            // wizardTab5_txtBoxSalary
+            // 
+            this.wizardTab5_txtBoxSalary.Location = new System.Drawing.Point(150, 189);
+            this.wizardTab5_txtBoxSalary.Mask = "RD$000000.00";
+            this.wizardTab5_txtBoxSalary.Name = "wizardTab5_txtBoxSalary";
+            this.wizardTab5_txtBoxSalary.Size = new System.Drawing.Size(255, 20);
+            this.wizardTab5_txtBoxSalary.TabIndex = 18;
+            this.wizardTab5_txtBoxSalary.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
+            // 
+            // NewEmployeeWizard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -976,8 +1084,8 @@
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnContinue);
-            this.Name = "NewApplicationWizard";
-            this.Text = "NewApplicationWizard";
+            this.Name = "NewEmployeeWizard";
+            this.Text = "NewEmployeeWizard";
             this.Load += new System.EventHandler(this.NewApplicationWizard_Load);
             this.wizardTabControl.ResumeLayout(false);
             this.wizardTabPage1.ResumeLayout(false);
@@ -1003,6 +1111,10 @@
             this.wizardTabPage4.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            this.wizardTabPage5.ResumeLayout(false);
+            this.wizardTabPage5.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1030,8 +1142,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox wizardTab1_txtPhoneCell;
-        private System.Windows.Forms.TextBox wizardTab1_txtPhoneHouse;
         private System.Windows.Forms.TabPage wizardTabPage2;
         private System.Windows.Forms.GroupBox wizardTab2_groupBox2;
         private System.Windows.Forms.DataGridView wizardTab2_gradesDataGridView;
@@ -1085,9 +1195,6 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.ListView wizardTab4_languageListView;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.ComboBox wizardTab1_jobOfferComboBox;
-        private System.Windows.Forms.Label label29;
-        private System.Windows.Forms.TextBox wizardTab1_txtIdentification;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button wizardTab2_addAcademicInfo;
         private System.Windows.Forms.HelpProvider helpProvider;
@@ -1096,5 +1203,19 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnStartDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnEndDate;
         private System.Windows.Forms.DataGridViewImageColumn ColumnActionDelete;
+        private System.Windows.Forms.TabPage wizardTabPage5;
+        private System.Windows.Forms.ComboBox wizardTab5_jobPositionComboBox;
+        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.TextBox wizardTab5_JobDescription;
+        private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.ComboBox wizardTab5_DepartmentComboBox;
+        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.CheckBox wizardTab5_createInternalUser;
+        private System.Windows.Forms.MaskedTextBox wizardTab1_txtIdentification;
+        private System.Windows.Forms.MaskedTextBox wizardTab1_txtPhoneCell;
+        private System.Windows.Forms.MaskedTextBox wizardTab1_txtPhoneHouse;
+        private System.Windows.Forms.MaskedTextBox wizardTab5_txtBoxSalary;
+        private System.Windows.Forms.Label label32;
     }
 }

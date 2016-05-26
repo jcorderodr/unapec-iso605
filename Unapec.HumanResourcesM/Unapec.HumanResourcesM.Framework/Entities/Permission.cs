@@ -3,18 +3,12 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Unapec.HumanResourcesM.Framework.Entities
 {
-    public class EmployeePosition
+    public class Permission
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         [StringLength(50)]
         public string Name { get; set; }
-        [StringLength(500)]
-        public string Description { get; set; }
-        public decimal PositionMaxSalary { get; set; }
-        public decimal PositionMinSalary { get; set; }
-        public virtual Department Department { get; set; }
-
     }
 }

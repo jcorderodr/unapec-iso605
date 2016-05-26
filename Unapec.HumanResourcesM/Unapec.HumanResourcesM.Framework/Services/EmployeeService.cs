@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Data.Entity.Migrations;
 using System.Linq;
 using Unapec.HumanResourcesM.Framework.Data;
@@ -24,6 +23,16 @@ namespace Unapec.HumanResourcesM.Framework.Services
             return employee;
         }
 
+        public IEnumerable<Employee> DoEmployeeSearch(string name)
+        {
+            return _context.Employees.Where(p => p.Name.Contains(name));
+        }
+
+        public IEnumerable<Employee> GetEmployeesByDepartment(int departmentId)
+        {
+            return _context.Employees.Where(p => p.DepartmentId == departmentId).ToList();
+        }
+        
         public Employee Update(Employee employee)
         {
             _context.Employees.AddOrUpdate(employee);
@@ -47,24 +56,7 @@ namespace Unapec.HumanResourcesM.Framework.Services
            
             return Create(employee);
         }
-
-        public IEnumerable<Employee> GetEmployeesByDepartment(int departmentId)
-        {
-            return _context.Employees.Where(p => p.DepartmentId == departmentId).ToList();
-        }
-
-        public IEnumerable<Employee> DoEmployeeSearch(string name)
-        {
-            return _context.Employees.Where(p => p.Name.Contains(name));
-        }
-
-        public EmployeePosition Create(EmployeePosition position)
-        {
-            _context.EmployeePositions.AddOrUpdate(position);
-            _context.SaveChanges();
-            return position;
-        }
-
+        
 
     }
 }

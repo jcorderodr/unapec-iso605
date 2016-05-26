@@ -120,8 +120,17 @@
   <data name="All" xml:space="preserve">
     <value>Todos</value>
   </data>
+  <data name="Applicant" xml:space="preserve">
+    <value>Aplicante</value>
+  </data>
   <data name="AppName" xml:space="preserve">
     <value>UNAPEC Gestor RRHH</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
+  <data name="Canceled" xml:space="preserve">
+    <value>Cancelado</value>
   </data>
   <data name="Candidate" xml:space="preserve">
     <value>Candidato</value>
@@ -129,11 +138,39 @@
   <data name="Employee" xml:space="preserve">
     <value>Empleado</value>
   </data>
+  <data name="Message_FirstLogin" xml:space="preserve">
+    <value>El sistema ha detectado que es su primer intento de acceso al sistema. Su primera contraseña, debe ser su Número de Identificación o Cédula.</value>
+  </data>
   <data name="Message_WrongCredentials" xml:space="preserve">
     <value>Las credenciales de acceso introducidas son incorrectas.</value>
+  </data>
+  <data name="Normal" xml:space="preserve">
+    <value>Normal / Activo</value>
+  </data>
+  <data name="OnVacation" xml:space="preserve">
+    <value>En vacaciones</value>
+  </data>
+  <data name="PreSelected" xml:space="preserve">
+    <value>Pre-Seleccionado</value>
   </data>
   <data name="Question_WizardNewApplicationSubmit" xml:space="preserve">
     <value>Estás a punto de cerrar el proceso y guardar tus datos. 
 Estás seguro que has revisado y completado tu información correctamente?</value>
+  </data>
+  <data name="Rejected" xml:space="preserve">
+    <value>Rechazado</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Guardar</value>
+  </data>
+  <data name="UnderSupervision" xml:space="preserve">
+    <value>Bajo Supervisión</value>
+  </data>
+  <data name="Message_CreationFormInvalidFields" xml:space="preserve">
+    <value>Para continuar, debe completar / corregir los valores.</value>
+  </data>
+  <data name="Question_CreationFormSubmit" xml:space="preserve">
+    <value>Estás a punto de cerrar finalizar y guardar los datos. 
+Estás seguro que ha revisado y completado la información correctamente?</value>
   </data>
 </root>

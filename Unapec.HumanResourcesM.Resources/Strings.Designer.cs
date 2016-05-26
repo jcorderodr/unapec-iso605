@@ -70,11 +70,38 @@ namespace Unapec.HumanResourcesM.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Aplicante.
+        /// </summary>
+        public static string Applicant {
+            get {
+                return ResourceManager.GetString("Applicant", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to UNAPEC Gestor RRHH.
         /// </summary>
         public static string AppName {
             get {
                 return ResourceManager.GetString("AppName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cancelar.
+        /// </summary>
+        public static string Cancel {
+            get {
+                return ResourceManager.GetString("Cancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cancelado.
+        /// </summary>
+        public static string Canceled {
+            get {
+                return ResourceManager.GetString("Canceled", resourceCulture);
             }
         }
         
@@ -97,11 +124,66 @@ namespace Unapec.HumanResourcesM.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Para continuar, debe completar / corregir los valores..
+        /// </summary>
+        public static string Message_CreationFormInvalidFields {
+            get {
+                return ResourceManager.GetString("Message_CreationFormInvalidFields", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to El sistema ha detectado que es su primer intento de acceso al sistema. Su primera contraseña, debe ser su Número de Identificación o Cédula..
+        /// </summary>
+        public static string Message_FirstLogin {
+            get {
+                return ResourceManager.GetString("Message_FirstLogin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Las credenciales de acceso introducidas son incorrectas..
         /// </summary>
         public static string Message_WrongCredentials {
             get {
                 return ResourceManager.GetString("Message_WrongCredentials", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Normal / Activo.
+        /// </summary>
+        public static string Normal {
+            get {
+                return ResourceManager.GetString("Normal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to En vacaciones.
+        /// </summary>
+        public static string OnVacation {
+            get {
+                return ResourceManager.GetString("OnVacation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pre-Seleccionado.
+        /// </summary>
+        public static string PreSelected {
+            get {
+                return ResourceManager.GetString("PreSelected", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Estás a punto de cerrar finalizar y guardar los datos. 
+        ///Estás seguro que ha revisado y completado la información correctamente?.
+        /// </summary>
+        public static string Question_CreationFormSubmit {
+            get {
+                return ResourceManager.GetString("Question_CreationFormSubmit", resourceCulture);
             }
         }
         
@@ -112,6 +194,33 @@ namespace Unapec.HumanResourcesM.Resources {
         public static string Question_WizardNewApplicationSubmit {
             get {
                 return ResourceManager.GetString("Question_WizardNewApplicationSubmit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Rechazado.
+        /// </summary>
+        public static string Rejected {
+            get {
+                return ResourceManager.GetString("Rejected", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Guardar.
+        /// </summary>
+        public static string Save {
+            get {
+                return ResourceManager.GetString("Save", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bajo Supervisión.
+        /// </summary>
+        public static string UnderSupervision {
+            get {
+                return ResourceManager.GetString("UnderSupervision", resourceCulture);
             }
         }
     }

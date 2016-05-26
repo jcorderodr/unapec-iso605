@@ -1,30 +1,32 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Linq;
 using System.Windows.Forms;
 using Unapec.HumanResourcesM.Framework.Entities;
 using Unapec.HumanResourcesM.Framework.Helpers;
 using Unapec.HumanResourcesM.Framework.Services;
 
-namespace Unapec.HumanResourcesM.Forms.Candidates
+namespace Unapec.HumanResourcesM.Forms.Employees
 {
-    public partial class NewApplicationWizard : FormBase
+    public partial class NewEmployeeWizard : FormBase
     {
 
         private readonly CatalogService _catalogService;
-        private readonly JobService _jobService;
+        private readonly EmployeeService _employeeService;
+        private readonly DepartmentService _departmentService;
+        private readonly UserService _userService;
 
         private readonly int lastStep;
         private int presentStep = 0;
 
         private IList<PersonLinkedGrading> _dataSourceGradingView;
 
-
-        public NewApplicationWizard()
+        public NewEmployeeWizard()
         {
             InitializeComponent();
-            _jobService = new JobService();
+            _employeeService = new EmployeeService();
+            _departmentService = new DepartmentService();
+            _userService = new UserService();
             _catalogService = new CatalogService();
             FillComponents();
 
@@ -34,11 +36,6 @@ namespace Unapec.HumanResourcesM.Forms.Candidates
 
         private void FillComponents()
         {
-            //  wizardTab1
-            var jobOffers = _jobService.GetAvailableJobs();
-            wizardTab1_jobOfferComboBox.DataSource = jobOffers;
-            wizardTab1_jobOfferComboBox.DisplayMember = "Description";
-
             //  wizardTab2
             wizardTab2_gradesDataGridView.AutoGenerateColumns = false;
             wizardTab2_gradingLvl.SetComboBoxDatasourceWithCatalogs(_catalogService.Get(Catalog.GRADE_LVL));
@@ -46,6 +43,9 @@ namespace Unapec.HumanResourcesM.Forms.Candidates
             //  wizardTab4
             wizardTab4_LanguageComboBox.SetComboBoxDatasourceWithCatalogs(_catalogService.Get(Catalog.LANGUAGE));
             wizardTab4_LanguageLvlComboBox.SetComboBoxDatasourceWithCatalogs(_catalogService.Get(Catalog.SKILL_LVL));
+
+            //  wizardTab5
+
         }
 
         private void CheckStepUI(int step)
@@ -67,15 +67,15 @@ namespace Unapec.HumanResourcesM.Forms.Candidates
                         var actionResult = this.ShowQuestionMessage(Resources.Strings.Question_WizardNewApplicationSubmit);
                         if (actionResult == DialogResult.Yes)
                         {
-                            if(CheckUIValidations())
-                            SaveAndClose();
+                            if (CheckUIValidations())
+                                SaveAndClose();
                         }
                     }
                     break;
             }
             wizardTabControl.SelectedIndex = step;
         }
-        
+
         private bool CheckUIValidations()
         {
 
@@ -85,38 +85,34 @@ namespace Unapec.HumanResourcesM.Forms.Candidates
 
         private void SaveAndClose()
         {
-            var application = new Applicant();
+            var employee = new Employee();
 
             #region Extract data
 
             //  wizardTab1
 
             {   //  Personal
-                application.ApplicationDate = DateTime.Now;
-                application.BirthDate = wizardTab1_dateTimeBornDate.Value;
-                application.Sex = wizardTab1_radioButton1.Checked ? PersonSexType.Female : PersonSexType.Male;
-                application.BirthPlace = wizardTab1_txtBornPlace.Text;
-                application.Name = wizardTab1_txtFirstName.Text;
-                application.LastName = wizardTab1_txtLastName.Text;
-                application.Username = wizardTab1_txtIdentification.Text;
-                application.Address = wizardTab1_txtAddress.Text;
-                application.PhoneHouse = wizardTab1_txtPhoneHouse.Text;
-                application.PhoneCell = wizardTab1_txtPhoneCell.Text;
-
-                var jobOffer = wizardTab1_jobOfferComboBox.SelectedValue as Job;
-                application.JobOffer = jobOffer;
-
+                employee.RegisteredDate = DateTime.Now;
+                employee.BirthDate = wizardTab1_dateTimeBornDate.Value;
+                employee.Sex = wizardTab1_radioButton1.Checked ? PersonSexType.Female : PersonSexType.Male;
+                employee.BirthPlace = wizardTab1_txtBornPlace.Text;
+                employee.Name = wizardTab1_txtFirstName.Text;
+                employee.LastName = wizardTab1_txtLastName.Text;
+                employee.Identification = wizardTab1_txtIdentification.Text;
+                employee.Address = wizardTab1_txtAddress.Text;
+                employee.PhoneHouse = wizardTab1_txtPhoneHouse.Text;
+                employee.PhoneCell = wizardTab1_txtPhoneCell.Text;
             }
 
             //  wizardTab2
 
             {   //  Education
                 var gradingCatalog = wizardTab2_gradingLvl.SelectedValue as Catalog;
-                application.Details.GradingLvlId = gradingCatalog.SubCategoryId;
+                employee.Details.GradingLvlId = gradingCatalog.SubCategoryId;
 
                 foreach (var grading in _dataSourceGradingView)
                 {
-                    application.Details.Gradings.Add(grading);
+                    employee.Details.Gradings.Add(grading);
                 }
             }
 
@@ -132,7 +128,7 @@ namespace Unapec.HumanResourcesM.Forms.Candidates
                         FromDate = wizardTab3_panel1_dateTimePickerStart.Value,
                         ToDate = wizardTab3_panel3_dateTimePickerEnd.Value
                     };
-                    application.Details.WorkingExperience.Add(workingExperience);
+                    employee.Details.WorkingExperience.Add(workingExperience);
                 }
                 if (!string.IsNullOrEmpty(wizardTab3_panel2_txtCompany.Text) && !string.IsNullOrEmpty(wizardTab3_panel2_txtJob.Text))
                 {
@@ -143,7 +139,7 @@ namespace Unapec.HumanResourcesM.Forms.Candidates
                         FromDate = wizardTab3_panel2_dateTimePickerStart.Value,
                         ToDate = wizardTab3_panel2_dateTimePickerEnd.Value
                     };
-                    application.Details.WorkingExperience.Add(workingExperience);
+                    employee.Details.WorkingExperience.Add(workingExperience);
                 }
                 if (!string.IsNullOrEmpty(wizardTab3_panel3_txtCompany.Text) && !string.IsNullOrEmpty(wizardTab3_panel3_txtJob.Text))
                 {
@@ -154,7 +150,7 @@ namespace Unapec.HumanResourcesM.Forms.Candidates
                         FromDate = wizardTab3_panel3_dateTimePickerStart.Value,
                         ToDate = wizardTab3_panel3_dateTimePickerEnd.Value
                     };
-                    application.Details.WorkingExperience.Add(workingExperience);
+                    employee.Details.WorkingExperience.Add(workingExperience);
                 }
             }
 
@@ -164,20 +160,35 @@ namespace Unapec.HumanResourcesM.Forms.Candidates
                 foreach (var lang in listItems)
                 {
                     var value = lang.Tag as Catalog;
-                    application.Details.Languages.Add(new PersonLinkedDetail
+                    employee.Details.Languages.Add(new PersonLinkedDetail
                     {
                         Category = value.Category,
                         SubCategoryId = value.SubCategoryId,
-                        PersonId = application.Id,
+                        PersonId = employee.Id,
                         Type = PersonLinkedType.Candidate
                     });
                 }
             }
 
+            //  wizardTab5
+            {
+                employee.Details.Salary = wizardTab5_txtBoxSalary.Text.As<decimal>();
+            }
+
             #endregion
 
             //
-            application = _jobService.Create(application);
+            employee = _employeeService.Create(employee);
+            if (wizardTab5_createInternalUser.Checked)
+            {
+                var user = new User
+                {
+                    CreateDate = DateTime.Now,
+                    Employee = employee,
+                    Name = employee.Fullname,
+                };
+                _userService.Create(user, employee.Id);
+            }
             //
             this.Close();
         }
@@ -202,15 +213,16 @@ namespace Unapec.HumanResourcesM.Forms.Candidates
         private void NewApplicationWizard_Load(object sender, EventArgs e)
         {
             btnBack.Visible = false;
-            //
+
+            //  wizardTab1
             wizardTab1_dateTimeBornDate.Format = DateTimePickerFormat.Custom;
             wizardTab1_dateTimeBornDate.CustomFormat = FormatHelper.DATE_FULL_FORMAT;
-            //
+            //  wizardTab2
             wizardTab2_FromDateTimePicker.Format = DateTimePickerFormat.Custom;
             wizardTab2_FromDateTimePicker.CustomFormat = FormatHelper.DATE_FULL_FORMAT;
             wizardTab2_ToDateTimePicker.Format = DateTimePickerFormat.Custom;
             wizardTab2_ToDateTimePicker.CustomFormat = FormatHelper.DATE_FULL_FORMAT;
-            //
+            //  wizardTab3
             wizardTab3_panel1_dateTimePickerEnd.Format = DateTimePickerFormat.Custom;
             wizardTab3_panel1_dateTimePickerEnd.CustomFormat = FormatHelper.DATE_FULL_FORMAT;
             wizardTab3_panel1_dateTimePickerStart.Format = DateTimePickerFormat.Custom;
@@ -223,7 +235,8 @@ namespace Unapec.HumanResourcesM.Forms.Candidates
             wizardTab3_panel3_dateTimePickerEnd.CustomFormat = FormatHelper.DATE_FULL_FORMAT;
             wizardTab3_panel3_dateTimePickerStart.Format = DateTimePickerFormat.Custom;
             wizardTab3_panel3_dateTimePickerStart.CustomFormat = FormatHelper.DATE_FULL_FORMAT;
-
+            //  wizardTab5
+            wizardTab5_jobPositionComboBox.Items.Add("--");
         }
 
         private void wizardTabControl_Selected(object sender, TabControlEventArgs e)
@@ -296,6 +309,19 @@ namespace Unapec.HumanResourcesM.Forms.Candidates
             wizardTab4_languageListView.Items.Add(listItem);
         }
 
+        private void wizardTab5_DepartmentComboBox_SelectedValueChanged(object sender, EventArgs e)
+        {
+            var department = wizardTab5_DepartmentComboBox.SelectedValue as Department;
+            if (department == null)
+            {
+                wizardTab5_jobPositionComboBox.DataSource = null;
+                wizardTab5_jobPositionComboBox.Items.Clear();
+                wizardTab5_jobPositionComboBox.Items.Add("--");
+            }
 
+            var positions = _departmentService.GetPositions(department.Id);
+            wizardTab5_jobPositionComboBox.DataSource = positions;
+            wizardTab5_jobPositionComboBox.DisplayMember = "Description";
+        }
     }
 }
