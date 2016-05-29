@@ -103,6 +103,12 @@
     <Compile Include="Forms\Jobs\NewJobOffer.Designer.cs">
       <DependentUpon>NewJobOffer.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Learning\CoursesView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Learning\CoursesView.Designer.cs">
+      <DependentUpon>CoursesView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Learning\NewLearningOffer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -160,6 +166,7 @@
     <Compile Include="Forms\Utilities\Options.Designer.cs">
       <DependentUpon>Options.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\CourseModel.cs" />
     <Compile Include="Models\EmployeeViewModel.cs" />
     <Compile Include="Models\JobsViewModel.cs" />
     <Compile Include="Program.cs" />
@@ -181,6 +188,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Jobs\NewJobOffer.resx">
       <DependentUpon>NewJobOffer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Learning\CoursesView.resx">
+      <DependentUpon>CoursesView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Learning\NewLearningOffer.resx">
+      <DependentUpon>NewLearningOffer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -208,6 +221,7 @@
     </Compile>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Unapec.HumanResourcesM.Framework.Entities.PersonLinkedGrading.datasource" />
+    <None Include="Properties\DataSources\Unapec.HumanResourcesM.Models.CourseModel.datasource" />
     <None Include="Properties\DataSources\Unapec.HumanResourcesM.Models.EmployeeViewModel.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

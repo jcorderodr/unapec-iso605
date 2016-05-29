@@ -97,7 +97,17 @@ namespace Unapec.HumanResourcesM.Forms
 
         private void availableCoursesToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            ShowForm<Learning.CoursesView>();
+        }
+
+        private void registrarNuevaCapacitaciónToolStripMenuItem_Click(object sender, EventArgs e)
+        {
             ShowForm<Learning.NewLearningOffer>();
+        }
+
+        private void courseQuorumToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void permissionsToolStripMenuItem_Click(object sender, EventArgs e)

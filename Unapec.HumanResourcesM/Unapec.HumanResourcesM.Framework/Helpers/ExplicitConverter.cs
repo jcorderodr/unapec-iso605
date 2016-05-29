@@ -15,6 +15,11 @@ namespace Unapec.HumanResourcesM.Framework.Helpers
             return As<T>((object)value);
         }
 
+        public static T As<T>(this decimal value)
+        {
+            return As<T>((object)value);
+        }
+
         private static T As<T>(this object value)
         {
             return (T)Convert.ChangeType(value, typeof(T));

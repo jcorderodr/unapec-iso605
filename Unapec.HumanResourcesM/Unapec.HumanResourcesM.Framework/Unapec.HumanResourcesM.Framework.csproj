@@ -58,6 +58,8 @@
     <Compile Include="Entities\Catalog.cs" />
     <Compile Include="Data\CustomDataInitializer.cs" />
     <Compile Include="Data\DataContext.cs" />
+    <Compile Include="Entities\Course.cs" />
+    <Compile Include="Entities\CourseQuorum.cs" />
     <Compile Include="Entities\Department.cs" />
     <Compile Include="Entities\Employee.cs" />
     <Compile Include="Entities\EmployeeDetail.cs" />
@@ -77,6 +79,7 @@
     <Compile Include="Helpers\FormatHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\CatalogService.cs" />
+    <Compile Include="Services\CourseService.cs" />
     <Compile Include="Services\DepartmentService.cs" />
     <Compile Include="Services\EmployeeService.cs" />
     <Compile Include="Services\JobService.cs" />

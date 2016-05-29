@@ -33,7 +33,8 @@ namespace Unapec.HumanResourcesM.Framework.Data
         public DbSet<PersonLinkedDetail> PersonLinkedDetails { get; set; }
         public DbSet<Department> Departments { get; set; }
         public DbSet<Job> JobOffers { get; set; }
-       
+        public DbSet<Course> Courses { get; set; }
+        public DbSet<CourseQuorum> CourseQuorums { get; set; }
 
     }
 }

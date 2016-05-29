@@ -48,9 +48,10 @@ namespace Unapec.HumanResourcesM.Forms.Employees
             var languages = _catalogService.Get(Catalog.LANGUAGE);
             var langLevels = _catalogService.Get(Catalog.SKILL_LVL);
 
-            ColumnLanguageCheckBox.ThreeState = true;
-            ColumnLevel.DataSource = langLevels.ToList();
+            ColumnLanguageCheckBox.ThreeState = false;
+            ColumnLevel.DataSource = langLevels;
             ColumnLevel.ValueType = typeof(Catalog);
+            ColumnLevel.ValueMember = "SubCategoryId";
             ColumnLevel.DisplayMember = "Value";
             foreach (var item in languages)
             {
@@ -62,6 +63,7 @@ namespace Unapec.HumanResourcesM.Forms.Employees
                 var langCell = ColumnLanguageString.CellTemplate.Clone() as DataGridViewCell;
                 langCell.Value = item.Value;
                 var lvlCell = ColumnLevel.CellTemplate.Clone() as DataGridViewCell;
+                lvlCell.Value = 1;
                 row.Cells.AddRange(chkBoxCell, langCell, lvlCell);
                 wizardTab4_languageDataGridView.Rows.Add(row);
             }
@@ -76,28 +78,18 @@ namespace Unapec.HumanResourcesM.Forms.Employees
         private void CheckStepUI(int step)
         {
             btnBack.Visible = step > 0;
-            switch (step)
+            btnContinue.Text = step == lastStep ? "Finalizar" : "Siguiente";
+
+            if (step > lastStep) // finish and save
             {
-                case 0:
-                    btnContinue.Text = "Siguiente";
-                    break;
-                default:
-                    if (step == lastStep)
-                    {
-                        //  is the last one
-                        btnContinue.Text = "Finalizar";
-                    }
-                    if (step > lastStep) // finish and save
-                    {
-                        var actionResult = this.ShowQuestionMessage(Resources.Strings.Question_WizardNewApplicationSubmit);
-                        if (actionResult == DialogResult.Yes)
-                        {
-                            if (CheckUIValidations())
-                                SaveAndClose();
-                        }
-                    }
-                    break;
+                var actionResult = this.ShowQuestionMessage(Resources.Strings.Question_WizardNewApplicationSubmit);
+                if (actionResult == DialogResult.Yes)
+                {
+                    if (CheckUIValidations())
+                        SaveAndClose();
+                }
             }
+
             wizardTabControl.SelectedIndex = step;
         }
 
@@ -193,19 +185,18 @@ namespace Unapec.HumanResourcesM.Forms.Employees
 
             //  wizardTab4
             {
-                List<DataGridViewRow> list = wizardTab4_languageDataGridView.Rows.Cast<DataGridViewRow>()
-                                                .Where(k => Convert.ToBoolean(k.Cells[ColumnLanguageCheckBox.Name].Value) == true).ToList();
-
-                foreach (var row in wizardTab4_languageDataGridView.Rows.OfType<DataGridViewRow>())
+                var selectedLanguages = wizardTab4_languageDataGridView.Rows.Cast<DataGridViewRow>()
+                                                .Where(k => Convert.ToBoolean(k.Cells[ColumnLanguageCheckBox.Name].Value) == true);
+                foreach (var row in selectedLanguages)
                 {
-                    var value = row;
-                    //employee.Details.Languages.Add(new PersonLinkedDetail
-                    //{
-                    //    Category = value.Category,
-                    //    SubCategoryId = value.SubCategoryId,
-                    //    PersonId = employee.Id,
-                    //    Type = PersonLinkedType.Candidate
-                    //});
+                    var value = row.Tag as Catalog;
+                    employee.Details.Languages.Add(new PersonLinkedDetail
+                    {
+                        Category = value.Category,
+                        SubCategoryId = value.SubCategoryId,
+                        PersonId = employee.Id,
+                        Type = PersonLinkedType.Candidate
+                    });
                 }
             }
 
@@ -277,11 +268,12 @@ namespace Unapec.HumanResourcesM.Forms.Employees
             wizardTab3_panel3_dateTimePickerStart.Format = DateTimePickerFormat.Custom;
             wizardTab3_panel3_dateTimePickerStart.CustomFormat = FormatHelper.DATE_FULL_FORMAT;
             //  wizardTab5
-            
+
         }
 
         private void wizardTabControl_Selected(object sender, TabControlEventArgs e)
         {
+            presentStep = e.TabPageIndex;
             CheckStepUI(presentStep);
         }
 
@@ -319,7 +311,7 @@ namespace Unapec.HumanResourcesM.Forms.Employees
             }
         }
 
-      
+
         private void wizardTab5_DepartmentComboBox_SelectedValueChanged(object sender, EventArgs e)
         {
             var department = wizardTab5_DepartmentComboBox.SelectedValue as Department;
@@ -335,14 +327,14 @@ namespace Unapec.HumanResourcesM.Forms.Employees
         private void wizardTab5_jobPositionComboBox_SelectedValueChanged(object sender, EventArgs e)
         {
             _position = wizardTab5_jobPositionComboBox.SelectedValue as EmployeePosition;
-            
+
         }
 
         private void wizardTab5_txtBoxSalary_Validated(object sender, EventArgs e)
         {
             var numberString = Regex.Replace(wizardTab5_txtBoxSalary.Text, "[^0-9.]", "");
             var salary = Convert.ToDecimal(string.IsNullOrEmpty(numberString) ? "0.00M" : numberString);
-            if(salary > _position.PositionMaxSalary || salary < _position.PositionMinSalary)
+            if (salary > _position.PositionMaxSalary || salary < _position.PositionMinSalary)
             {
                 wizardTab5_txtBoxSalary.Focus();
                 errorProvider1.SetError(wizardTab5_txtBoxSalary, $"El rango de salario debe ser válido (${_position.PositionMinSalary} - ${_position.PositionMaxSalary}).");

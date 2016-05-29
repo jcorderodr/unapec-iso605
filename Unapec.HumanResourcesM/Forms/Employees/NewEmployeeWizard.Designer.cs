@@ -111,6 +111,9 @@
             this.wizardTabPage4 = new System.Windows.Forms.TabPage();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.wizardTab4_languageDataGridView = new System.Windows.Forms.DataGridView();
+            this.ColumnLanguageCheckBox = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.ColumnLanguageString = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnLevel = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.wizardTabPage5 = new System.Windows.Forms.TabPage();
             this.wizardTab5_txtBoxSalary = new System.Windows.Forms.MaskedTextBox();
@@ -125,9 +128,6 @@
             this.label29 = new System.Windows.Forms.Label();
             this.helpProvider = new System.Windows.Forms.HelpProvider();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.ColumnLanguageCheckBox = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.ColumnLanguageString = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnLevel = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.wizardTabControl.SuspendLayout();
             this.wizardTabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.wizardTab1_personalImagePictureBox)).BeginInit();
@@ -197,6 +197,7 @@
             this.wizardTabControl.SelectedIndex = 0;
             this.wizardTabControl.Size = new System.Drawing.Size(601, 365);
             this.wizardTabControl.TabIndex = 4;
+            this.wizardTabControl.Selected += new System.Windows.Forms.TabControlEventHandler(this.wizardTabControl_Selected);
             // 
             // wizardTabPage1
             // 
@@ -918,7 +919,6 @@
             // 
             this.wizardTab4_languageDataGridView.AllowUserToAddRows = false;
             this.wizardTab4_languageDataGridView.AllowUserToDeleteRows = false;
-            this.wizardTab4_languageDataGridView.AllowUserToOrderColumns = true;
             this.wizardTab4_languageDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.wizardTab4_languageDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColumnLanguageCheckBox,
@@ -927,9 +927,28 @@
             this.wizardTab4_languageDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.wizardTab4_languageDataGridView.Location = new System.Drawing.Point(3, 16);
             this.wizardTab4_languageDataGridView.Name = "wizardTab4_languageDataGridView";
-            this.wizardTab4_languageDataGridView.ReadOnly = true;
             this.wizardTab4_languageDataGridView.Size = new System.Drawing.Size(323, 125);
             this.wizardTab4_languageDataGridView.TabIndex = 0;
+            // 
+            // ColumnLanguageCheckBox
+            // 
+            this.ColumnLanguageCheckBox.HeaderText = "";
+            this.ColumnLanguageCheckBox.Name = "ColumnLanguageCheckBox";
+            this.ColumnLanguageCheckBox.Width = 25;
+            // 
+            // ColumnLanguageString
+            // 
+            this.ColumnLanguageString.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ColumnLanguageString.HeaderText = "Idioma";
+            this.ColumnLanguageString.Name = "ColumnLanguageString";
+            this.ColumnLanguageString.ReadOnly = true;
+            // 
+            // ColumnLevel
+            // 
+            this.ColumnLevel.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.ColumnLevel.HeaderText = "Nivel";
+            this.ColumnLevel.Name = "ColumnLevel";
+            this.ColumnLevel.Width = 37;
             // 
             // groupBox2
             // 
@@ -1056,28 +1075,6 @@
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
-            // 
-            // ColumnLanguageCheckBox
-            // 
-            this.ColumnLanguageCheckBox.HeaderText = "";
-            this.ColumnLanguageCheckBox.Name = "ColumnLanguageCheckBox";
-            this.ColumnLanguageCheckBox.ReadOnly = true;
-            this.ColumnLanguageCheckBox.Width = 25;
-            // 
-            // ColumnLanguageString
-            // 
-            this.ColumnLanguageString.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ColumnLanguageString.HeaderText = "Idioma";
-            this.ColumnLanguageString.Name = "ColumnLanguageString";
-            this.ColumnLanguageString.ReadOnly = true;
-            // 
-            // ColumnLevel
-            // 
-            this.ColumnLevel.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.ColumnLevel.HeaderText = "Nivel";
-            this.ColumnLevel.Name = "ColumnLevel";
-            this.ColumnLevel.ReadOnly = true;
-            this.ColumnLevel.Width = 37;
             // 
             // NewEmployeeWizard
             // 

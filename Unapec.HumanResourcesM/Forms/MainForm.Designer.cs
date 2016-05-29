@@ -35,6 +35,8 @@
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.employeesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.jobsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.createNewJobToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.employeesViewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.candidatesViewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -57,8 +59,8 @@
             this.aboutToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.txtGlobalSearch = new System.Windows.Forms.ToolStripTextBox();
             this.searchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
-            this.createNewJobToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.newLearningOfferToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             this.menuStripBar.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -122,57 +124,72 @@
             // jobsToolStripMenuItem
             // 
             this.jobsToolStripMenuItem.Name = "jobsToolStripMenuItem";
-            this.jobsToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
-            this.jobsToolStripMenuItem.Text = "jobs";
+            this.jobsToolStripMenuItem.Size = new System.Drawing.Size(226, 22);
+            this.jobsToolStripMenuItem.Text = "Vacantes de Puestos";
             this.jobsToolStripMenuItem.Click += new System.EventHandler(this.jobsToolStripMenuItem_Click);
+            // 
+            // createNewJobToolStripMenuItem
+            // 
+            this.createNewJobToolStripMenuItem.Name = "createNewJobToolStripMenuItem";
+            this.createNewJobToolStripMenuItem.Size = new System.Drawing.Size(226, 22);
+            this.createNewJobToolStripMenuItem.Text = "Crear nueva vacante";
+            this.createNewJobToolStripMenuItem.Click += new System.EventHandler(this.createNewJobToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator6
+            // 
+            this.toolStripSeparator6.Name = "toolStripSeparator6";
+            this.toolStripSeparator6.Size = new System.Drawing.Size(223, 6);
             // 
             // employeesViewToolStripMenuItem
             // 
             this.employeesViewToolStripMenuItem.Name = "employeesViewToolStripMenuItem";
-            this.employeesViewToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
-            this.employeesViewToolStripMenuItem.Text = "employeesView";
+            this.employeesViewToolStripMenuItem.Size = new System.Drawing.Size(226, 22);
+            this.employeesViewToolStripMenuItem.Text = "Vista de Empleados";
             this.employeesViewToolStripMenuItem.Click += new System.EventHandler(this.employeesViewToolStripMenuItem_Click);
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(244, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(223, 6);
             // 
             // candidatesViewToolStripMenuItem
             // 
             this.candidatesViewToolStripMenuItem.Name = "candidatesViewToolStripMenuItem";
-            this.candidatesViewToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
-            this.candidatesViewToolStripMenuItem.Text = "candidatesView";
+            this.candidatesViewToolStripMenuItem.Size = new System.Drawing.Size(226, 22);
+            this.candidatesViewToolStripMenuItem.Text = "Vista de Candidatos";
             this.candidatesViewToolStripMenuItem.Click += new System.EventHandler(this.candidatesViewToolStripMenuItem_Click);
             // 
             // registerEmployeeFromCandidateToolStripMenuItem
             // 
             this.registerEmployeeFromCandidateToolStripMenuItem.Name = "registerEmployeeFromCandidateToolStripMenuItem";
-            this.registerEmployeeFromCandidateToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
-            this.registerEmployeeFromCandidateToolStripMenuItem.Text = "registerEmployeeFromCandidate";
+            this.registerEmployeeFromCandidateToolStripMenuItem.Size = new System.Drawing.Size(226, 22);
+            this.registerEmployeeFromCandidateToolStripMenuItem.Text = "Pre-Selección  de empleados";
             this.registerEmployeeFromCandidateToolStripMenuItem.Click += new System.EventHandler(this.registerEmployeeFromCandidateToolStripMenuItem_Click);
             // 
             // learningToolStripMenuItem
             // 
             this.learningToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.availableCoursesToolStripMenuItem,
+            this.newLearningOfferToolStripMenuItem,
+            this.toolStripSeparator7,
             this.courseQuorumToolStripMenuItem});
             this.learningToolStripMenuItem.Name = "learningToolStripMenuItem";
-            this.learningToolStripMenuItem.Size = new System.Drawing.Size(62, 23);
-            this.learningToolStripMenuItem.Text = "learning";
+            this.learningToolStripMenuItem.Size = new System.Drawing.Size(99, 23);
+            this.learningToolStripMenuItem.Text = "Capacitaciones";
             // 
             // availableCoursesToolStripMenuItem
             // 
             this.availableCoursesToolStripMenuItem.Name = "availableCoursesToolStripMenuItem";
-            this.availableCoursesToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
-            this.availableCoursesToolStripMenuItem.Text = "courses";
+            this.availableCoursesToolStripMenuItem.Size = new System.Drawing.Size(225, 22);
+            this.availableCoursesToolStripMenuItem.Text = "Cursos";
             this.availableCoursesToolStripMenuItem.Click += new System.EventHandler(this.availableCoursesToolStripMenuItem_Click);
             // 
             // courseQuorumToolStripMenuItem
             // 
             this.courseQuorumToolStripMenuItem.Name = "courseQuorumToolStripMenuItem";
-            this.courseQuorumToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
-            this.courseQuorumToolStripMenuItem.Text = "courseQuorum";
+            this.courseQuorumToolStripMenuItem.Size = new System.Drawing.Size(225, 22);
+            this.courseQuorumToolStripMenuItem.Text = "Quorum de Cursos";
+            this.courseQuorumToolStripMenuItem.Click += new System.EventHandler(this.courseQuorumToolStripMenuItem_Click);
             // 
             // toolsToolStripMenuItem
             // 
@@ -282,17 +299,17 @@
             this.searchToolStripMenuItem.Text = "Búsqueda:";
             this.searchToolStripMenuItem.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
             // 
-            // toolStripSeparator6
+            // newLearningOfferToolStripMenuItem
             // 
-            this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(244, 6);
+            this.newLearningOfferToolStripMenuItem.Name = "newLearningOfferToolStripMenuItem";
+            this.newLearningOfferToolStripMenuItem.Size = new System.Drawing.Size(225, 22);
+            this.newLearningOfferToolStripMenuItem.Text = "Registrar nueva capacitación";
+            this.newLearningOfferToolStripMenuItem.Click += new System.EventHandler(this.registrarNuevaCapacitaciónToolStripMenuItem_Click);
             // 
-            // createNewJobToolStripMenuItem
+            // toolStripSeparator7
             // 
-            this.createNewJobToolStripMenuItem.Name = "createNewJobToolStripMenuItem";
-            this.createNewJobToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
-            this.createNewJobToolStripMenuItem.Text = "createNewJob";
-            this.createNewJobToolStripMenuItem.Click += new System.EventHandler(this.createNewJobToolStripMenuItem_Click);
+            this.toolStripSeparator7.Name = "toolStripSeparator7";
+            this.toolStripSeparator7.Size = new System.Drawing.Size(222, 6);
             // 
             // MainForm
             // 
@@ -345,5 +362,7 @@
         private System.Windows.Forms.ToolStripMenuItem usersToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem createNewJobToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
+        private System.Windows.Forms.ToolStripMenuItem newLearningOfferToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
     }
 }

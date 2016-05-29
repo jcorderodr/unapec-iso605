@@ -22,6 +22,8 @@ namespace Unapec.HumanResourcesM.Forms.Employees
         private readonly EmployeeService _employeeService;
         private readonly DepartmentService _departmentService;
 
+        DataGridViewCheckBoxColumn ColumnLanguageCheckBox;
+
         public EmployeesView()
         {
             InitializeComponent();
@@ -30,6 +32,22 @@ namespace Unapec.HumanResourcesM.Forms.Employees
             _departmentService = new DepartmentService();
             //
             FillComponents();
+        }
+
+        public void SetSelectionMode()
+        {
+            ColumnLanguageCheckBox = new DataGridViewCheckBoxColumn();
+            ColumnLanguageCheckBox.HeaderText = "";
+            ColumnLanguageCheckBox.Name = "ColumnLanguageCheckBox";
+            ColumnLanguageCheckBox.ThreeState = false;
+        }
+
+        public IEnumerable<int> GetSelection()
+        {
+            var selectedEmployees = employeeDataGridView.Rows.Cast<DataGridViewRow>().Where(k => Convert.ToBoolean(k.Cells[ColumnLanguageCheckBox.Name].Value) == true);
+            //TODO: get empId
+
+            return null;
         }
 
         private void FillComponents()

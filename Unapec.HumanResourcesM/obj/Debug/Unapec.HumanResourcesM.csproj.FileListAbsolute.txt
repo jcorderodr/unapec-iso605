@@ -28,3 +28,5 @@ C:\Users\José\Documents\UNAPEC\UNAPEC-ISO605\Unapec.HumanResourcesM\obj\Debug\U
 C:\Users\José\Documents\UNAPEC\UNAPEC-ISO605\Unapec.HumanResourcesM\bin\Debug\LinqKit.dll
 C:\Users\José\Documents\UNAPEC\UNAPEC-ISO605\Unapec.HumanResourcesM\bin\Debug\LinqKit.pdb
 C:\Users\José\Documents\UNAPEC\UNAPEC-ISO605\Unapec.HumanResourcesM\bin\Debug\LinqKit.xml
+C:\Users\José\Documents\UNAPEC\UNAPEC-ISO605\Unapec.HumanResourcesM\obj\Debug\Unapec.HumanResourcesM.Forms.Learning.CoursesView.resources
+C:\Users\José\Documents\UNAPEC\UNAPEC-ISO605\Unapec.HumanResourcesM\obj\Debug\Unapec.HumanResourcesM.Forms.Learning.NewLearningOffer.resources
