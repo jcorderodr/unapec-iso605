@@ -13,6 +13,11 @@ namespace Unapec.HumanResourcesM.Framework.Helpers
         public const String DATE_TIME_FULL_FORMAT = "D";
 
         public const String MONEY_CURRENCY_LETTER = "C2";
+        
+        public static string GetValidCurrencyWithPadding(decimal value)
+        {
+            return string.Format("{0:000000.00}", value);
+        }
 
         public static String GetCurrency(double value)
         {

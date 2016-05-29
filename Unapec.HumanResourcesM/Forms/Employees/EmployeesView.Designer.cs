@@ -28,23 +28,34 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.actionButtonCreateNewEmployee = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.employeeDataGridView = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.cancelButton = new System.Windows.Forms.Button();
+            this.refreshSearchButton = new System.Windows.Forms.Button();
+            this.txtBoxName = new System.Windows.Forms.TextBox();
+            this.employeeStatusComboBox = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.departmentComboBox = new System.Windows.Forms.ComboBox();
             this.label30 = new System.Windows.Forms.Label();
             this.jobPositionComboBox = new System.Windows.Forms.ComboBox();
             this.label29 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.employeeStatusComboBox = new System.Windows.Forms.ComboBox();
-            this.txtBoxName = new System.Windows.Forms.TextBox();
-            this.refreshSearchButton = new System.Windows.Forms.Button();
+            this.cancelButton = new System.Windows.Forms.Button();
+            this.employeeViewModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.lastNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.statusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.registeredDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.phoneCellDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.positionNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.departmentNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.employeeDataGridView)).BeginInit();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.employeeViewModelBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // actionButtonCreateNewEmployee
@@ -75,7 +86,17 @@
             // 
             this.employeeDataGridView.AllowUserToAddRows = false;
             this.employeeDataGridView.AllowUserToDeleteRows = false;
+            this.employeeDataGridView.AutoGenerateColumns = false;
             this.employeeDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.employeeDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.lastNameDataGridViewTextBoxColumn,
+            this.nameDataGridViewTextBoxColumn,
+            this.statusDataGridViewTextBoxColumn,
+            this.registeredDateDataGridViewTextBoxColumn,
+            this.phoneCellDataGridViewTextBoxColumn,
+            this.positionNameDataGridViewTextBoxColumn,
+            this.departmentNameDataGridViewTextBoxColumn});
+            this.employeeDataGridView.DataSource = this.employeeViewModelBindingSource;
             this.employeeDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.employeeDataGridView.Location = new System.Drawing.Point(3, 16);
             this.employeeDataGridView.Name = "employeeDataGridView";
@@ -102,16 +123,49 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Opciones de Filtrado";
             // 
-            // cancelButton
+            // refreshSearchButton
             // 
-            this.cancelButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.cancelButton.Location = new System.Drawing.Point(685, 327);
-            this.cancelButton.Name = "cancelButton";
-            this.cancelButton.Size = new System.Drawing.Size(75, 23);
-            this.cancelButton.TabIndex = 3;
-            this.cancelButton.Text = "&Cancelar";
-            this.cancelButton.UseVisualStyleBackColor = true;
-            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
+            this.refreshSearchButton.Location = new System.Drawing.Point(685, 57);
+            this.refreshSearchButton.Name = "refreshSearchButton";
+            this.refreshSearchButton.Size = new System.Drawing.Size(75, 23);
+            this.refreshSearchButton.TabIndex = 22;
+            this.refreshSearchButton.Text = "resfresh";
+            this.refreshSearchButton.UseVisualStyleBackColor = true;
+            this.refreshSearchButton.Click += new System.EventHandler(this.refreshSearchButton_Click);
+            // 
+            // txtBoxName
+            // 
+            this.txtBoxName.Location = new System.Drawing.Point(70, 19);
+            this.txtBoxName.Name = "txtBoxName";
+            this.txtBoxName.Size = new System.Drawing.Size(193, 20);
+            this.txtBoxName.TabIndex = 21;
+            // 
+            // employeeStatusComboBox
+            // 
+            this.employeeStatusComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.employeeStatusComboBox.FormattingEnabled = true;
+            this.employeeStatusComboBox.Location = new System.Drawing.Point(70, 57);
+            this.employeeStatusComboBox.Name = "employeeStatusComboBox";
+            this.employeeStatusComboBox.Size = new System.Drawing.Size(193, 21);
+            this.employeeStatusComboBox.TabIndex = 20;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(21, 60);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(43, 13);
+            this.label2.TabIndex = 19;
+            this.label2.Text = "Estado:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(17, 22);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(47, 13);
+            this.label1.TabIndex = 18;
+            this.label1.Text = "Nombre:";
             // 
             // departmentComboBox
             // 
@@ -121,6 +175,7 @@
             this.departmentComboBox.Name = "departmentComboBox";
             this.departmentComboBox.Size = new System.Drawing.Size(255, 21);
             this.departmentComboBox.TabIndex = 17;
+            this.departmentComboBox.SelectedValueChanged += new System.EventHandler(this.departmentComboBox_SelectedValueChanged);
             // 
             // label30
             // 
@@ -149,48 +204,76 @@
             this.label29.TabIndex = 14;
             this.label29.Text = "Posición:";
             // 
-            // label1
+            // cancelButton
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(17, 22);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(47, 13);
-            this.label1.TabIndex = 18;
-            this.label1.Text = "Nombre:";
+            this.cancelButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.cancelButton.Location = new System.Drawing.Point(685, 327);
+            this.cancelButton.Name = "cancelButton";
+            this.cancelButton.Size = new System.Drawing.Size(75, 23);
+            this.cancelButton.TabIndex = 3;
+            this.cancelButton.Text = "&Cancelar";
+            this.cancelButton.UseVisualStyleBackColor = true;
+            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
             // 
-            // label2
+            // employeeViewModelBindingSource
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(21, 60);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(43, 13);
-            this.label2.TabIndex = 19;
-            this.label2.Text = "Estado:";
+            this.employeeViewModelBindingSource.DataSource = typeof(Unapec.HumanResourcesM.Models.EmployeeViewModel);
             // 
-            // employeeStatusComboBox
+            // lastNameDataGridViewTextBoxColumn
             // 
-            this.employeeStatusComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.employeeStatusComboBox.FormattingEnabled = true;
-            this.employeeStatusComboBox.Location = new System.Drawing.Point(70, 57);
-            this.employeeStatusComboBox.Name = "employeeStatusComboBox";
-            this.employeeStatusComboBox.Size = new System.Drawing.Size(193, 21);
-            this.employeeStatusComboBox.TabIndex = 20;
+            this.lastNameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.lastNameDataGridViewTextBoxColumn.DataPropertyName = "LastName";
+            this.lastNameDataGridViewTextBoxColumn.HeaderText = "Apellidos";
+            this.lastNameDataGridViewTextBoxColumn.Name = "lastNameDataGridViewTextBoxColumn";
+            this.lastNameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.lastNameDataGridViewTextBoxColumn.Width = 74;
             // 
-            // txtBoxName
+            // nameDataGridViewTextBoxColumn
             // 
-            this.txtBoxName.Location = new System.Drawing.Point(70, 19);
-            this.txtBoxName.Name = "txtBoxName";
-            this.txtBoxName.Size = new System.Drawing.Size(193, 20);
-            this.txtBoxName.TabIndex = 21;
+            this.nameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Nombres";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.nameDataGridViewTextBoxColumn.Width = 74;
             // 
-            // refreshSearchButton
+            // statusDataGridViewTextBoxColumn
             // 
-            this.refreshSearchButton.Location = new System.Drawing.Point(685, 57);
-            this.refreshSearchButton.Name = "refreshSearchButton";
-            this.refreshSearchButton.Size = new System.Drawing.Size(75, 23);
-            this.refreshSearchButton.TabIndex = 22;
-            this.refreshSearchButton.Text = "button1";
-            this.refreshSearchButton.UseVisualStyleBackColor = true;
+            this.statusDataGridViewTextBoxColumn.DataPropertyName = "Status";
+            this.statusDataGridViewTextBoxColumn.HeaderText = "Estado";
+            this.statusDataGridViewTextBoxColumn.Name = "statusDataGridViewTextBoxColumn";
+            this.statusDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // registeredDateDataGridViewTextBoxColumn
+            // 
+            this.registeredDateDataGridViewTextBoxColumn.DataPropertyName = "RegisteredDate";
+            dataGridViewCellStyle1.Format = "D";
+            dataGridViewCellStyle1.NullValue = null;
+            this.registeredDateDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
+            this.registeredDateDataGridViewTextBoxColumn.HeaderText = "Fecha de Ingreso";
+            this.registeredDateDataGridViewTextBoxColumn.Name = "registeredDateDataGridViewTextBoxColumn";
+            this.registeredDateDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // phoneCellDataGridViewTextBoxColumn
+            // 
+            this.phoneCellDataGridViewTextBoxColumn.DataPropertyName = "PhoneCell";
+            this.phoneCellDataGridViewTextBoxColumn.HeaderText = "Celular";
+            this.phoneCellDataGridViewTextBoxColumn.Name = "phoneCellDataGridViewTextBoxColumn";
+            this.phoneCellDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // positionNameDataGridViewTextBoxColumn
+            // 
+            this.positionNameDataGridViewTextBoxColumn.DataPropertyName = "PositionName";
+            this.positionNameDataGridViewTextBoxColumn.HeaderText = "Puesto";
+            this.positionNameDataGridViewTextBoxColumn.Name = "positionNameDataGridViewTextBoxColumn";
+            this.positionNameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // departmentNameDataGridViewTextBoxColumn
+            // 
+            this.departmentNameDataGridViewTextBoxColumn.DataPropertyName = "DepartmentName";
+            this.departmentNameDataGridViewTextBoxColumn.HeaderText = "Departamento";
+            this.departmentNameDataGridViewTextBoxColumn.Name = "departmentNameDataGridViewTextBoxColumn";
+            this.departmentNameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // EmployeesView
             // 
@@ -207,6 +290,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.employeeDataGridView)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.employeeViewModelBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -227,5 +311,13 @@
         private System.Windows.Forms.ComboBox jobPositionComboBox;
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.Button refreshSearchButton;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lastNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn registeredDateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn phoneCellDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn positionNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn departmentNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource employeeViewModelBindingSource;
     }
 }

@@ -11,6 +11,12 @@ namespace Unapec.HumanResourcesM.Forms
             return DialogResult.OK;
         }
 
+        public static DialogResult ShowInformationMessage(this FormBase form, string message)
+        {
+            MessageBox.Show(form, message, Program.AppName, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            return DialogResult.OK;
+        }
+
         public static DialogResult ShowQuestionMessage(this FormBase form, string message)
         {
             return MessageBox.Show(form, message, Program.AppName, MessageBoxButtons.YesNo, MessageBoxIcon.Question);

@@ -142,6 +142,15 @@ namespace Unapec.HumanResourcesM.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Nueva oferta de empleo registrada correctamente..
+        /// </summary>
+        public static string Message_JobOfferCreated {
+            get {
+                return ResourceManager.GetString("Message_JobOfferCreated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Las credenciales de acceso introducidas son incorrectas..
         /// </summary>
         public static string Message_WrongCredentials {
@@ -162,9 +171,9 @@ namespace Unapec.HumanResourcesM.Resources {
         /// <summary>
         ///   Looks up a localized string similar to En vacaciones.
         /// </summary>
-        public static string OnVacation {
+        public static string OnVacaction {
             get {
-                return ResourceManager.GetString("OnVacation", resourceCulture);
+                return ResourceManager.GetString("OnVacaction", resourceCulture);
             }
         }
         
@@ -178,8 +187,8 @@ namespace Unapec.HumanResourcesM.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Estás a punto de cerrar finalizar y guardar los datos. 
-        ///Estás seguro que ha revisado y completado la información correctamente?.
+        ///   Looks up a localized string similar to Está a punto de finalizar y guardar los datos. 
+        ///Está seguro que ha revisado y completado la información correctamente?.
         /// </summary>
         public static string Question_CreationFormSubmit {
             get {

@@ -12,6 +12,7 @@
         {
             this.MaximizeBox = false;
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
+            this.WindowState = System.Windows.Forms.FormWindowState.Normal;
         }
 
     }

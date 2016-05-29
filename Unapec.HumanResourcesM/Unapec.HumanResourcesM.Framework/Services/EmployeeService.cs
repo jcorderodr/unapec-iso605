@@ -1,8 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data.Entity.Migrations;
 using System.Linq;
+using System.Linq.Expressions;
 using Unapec.HumanResourcesM.Framework.Data;
 using Unapec.HumanResourcesM.Framework.Entities;
+using Unapec.HumanResourcesM.Framework.Helpers;
 
 namespace Unapec.HumanResourcesM.Framework.Services
 {
@@ -32,7 +35,7 @@ namespace Unapec.HumanResourcesM.Framework.Services
         {
             return _context.Employees.Where(p => p.DepartmentId == departmentId).ToList();
         }
-        
+
         public Employee Update(Employee employee)
         {
             _context.Employees.AddOrUpdate(employee);
@@ -53,10 +56,39 @@ namespace Unapec.HumanResourcesM.Framework.Services
                 Name = applicant.Name,
                 Identification = applicant.Username,
             };
-           
+
             return Create(employee);
         }
-        
 
+        public IEnumerable<Employee> DoEmployeeSearch(string name, EmployeeStatus status, int departmentId, int positionId)
+        {
+            Expression<Func<Employee, bool>> departmentExpr = null;
+            if (departmentId > 0)
+                departmentExpr = p => p.DepartmentId == departmentId;
+            else
+                departmentExpr = p => true;
+
+            Expression<Func<Employee, bool>> positionExpr = null;
+            if (positionId > 0)
+                positionExpr = p => p.PositionId == positionId;
+            else
+                positionExpr = p => true;
+
+            Expression<Func<Employee, bool>> nameExpr = null;
+            if (string.IsNullOrEmpty(name) || string.IsNullOrWhiteSpace(name))
+                nameExpr = p => true;
+            else
+                nameExpr = p => p.Name.Contains(name);
+
+            Expression<Func<Employee, bool>> statusExpr = null;
+            if (status > 0)
+                statusExpr = p => p.Status == status;
+            else
+                statusExpr = p => true;
+
+            var finalExpr = ExpressionBinder.BuildAndExpression(departmentExpr, positionExpr, nameExpr, statusExpr);
+            return _context.Employees.Where(finalExpr);
+
+        }
     }
 }

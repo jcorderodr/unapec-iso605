@@ -16,8 +16,8 @@ namespace Unapec.HumanResourcesM.Framework.Entities
         public string Password { get; set; }
         [StringLength(200)]
         public string Name { get; set; }
-        public DateTime CreateDate { get; set; }
-        public DateTime? LastLoginDate { get; set; }
+        public DateTimeOffset CreateDate { get; set; }
+        public DateTimeOffset? LastLoginDate { get; set; }
         public bool ChangePassword { get; set; }
 
         public virtual Employee Employee { get; set; }

@@ -22,7 +22,7 @@ namespace Unapec.HumanResourcesM.Forms
 
         private void FormBase_Load(object sender, EventArgs e)
         {
-            this.Text = Program.AppName;
+           
         }
 
         private void InitializeComponent()

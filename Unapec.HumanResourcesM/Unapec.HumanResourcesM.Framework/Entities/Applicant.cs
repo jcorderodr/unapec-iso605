@@ -17,7 +17,7 @@ namespace Unapec.HumanResourcesM.Framework.Entities
         [StringLength(11)]
         public string Username { get; set; }
         public EmployeeStatus Status { get; set; }
-        public DateTime ApplicationDate { get; set; }
+        public DateTimeOffset ApplicationDate { get; set; }
         [StringLength(200)]
         public string Name { get; set; }
         [StringLength(200)]
@@ -26,7 +26,7 @@ namespace Unapec.HumanResourcesM.Framework.Entities
         public string BirthPlace { get; set; }
         [StringLength(50)]
         public string Nationality { get; set; }
-        public DateTime BirthDate { get; set; }
+        public DateTimeOffset BirthDate { get; set; }
         public PersonSexType Sex { get; set; }
         public string Address { get; set; }
         public string PhoneHouse { get; set; }

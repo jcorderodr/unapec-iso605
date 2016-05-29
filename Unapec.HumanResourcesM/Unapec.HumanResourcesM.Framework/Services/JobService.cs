@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data.Entity.Migrations;
 using System.Linq;
 using Unapec.HumanResourcesM.Framework.Data;
@@ -19,6 +20,7 @@ namespace Unapec.HumanResourcesM.Framework.Services
 
         public Job Create(Job job)
         {
+            job.RegisteredDate = DateTimeOffset.Now;
             _context.JobOffers.Add(job);
             _context.SaveChanges();
             return job;
@@ -43,6 +45,11 @@ namespace Unapec.HumanResourcesM.Framework.Services
         public IEnumerable<Applicant> GetApplicants()
         {
             return _context.Applicants.Where(p => p.Status == EmployeeStatus.Applicant).ToList();
+        }
+
+        public int GetApplicantsCountForJob(int jobId)
+        {
+            return _context.Applicants.Where(p => p.JobOffer.Id == jobId && p.Status == EmployeeStatus.Applicant).Count();
         }
 
         public IEnumerable<Applicant> GetPreselection()

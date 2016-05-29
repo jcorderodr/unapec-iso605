@@ -140,7 +140,7 @@
             // txtBoxMaxSalary
             // 
             this.txtBoxMaxSalary.Location = new System.Drawing.Point(158, 213);
-            this.txtBoxMaxSalary.Mask = "RD$000000.00";
+            this.txtBoxMaxSalary.Mask = "$000,000.00";
             this.txtBoxMaxSalary.Name = "txtBoxMaxSalary";
             this.txtBoxMaxSalary.Size = new System.Drawing.Size(255, 20);
             this.txtBoxMaxSalary.TabIndex = 26;
@@ -149,7 +149,7 @@
             // txtBoxMinSalary
             // 
             this.txtBoxMinSalary.Location = new System.Drawing.Point(158, 250);
-            this.txtBoxMinSalary.Mask = "RD$000000.00";
+            this.txtBoxMinSalary.Mask = "$000,000.00";
             this.txtBoxMinSalary.Name = "txtBoxMinSalary";
             this.txtBoxMinSalary.Size = new System.Drawing.Size(255, 20);
             this.txtBoxMinSalary.TabIndex = 26;

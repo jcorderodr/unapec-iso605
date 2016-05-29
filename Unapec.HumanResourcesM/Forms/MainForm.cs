@@ -19,10 +19,20 @@ namespace Unapec.HumanResourcesM.Forms
         public MainForm()
         {
             InitializeComponent();
+            this.Text = Program.AppName;
             this.WindowState = FormWindowState.Maximized;
             _forms = new List<Form>();
         }
 
+        private void CloseChildForm(object s, FormClosedEventArgs args)
+        {
+            var form = s as Form;
+            form = _forms.SingleOrDefault(i => i.CompanyName == form.CompanyName);
+            if (form != null)
+            {
+                _forms.Remove(form);
+            };
+        }
 
         private Form ShowForm<T>() where T : Form, new()
         {
@@ -35,18 +45,11 @@ namespace Unapec.HumanResourcesM.Forms
             };
 
             _forms.Add(form);
-            AddOwnedForm(form);
-
-            form.MaximizeBox = false;
-            form.MinimizeBox = false;
-            //form.ControlBox = false;
-            //form.FormBorderStyle = FormBorderStyle.None;
-            form.MdiParent = this;
-            form.WindowState = FormWindowState.Maximized;
-            form.Show();
-            
+            form.FormClosed += (s, args) => CloseChildForm(s, args);
+            this.ShowFormWithParent(form);
             return form;
         }
+
 
         private void LoadPermissions()
         {
@@ -69,7 +72,7 @@ namespace Unapec.HumanResourcesM.Forms
 
         private void jobsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+            ShowForm<Jobs.JobsView>();
         }
 
         private void createNewJobToolStripMenuItem_Click(object sender, EventArgs e)

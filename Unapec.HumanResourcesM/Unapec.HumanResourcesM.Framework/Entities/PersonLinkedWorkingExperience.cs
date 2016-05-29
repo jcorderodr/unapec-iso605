@@ -18,7 +18,7 @@ namespace Unapec.HumanResourcesM.Framework.Entities
         public string Description { get; set; }
         [StringLength(50)]
         public string CompanyName { get; set; }
-        public DateTime FromDate { get; set; }
-        public DateTime ToDate { get; set; }
+        public DateTimeOffset FromDate { get; set; }
+        public DateTimeOffset ToDate { get; set; }
     }
 }

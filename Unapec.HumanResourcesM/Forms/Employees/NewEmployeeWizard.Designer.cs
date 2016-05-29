@@ -28,13 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnContinue = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
             this.wizardTabControl = new System.Windows.Forms.TabControl();
             this.wizardTabPage1 = new System.Windows.Forms.TabPage();
+            this.wizardTab1_txtPhoneCell = new System.Windows.Forms.MaskedTextBox();
+            this.wizardTab1_txtPhoneHouse = new System.Windows.Forms.MaskedTextBox();
+            this.wizardTab1_txtIdentification = new System.Windows.Forms.MaskedTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.wizardTab1_personalImagePictureBox = new System.Windows.Forms.PictureBox();
             this.wizardTab1_groupBox1 = new System.Windows.Forms.GroupBox();
@@ -56,11 +60,12 @@
             this.wizardTabPage2 = new System.Windows.Forms.TabPage();
             this.wizardTab2_groupBox2 = new System.Windows.Forms.GroupBox();
             this.wizardTab2_gradesDataGridView = new System.Windows.Forms.DataGridView();
-            this.ColumnTitle = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnInstitution = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnStartDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnEndDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.institutionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fromDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.toDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnActionDelete = new System.Windows.Forms.DataGridViewImageColumn();
+            this.personLinkedGradingBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.wizardTab2_groupBox3 = new System.Windows.Forms.GroupBox();
             this.wizardTab2_addAcademicInfo = new System.Windows.Forms.Button();
             this.wizardTab2_ToDateTimePicker = new System.Windows.Forms.DateTimePicker();
@@ -105,14 +110,11 @@
             this.label20 = new System.Windows.Forms.Label();
             this.wizardTabPage4 = new System.Windows.Forms.TabPage();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.wizardTab4_addLang = new System.Windows.Forms.Button();
-            this.wizardTab4_LanguageLvlComboBox = new System.Windows.Forms.ComboBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.wizardTab4_LanguageComboBox = new System.Windows.Forms.ComboBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.wizardTab4_languageListView = new System.Windows.Forms.ListView();
+            this.wizardTab4_languageDataGridView = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.wizardTabPage5 = new System.Windows.Forms.TabPage();
+            this.wizardTab5_txtBoxSalary = new System.Windows.Forms.MaskedTextBox();
+            this.label32 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.wizardTab5_createInternalUser = new System.Windows.Forms.CheckBox();
             this.label31 = new System.Windows.Forms.Label();
@@ -122,11 +124,10 @@
             this.wizardTab5_jobPositionComboBox = new System.Windows.Forms.ComboBox();
             this.label29 = new System.Windows.Forms.Label();
             this.helpProvider = new System.Windows.Forms.HelpProvider();
-            this.wizardTab1_txtIdentification = new System.Windows.Forms.MaskedTextBox();
-            this.wizardTab1_txtPhoneHouse = new System.Windows.Forms.MaskedTextBox();
-            this.wizardTab1_txtPhoneCell = new System.Windows.Forms.MaskedTextBox();
-            this.label32 = new System.Windows.Forms.Label();
-            this.wizardTab5_txtBoxSalary = new System.Windows.Forms.MaskedTextBox();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.ColumnLanguageCheckBox = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.ColumnLanguageString = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnLevel = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.wizardTabControl.SuspendLayout();
             this.wizardTabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.wizardTab1_personalImagePictureBox)).BeginInit();
@@ -134,6 +135,7 @@
             this.wizardTabPage2.SuspendLayout();
             this.wizardTab2_groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.wizardTab2_gradesDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.personLinkedGradingBindingSource)).BeginInit();
             this.wizardTab2_groupBox3.SuspendLayout();
             this.wizardTab2_groupBox4.SuspendLayout();
             this.wizardTabPage3.SuspendLayout();
@@ -143,8 +145,10 @@
             this.panel1.SuspendLayout();
             this.wizardTabPage4.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.wizardTab4_languageDataGridView)).BeginInit();
             this.wizardTabPage5.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnContinue
@@ -222,6 +226,31 @@
             this.wizardTabPage1.TabIndex = 0;
             this.wizardTabPage1.Text = "Información Personal";
             this.wizardTabPage1.UseVisualStyleBackColor = true;
+            // 
+            // wizardTab1_txtPhoneCell
+            // 
+            this.wizardTab1_txtPhoneCell.Location = new System.Drawing.Point(145, 290);
+            this.wizardTab1_txtPhoneCell.Mask = "(999) 000-0000";
+            this.wizardTab1_txtPhoneCell.Name = "wizardTab1_txtPhoneCell";
+            this.wizardTab1_txtPhoneCell.Size = new System.Drawing.Size(255, 20);
+            this.wizardTab1_txtPhoneCell.TabIndex = 7;
+            // 
+            // wizardTab1_txtPhoneHouse
+            // 
+            this.wizardTab1_txtPhoneHouse.Location = new System.Drawing.Point(145, 257);
+            this.wizardTab1_txtPhoneHouse.Mask = "(999) 000-0000";
+            this.wizardTab1_txtPhoneHouse.Name = "wizardTab1_txtPhoneHouse";
+            this.wizardTab1_txtPhoneHouse.Size = new System.Drawing.Size(255, 20);
+            this.wizardTab1_txtPhoneHouse.TabIndex = 7;
+            // 
+            // wizardTab1_txtIdentification
+            // 
+            this.wizardTab1_txtIdentification.Location = new System.Drawing.Point(145, 29);
+            this.wizardTab1_txtIdentification.Mask = "000-0000000-0";
+            this.wizardTab1_txtIdentification.Name = "wizardTab1_txtIdentification";
+            this.wizardTab1_txtIdentification.Size = new System.Drawing.Size(255, 20);
+            this.wizardTab1_txtIdentification.TabIndex = 6;
+            this.wizardTab1_txtIdentification.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
             // 
             // label1
             // 
@@ -412,13 +441,15 @@
             this.wizardTab2_gradesDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.wizardTab2_gradesDataGridView.AutoGenerateColumns = false;
             this.wizardTab2_gradesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.wizardTab2_gradesDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ColumnTitle,
-            this.ColumnInstitution,
-            this.ColumnStartDate,
-            this.ColumnEndDate,
+            this.descriptionDataGridViewTextBoxColumn,
+            this.institutionDataGridViewTextBoxColumn,
+            this.fromDateDataGridViewTextBoxColumn,
+            this.toDateDataGridViewTextBoxColumn,
             this.ColumnActionDelete});
+            this.wizardTab2_gradesDataGridView.DataSource = this.personLinkedGradingBindingSource;
             this.wizardTab2_gradesDataGridView.Location = new System.Drawing.Point(3, 113);
             this.wizardTab2_gradesDataGridView.Name = "wizardTab2_gradesDataGridView";
             this.wizardTab2_gradesDataGridView.ReadOnly = true;
@@ -426,35 +457,47 @@
             this.wizardTab2_gradesDataGridView.TabIndex = 1;
             this.wizardTab2_gradesDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.wizardTab2_gradesDataGridView_CellContentClick);
             // 
-            // ColumnTitle
+            // descriptionDataGridViewTextBoxColumn
             // 
-            this.ColumnTitle.HeaderText = "Titulo Obtenido";
-            this.ColumnTitle.Name = "ColumnTitle";
-            this.ColumnTitle.ReadOnly = true;
+            this.descriptionDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.descriptionDataGridViewTextBoxColumn.DataPropertyName = "Description";
+            this.descriptionDataGridViewTextBoxColumn.HeaderText = "Título Obtenido";
+            this.descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
+            this.descriptionDataGridViewTextBoxColumn.ReadOnly = true;
+            this.descriptionDataGridViewTextBoxColumn.Width = 97;
             // 
-            // ColumnInstitution
+            // institutionDataGridViewTextBoxColumn
             // 
-            this.ColumnInstitution.HeaderText = "Institución";
-            this.ColumnInstitution.Name = "ColumnInstitution";
-            this.ColumnInstitution.ReadOnly = true;
+            this.institutionDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.institutionDataGridViewTextBoxColumn.DataPropertyName = "Institution";
+            this.institutionDataGridViewTextBoxColumn.HeaderText = "Institución";
+            this.institutionDataGridViewTextBoxColumn.Name = "institutionDataGridViewTextBoxColumn";
+            this.institutionDataGridViewTextBoxColumn.ReadOnly = true;
+            this.institutionDataGridViewTextBoxColumn.Width = 80;
             // 
-            // ColumnStartDate
+            // fromDateDataGridViewTextBoxColumn
             // 
-            dataGridViewCellStyle3.Format = "D";
-            dataGridViewCellStyle3.NullValue = null;
-            this.ColumnStartDate.DefaultCellStyle = dataGridViewCellStyle3;
-            this.ColumnStartDate.HeaderText = "Fecha de Inicio";
-            this.ColumnStartDate.Name = "ColumnStartDate";
-            this.ColumnStartDate.ReadOnly = true;
+            this.fromDateDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.fromDateDataGridViewTextBoxColumn.DataPropertyName = "FromDate";
+            dataGridViewCellStyle1.Format = "D";
+            dataGridViewCellStyle1.NullValue = null;
+            this.fromDateDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
+            this.fromDateDataGridViewTextBoxColumn.HeaderText = "Fecha de Inicio";
+            this.fromDateDataGridViewTextBoxColumn.Name = "fromDateDataGridViewTextBoxColumn";
+            this.fromDateDataGridViewTextBoxColumn.ReadOnly = true;
+            this.fromDateDataGridViewTextBoxColumn.Width = 74;
             // 
-            // ColumnEndDate
+            // toDateDataGridViewTextBoxColumn
             // 
-            dataGridViewCellStyle4.Format = "D";
-            dataGridViewCellStyle4.NullValue = null;
-            this.ColumnEndDate.DefaultCellStyle = dataGridViewCellStyle4;
-            this.ColumnEndDate.HeaderText = "Fecha de Finalización";
-            this.ColumnEndDate.Name = "ColumnEndDate";
-            this.ColumnEndDate.ReadOnly = true;
+            this.toDateDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.toDateDataGridViewTextBoxColumn.DataPropertyName = "ToDate";
+            dataGridViewCellStyle2.Format = "D";
+            dataGridViewCellStyle2.NullValue = null;
+            this.toDateDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
+            this.toDateDataGridViewTextBoxColumn.HeaderText = "Fecha de Finalización";
+            this.toDateDataGridViewTextBoxColumn.Name = "toDateDataGridViewTextBoxColumn";
+            this.toDateDataGridViewTextBoxColumn.ReadOnly = true;
+            this.toDateDataGridViewTextBoxColumn.Width = 123;
             // 
             // ColumnActionDelete
             // 
@@ -463,6 +506,10 @@
             this.ColumnActionDelete.ReadOnly = true;
             this.ColumnActionDelete.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.ColumnActionDelete.Width = 32;
+            // 
+            // personLinkedGradingBindingSource
+            // 
+            this.personLinkedGradingBindingSource.DataSource = typeof(Unapec.HumanResourcesM.Framework.Entities.PersonLinkedGrading);
             // 
             // wizardTab2_groupBox3
             // 
@@ -859,12 +906,7 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.wizardTab4_addLang);
-            this.groupBox3.Controls.Add(this.wizardTab4_LanguageLvlComboBox);
-            this.groupBox3.Controls.Add(this.label11);
-            this.groupBox3.Controls.Add(this.wizardTab4_LanguageComboBox);
-            this.groupBox3.Controls.Add(this.label10);
-            this.groupBox3.Controls.Add(this.wizardTab4_languageListView);
+            this.groupBox3.Controls.Add(this.wizardTab4_languageDataGridView);
             this.groupBox3.Location = new System.Drawing.Point(8, 6);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(329, 144);
@@ -872,68 +914,28 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Idiomas";
             // 
-            // wizardTab4_addLang
+            // wizardTab4_languageDataGridView
             // 
-            this.wizardTab4_addLang.Location = new System.Drawing.Point(284, 38);
-            this.wizardTab4_addLang.Name = "wizardTab4_addLang";
-            this.wizardTab4_addLang.Size = new System.Drawing.Size(39, 29);
-            this.wizardTab4_addLang.TabIndex = 3;
-            this.wizardTab4_addLang.Text = "OK";
-            this.wizardTab4_addLang.UseVisualStyleBackColor = true;
-            this.wizardTab4_addLang.Click += new System.EventHandler(this.wizardTab4_addLang_Click);
-            // 
-            // wizardTab4_LanguageLvlComboBox
-            // 
-            this.wizardTab4_LanguageLvlComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.wizardTab4_LanguageLvlComboBox.FormattingEnabled = true;
-            this.wizardTab4_LanguageLvlComboBox.Location = new System.Drawing.Point(103, 46);
-            this.wizardTab4_LanguageLvlComboBox.Name = "wizardTab4_LanguageLvlComboBox";
-            this.wizardTab4_LanguageLvlComboBox.Size = new System.Drawing.Size(175, 21);
-            this.wizardTab4_LanguageLvlComboBox.TabIndex = 2;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(56, 49);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(34, 13);
-            this.label11.TabIndex = 1;
-            this.label11.Text = "Nivel:";
-            // 
-            // wizardTab4_LanguageComboBox
-            // 
-            this.wizardTab4_LanguageComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.wizardTab4_LanguageComboBox.FormattingEnabled = true;
-            this.wizardTab4_LanguageComboBox.Location = new System.Drawing.Point(103, 19);
-            this.wizardTab4_LanguageComboBox.Name = "wizardTab4_LanguageComboBox";
-            this.wizardTab4_LanguageComboBox.Size = new System.Drawing.Size(175, 21);
-            this.wizardTab4_LanguageComboBox.TabIndex = 2;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(56, 22);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(41, 13);
-            this.label10.TabIndex = 1;
-            this.label10.Text = "Idioma:";
-            // 
-            // wizardTab4_languageListView
-            // 
-            this.wizardTab4_languageListView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.wizardTab4_languageListView.Location = new System.Drawing.Point(6, 73);
-            this.wizardTab4_languageListView.Name = "wizardTab4_languageListView";
-            this.wizardTab4_languageListView.Size = new System.Drawing.Size(317, 65);
-            this.wizardTab4_languageListView.TabIndex = 0;
-            this.wizardTab4_languageListView.UseCompatibleStateImageBehavior = false;
-            this.wizardTab4_languageListView.View = System.Windows.Forms.View.List;
+            this.wizardTab4_languageDataGridView.AllowUserToAddRows = false;
+            this.wizardTab4_languageDataGridView.AllowUserToDeleteRows = false;
+            this.wizardTab4_languageDataGridView.AllowUserToOrderColumns = true;
+            this.wizardTab4_languageDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.wizardTab4_languageDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ColumnLanguageCheckBox,
+            this.ColumnLanguageString,
+            this.ColumnLevel});
+            this.wizardTab4_languageDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.wizardTab4_languageDataGridView.Location = new System.Drawing.Point(3, 16);
+            this.wizardTab4_languageDataGridView.Name = "wizardTab4_languageDataGridView";
+            this.wizardTab4_languageDataGridView.ReadOnly = true;
+            this.wizardTab4_languageDataGridView.Size = new System.Drawing.Size(323, 125);
+            this.wizardTab4_languageDataGridView.TabIndex = 0;
             // 
             // groupBox2
             // 
-            this.groupBox2.Location = new System.Drawing.Point(357, 25);
+            this.groupBox2.Location = new System.Drawing.Point(343, 6);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(200, 100);
+            this.groupBox2.Size = new System.Drawing.Size(247, 248);
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Competencias";
@@ -957,6 +959,24 @@
             this.wizardTabPage5.Text = "Institucional";
             this.wizardTabPage5.UseVisualStyleBackColor = true;
             // 
+            // wizardTab5_txtBoxSalary
+            // 
+            this.wizardTab5_txtBoxSalary.Location = new System.Drawing.Point(150, 189);
+            this.wizardTab5_txtBoxSalary.Mask = "$000000.00";
+            this.wizardTab5_txtBoxSalary.Name = "wizardTab5_txtBoxSalary";
+            this.wizardTab5_txtBoxSalary.Size = new System.Drawing.Size(255, 20);
+            this.wizardTab5_txtBoxSalary.TabIndex = 18;
+            this.wizardTab5_txtBoxSalary.Validated += new System.EventHandler(this.wizardTab5_txtBoxSalary_Validated);
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Location = new System.Drawing.Point(49, 192);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(84, 13);
+            this.label32.TabIndex = 17;
+            this.label32.Text = "Salario mensual:";
+            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.wizardTab5_createInternalUser);
@@ -965,7 +985,7 @@
             this.groupBox1.Size = new System.Drawing.Size(255, 83);
             this.groupBox1.TabIndex = 16;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
+            this.groupBox1.Text = "Usuario de Sistema";
             // 
             // wizardTab5_createInternalUser
             // 
@@ -1022,6 +1042,7 @@
             this.wizardTab5_jobPositionComboBox.Name = "wizardTab5_jobPositionComboBox";
             this.wizardTab5_jobPositionComboBox.Size = new System.Drawing.Size(255, 21);
             this.wizardTab5_jobPositionComboBox.TabIndex = 10;
+            this.wizardTab5_jobPositionComboBox.SelectedValueChanged += new System.EventHandler(this.wizardTab5_jobPositionComboBox_SelectedValueChanged);
             // 
             // label29
             // 
@@ -1032,48 +1053,31 @@
             this.label29.TabIndex = 9;
             this.label29.Text = "Posición:";
             // 
-            // wizardTab1_txtIdentification
+            // errorProvider1
             // 
-            this.wizardTab1_txtIdentification.Location = new System.Drawing.Point(145, 29);
-            this.wizardTab1_txtIdentification.Mask = "000-0000000-0";
-            this.wizardTab1_txtIdentification.Name = "wizardTab1_txtIdentification";
-            this.wizardTab1_txtIdentification.Size = new System.Drawing.Size(255, 20);
-            this.wizardTab1_txtIdentification.TabIndex = 6;
-            this.wizardTab1_txtIdentification.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
+            this.errorProvider1.ContainerControl = this;
             // 
-            // wizardTab1_txtPhoneHouse
+            // ColumnLanguageCheckBox
             // 
-            this.wizardTab1_txtPhoneHouse.Location = new System.Drawing.Point(145, 257);
-            this.wizardTab1_txtPhoneHouse.Mask = "(999) 000-0000";
-            this.wizardTab1_txtPhoneHouse.Name = "wizardTab1_txtPhoneHouse";
-            this.wizardTab1_txtPhoneHouse.Size = new System.Drawing.Size(255, 20);
-            this.wizardTab1_txtPhoneHouse.TabIndex = 7;
+            this.ColumnLanguageCheckBox.HeaderText = "";
+            this.ColumnLanguageCheckBox.Name = "ColumnLanguageCheckBox";
+            this.ColumnLanguageCheckBox.ReadOnly = true;
+            this.ColumnLanguageCheckBox.Width = 25;
             // 
-            // wizardTab1_txtPhoneCell
+            // ColumnLanguageString
             // 
-            this.wizardTab1_txtPhoneCell.Location = new System.Drawing.Point(145, 290);
-            this.wizardTab1_txtPhoneCell.Mask = "(999) 000-0000";
-            this.wizardTab1_txtPhoneCell.Name = "wizardTab1_txtPhoneCell";
-            this.wizardTab1_txtPhoneCell.Size = new System.Drawing.Size(255, 20);
-            this.wizardTab1_txtPhoneCell.TabIndex = 7;
+            this.ColumnLanguageString.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ColumnLanguageString.HeaderText = "Idioma";
+            this.ColumnLanguageString.Name = "ColumnLanguageString";
+            this.ColumnLanguageString.ReadOnly = true;
             // 
-            // label32
+            // ColumnLevel
             // 
-            this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(49, 192);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(84, 13);
-            this.label32.TabIndex = 17;
-            this.label32.Text = "Salario mensual:";
-            // 
-            // wizardTab5_txtBoxSalary
-            // 
-            this.wizardTab5_txtBoxSalary.Location = new System.Drawing.Point(150, 189);
-            this.wizardTab5_txtBoxSalary.Mask = "RD$000000.00";
-            this.wizardTab5_txtBoxSalary.Name = "wizardTab5_txtBoxSalary";
-            this.wizardTab5_txtBoxSalary.Size = new System.Drawing.Size(255, 20);
-            this.wizardTab5_txtBoxSalary.TabIndex = 18;
-            this.wizardTab5_txtBoxSalary.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
+            this.ColumnLevel.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.ColumnLevel.HeaderText = "Nivel";
+            this.ColumnLevel.Name = "ColumnLevel";
+            this.ColumnLevel.ReadOnly = true;
+            this.ColumnLevel.Width = 37;
             // 
             // NewEmployeeWizard
             // 
@@ -1096,6 +1100,7 @@
             this.wizardTabPage2.ResumeLayout(false);
             this.wizardTab2_groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.wizardTab2_gradesDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.personLinkedGradingBindingSource)).EndInit();
             this.wizardTab2_groupBox3.ResumeLayout(false);
             this.wizardTab2_groupBox3.PerformLayout();
             this.wizardTab2_groupBox4.ResumeLayout(false);
@@ -1110,11 +1115,12 @@
             this.panel1.PerformLayout();
             this.wizardTabPage4.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.wizardTab4_languageDataGridView)).EndInit();
             this.wizardTabPage5.ResumeLayout(false);
             this.wizardTabPage5.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1188,21 +1194,10 @@
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.TabPage wizardTabPage4;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Button wizardTab4_addLang;
-        private System.Windows.Forms.ComboBox wizardTab4_LanguageLvlComboBox;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.ComboBox wizardTab4_LanguageComboBox;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.ListView wizardTab4_languageListView;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button wizardTab2_addAcademicInfo;
         private System.Windows.Forms.HelpProvider helpProvider;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTitle;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnInstitution;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnStartDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnEndDate;
-        private System.Windows.Forms.DataGridViewImageColumn ColumnActionDelete;
         private System.Windows.Forms.TabPage wizardTabPage5;
         private System.Windows.Forms.ComboBox wizardTab5_jobPositionComboBox;
         private System.Windows.Forms.Label label29;
@@ -1217,5 +1212,16 @@
         private System.Windows.Forms.MaskedTextBox wizardTab1_txtPhoneHouse;
         private System.Windows.Forms.MaskedTextBox wizardTab5_txtBoxSalary;
         private System.Windows.Forms.Label label32;
+        private System.Windows.Forms.DataGridViewTextBoxColumn descriptionDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn institutionDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fromDateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn toDateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewImageColumn ColumnActionDelete;
+        private System.Windows.Forms.BindingSource personLinkedGradingBindingSource;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.DataGridView wizardTab4_languageDataGridView;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn ColumnLanguageCheckBox;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnLanguageString;
+        private System.Windows.Forms.DataGridViewComboBoxColumn ColumnLevel;
     }
 }

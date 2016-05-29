@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using Unapec.HumanResourcesM.Framework.Entities;
 using Unapec.HumanResourcesM.Framework.Helpers;
@@ -19,11 +20,14 @@ namespace Unapec.HumanResourcesM.Forms.Employees
         private readonly int lastStep;
         private int presentStep = 0;
 
+        private EmployeePosition _position;
+
         private IList<PersonLinkedGrading> _dataSourceGradingView;
 
         public NewEmployeeWizard()
         {
             InitializeComponent();
+            this.Text = "Vista de Emplados";
             _employeeService = new EmployeeService();
             _departmentService = new DepartmentService();
             _userService = new UserService();
@@ -41,11 +45,32 @@ namespace Unapec.HumanResourcesM.Forms.Employees
             wizardTab2_gradingLvl.SetComboBoxDatasourceWithCatalogs(_catalogService.Get(Catalog.GRADE_LVL));
 
             //  wizardTab4
-            wizardTab4_LanguageComboBox.SetComboBoxDatasourceWithCatalogs(_catalogService.Get(Catalog.LANGUAGE));
-            wizardTab4_LanguageLvlComboBox.SetComboBoxDatasourceWithCatalogs(_catalogService.Get(Catalog.SKILL_LVL));
+            var languages = _catalogService.Get(Catalog.LANGUAGE);
+            var langLevels = _catalogService.Get(Catalog.SKILL_LVL);
+
+            ColumnLanguageCheckBox.ThreeState = true;
+            ColumnLevel.DataSource = langLevels.ToList();
+            ColumnLevel.ValueType = typeof(Catalog);
+            ColumnLevel.DisplayMember = "Value";
+            foreach (var item in languages)
+            {
+                var row = new DataGridViewRow
+                {
+                    Tag = item
+                };
+                var chkBoxCell = ColumnLanguageCheckBox.CellTemplate.Clone() as DataGridViewCell;
+                var langCell = ColumnLanguageString.CellTemplate.Clone() as DataGridViewCell;
+                langCell.Value = item.Value;
+                var lvlCell = ColumnLevel.CellTemplate.Clone() as DataGridViewCell;
+                row.Cells.AddRange(chkBoxCell, langCell, lvlCell);
+                wizardTab4_languageDataGridView.Rows.Add(row);
+            }
+
 
             //  wizardTab5
-
+            var departments = _departmentService.GetDepartments();
+            wizardTab5_DepartmentComboBox.SetComboBoxDatasource(departments, "Name", true);
+            wizardTab5_jobPositionComboBox.SetComboBoxDatasource(new EmployeePosition[0], "Name", true);
         }
 
         private void CheckStepUI(int step)
@@ -74,6 +99,18 @@ namespace Unapec.HumanResourcesM.Forms.Employees
                     break;
             }
             wizardTabControl.SelectedIndex = step;
+        }
+
+        private void AddGradingToGradingGridView(PersonLinkedGrading grading)
+        {
+            _dataSourceGradingView.Add(grading);
+            wizardTab2_gradesDataGridView.DataSource = _dataSourceGradingView;
+        }
+
+        private void RemoveGradingToGradingGridView(int position)
+        {
+            _dataSourceGradingView.RemoveAt(position);
+            wizardTab2_gradesDataGridView.DataSource = _dataSourceGradingView;
         }
 
         private bool CheckUIValidations()
@@ -156,17 +193,19 @@ namespace Unapec.HumanResourcesM.Forms.Employees
 
             //  wizardTab4
             {
-                var listItems = wizardTab4_languageListView.Items.OfType<ListViewItem>();
-                foreach (var lang in listItems)
+                List<DataGridViewRow> list = wizardTab4_languageDataGridView.Rows.Cast<DataGridViewRow>()
+                                                .Where(k => Convert.ToBoolean(k.Cells[ColumnLanguageCheckBox.Name].Value) == true).ToList();
+
+                foreach (var row in wizardTab4_languageDataGridView.Rows.OfType<DataGridViewRow>())
                 {
-                    var value = lang.Tag as Catalog;
-                    employee.Details.Languages.Add(new PersonLinkedDetail
-                    {
-                        Category = value.Category,
-                        SubCategoryId = value.SubCategoryId,
-                        PersonId = employee.Id,
-                        Type = PersonLinkedType.Candidate
-                    });
+                    var value = row;
+                    //employee.Details.Languages.Add(new PersonLinkedDetail
+                    //{
+                    //    Category = value.Category,
+                    //    SubCategoryId = value.SubCategoryId,
+                    //    PersonId = employee.Id,
+                    //    Type = PersonLinkedType.Candidate
+                    //});
                 }
             }
 
@@ -179,6 +218,8 @@ namespace Unapec.HumanResourcesM.Forms.Employees
 
             //
             employee = _employeeService.Create(employee);
+
+            //  check for additional parameters
             if (wizardTab5_createInternalUser.Checked)
             {
                 var user = new User
@@ -236,7 +277,7 @@ namespace Unapec.HumanResourcesM.Forms.Employees
             wizardTab3_panel3_dateTimePickerStart.Format = DateTimePickerFormat.Custom;
             wizardTab3_panel3_dateTimePickerStart.CustomFormat = FormatHelper.DATE_FULL_FORMAT;
             //  wizardTab5
-            wizardTab5_jobPositionComboBox.Items.Add("--");
+            
         }
 
         private void wizardTabControl_Selected(object sender, TabControlEventArgs e)
@@ -255,18 +296,6 @@ namespace Unapec.HumanResourcesM.Forms.Employees
             }
         }
 
-        private void AddGradingToGradingGridView(PersonLinkedGrading grading)
-        {
-            _dataSourceGradingView.Add(grading);
-            wizardTab2_gradesDataGridView.DataSource = _dataSourceGradingView;
-        }
-
-        private void RemoveGradingToGradingGridView(int position)
-        {
-            _dataSourceGradingView.RemoveAt(position);
-            wizardTab2_gradesDataGridView.DataSource = _dataSourceGradingView;
-        }
-
         private void wizardTab2_addAcademicInfo_Click(object sender, EventArgs e)
         {
             var grading = new PersonLinkedGrading
@@ -276,7 +305,8 @@ namespace Unapec.HumanResourcesM.Forms.Employees
                 Description = wizardTab2_txtDescription.Text,
                 Institution = wizardTab2_Institution.Text
             };
-
+            wizardTab2_txtDescription.Clear();
+            wizardTab2_Institution.Clear();
             AddGradingToGradingGridView(grading);
         }
 
@@ -289,39 +319,39 @@ namespace Unapec.HumanResourcesM.Forms.Employees
             }
         }
 
-        private void wizardTab4_addLang_Click(object sender, EventArgs e)
-        {
-            var element = wizardTab4_LanguageComboBox.SelectedValue as Catalog;
-            var lvl = wizardTab4_LanguageLvlComboBox.SelectedValue as Catalog;
-
-            var personDetail = new PersonLinkedDetail
-            {
-                Category = element.Category,
-                SubCategoryId = element.SubCategoryId,
-                Type = PersonLinkedType.Candidate,
-                LevelSubCategoryId = lvl.SubCategoryId
-            };
-            var listItem = new ListViewItem
-            {
-                Tag = personDetail,
-                Text = string.Format("{0} [{1}]", element.Value, lvl.Value)
-            };
-            wizardTab4_languageListView.Items.Add(listItem);
-        }
-
+      
         private void wizardTab5_DepartmentComboBox_SelectedValueChanged(object sender, EventArgs e)
         {
             var department = wizardTab5_DepartmentComboBox.SelectedValue as Department;
             if (department == null)
             {
-                wizardTab5_jobPositionComboBox.DataSource = null;
-                wizardTab5_jobPositionComboBox.Items.Clear();
-                wizardTab5_jobPositionComboBox.Items.Add("--");
+                wizardTab5_jobPositionComboBox.SetComboBoxDatasource(new EmployeePosition[0], "Name", true);
             }
 
             var positions = _departmentService.GetPositions(department.Id);
-            wizardTab5_jobPositionComboBox.DataSource = positions;
-            wizardTab5_jobPositionComboBox.DisplayMember = "Description";
+            wizardTab5_jobPositionComboBox.SetComboBoxDatasource(positions, "Name", true);
+        }
+
+        private void wizardTab5_jobPositionComboBox_SelectedValueChanged(object sender, EventArgs e)
+        {
+            _position = wizardTab5_jobPositionComboBox.SelectedValue as EmployeePosition;
+            
+        }
+
+        private void wizardTab5_txtBoxSalary_Validated(object sender, EventArgs e)
+        {
+            var numberString = Regex.Replace(wizardTab5_txtBoxSalary.Text, "[^0-9.]", "");
+            var salary = Convert.ToDecimal(string.IsNullOrEmpty(numberString) ? "0.00M" : numberString);
+            if(salary > _position.PositionMaxSalary || salary < _position.PositionMinSalary)
+            {
+                wizardTab5_txtBoxSalary.Focus();
+                errorProvider1.SetError(wizardTab5_txtBoxSalary, $"El rango de salario debe ser válido (${_position.PositionMinSalary} - ${_position.PositionMaxSalary}).");
+            }
+            else
+            {
+                errorProvider1.Clear();
+            }
+
         }
     }
 }

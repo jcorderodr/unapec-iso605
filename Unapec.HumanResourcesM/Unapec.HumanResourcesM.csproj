@@ -91,6 +91,12 @@
     <Compile Include="Forms\FormBaseUtility.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Forms\Jobs\JobsView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Jobs\JobsView.Designer.cs">
+      <DependentUpon>JobsView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Jobs\NewJobOffer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -154,6 +160,8 @@
     <Compile Include="Forms\Utilities\Options.Designer.cs">
       <DependentUpon>Options.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\EmployeeViewModel.cs" />
+    <Compile Include="Models\JobsViewModel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\Candidates\NewApplicationWizard.resx">
@@ -167,6 +175,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormBase.resx">
       <DependentUpon>FormBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Jobs\JobsView.resx">
+      <DependentUpon>JobsView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Jobs\NewJobOffer.resx">
       <DependentUpon>NewJobOffer.cs</DependentUpon>
@@ -196,6 +207,8 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\Unapec.HumanResourcesM.Framework.Entities.PersonLinkedGrading.datasource" />
+    <None Include="Properties\DataSources\Unapec.HumanResourcesM.Models.EmployeeViewModel.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

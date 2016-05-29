@@ -26,5 +26,6 @@ namespace Unapec.HumanResourcesM.Framework.Helpers
             return (T)Enum.Parse(typeof(T), value);
         }
 
+
     }
 }
