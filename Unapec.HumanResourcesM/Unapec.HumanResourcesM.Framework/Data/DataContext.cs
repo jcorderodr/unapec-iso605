@@ -4,8 +4,6 @@ using Unapec.HumanResourcesM.Framework.Entities;
 namespace Unapec.HumanResourcesM.Framework.Data
 {
 
-
-
     public class DataContext : DbContext
     {
         public DataContext()
@@ -19,7 +17,8 @@ namespace Unapec.HumanResourcesM.Framework.Data
             base.OnModelCreating(modelBuilder);
             
             modelBuilder.Entity<User>().HasMany(p => p.Permissions);
-
+            modelBuilder.Entity<Applicant>().Ignore(p=> p.Details);
+            modelBuilder.Entity<Employee>().Ignore(p => p.Details);
         }
 
         public DbSet<Catalog> Catalogs { get; set; }
@@ -30,6 +29,7 @@ namespace Unapec.HumanResourcesM.Framework.Data
         public DbSet<Applicant> Applicants { get; set; }
         public DbSet<ApplicantDetail> ApplicantDetails { get; set; }
         public DbSet<Employee> Employees { get; set; }
+        public DbSet<EmployeeDetail> EmployeeDetails { get; set; }
         public DbSet<PersonLinkedDetail> PersonLinkedDetails { get; set; }
         public DbSet<Department> Departments { get; set; }
         public DbSet<Job> JobOffers { get; set; }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text.RegularExpressions;
 using Unapec.HumanResourcesM.Framework.Entities;
 using Unapec.HumanResourcesM.Framework.Helpers;
 using Unapec.HumanResourcesM.Framework.Services;
@@ -6,7 +7,7 @@ using Unapec.HumanResourcesM.Resources;
 
 namespace Unapec.HumanResourcesM.Forms.Jobs
 {
-    public partial class NewJobOffer : FormBaseUtility
+    public partial class NewJobOffer : FormBase
     {
 
         private readonly DepartmentService _departmentService;
@@ -27,6 +28,8 @@ namespace Unapec.HumanResourcesM.Forms.Jobs
             var departments = _departmentService.GetDepartments();
             departmentComboBox.SetComboBoxDatasource(departments, "Name", true);
             jobPositionComboBox.SetComboBoxDatasource(new EmployeePosition[0], "Name", true);
+            txtBoxMaxSalary.SetMaskedTextBoxCurrencyFormat();
+            txtBoxMinSalary.SetMaskedTextBoxCurrencyFormat();
         }
 
         private bool IsInvalid()
@@ -61,8 +64,10 @@ namespace Unapec.HumanResourcesM.Forms.Jobs
             var department = departmentComboBox.SelectedValue as Department;
             var position = jobPositionComboBox.SelectedValue as EmployeePosition;
 
-            decimal max = txtBoxMaxSalary.Text.As<decimal>();
-            decimal min = txtBoxMinSalary.Text.As<decimal>();
+            var maxString = Regex.Replace(txtBoxMaxSalary.Text, "[^0-9.]", "");
+            var minString = Regex.Replace(txtBoxMinSalary.Text, "[^0-9.]", "");
+            decimal max = maxString.As<decimal>();
+            decimal min = minString.As<decimal>();
 
             var jobOffer = new Job
             {

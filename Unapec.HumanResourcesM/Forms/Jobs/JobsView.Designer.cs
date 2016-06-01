@@ -111,11 +111,10 @@
             // 
             // ColumnTotalApplicants
             // 
-            this.ColumnTotalApplicants.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.ColumnTotalApplicants.HeaderText = "Cantidad de Aplicantes";
             this.ColumnTotalApplicants.Name = "ColumnTotalApplicants";
             this.ColumnTotalApplicants.ReadOnly = true;
-            this.ColumnTotalApplicants.Width = 129;
+            this.ColumnTotalApplicants.Width = 50;
             // 
             // JobsView
             // 

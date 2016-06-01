@@ -176,4 +176,7 @@ Está seguro que ha revisado y completado la información correctamente?</value>
   <data name="Message_JobOfferCreated" xml:space="preserve">
     <value>Nueva oferta de empleo registrada correctamente.</value>
   </data>
+  <data name="Message_FormSubmitSuccess" xml:space="preserve">
+    <value>Los datos se han guardado exitosamente.</value>
+  </data>
 </root>

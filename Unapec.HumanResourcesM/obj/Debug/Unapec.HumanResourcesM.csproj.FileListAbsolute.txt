@@ -30,3 +30,7 @@ C:\Users\José\Documents\UNAPEC\UNAPEC-ISO605\Unapec.HumanResourcesM\bin\Debug\L
 C:\Users\José\Documents\UNAPEC\UNAPEC-ISO605\Unapec.HumanResourcesM\bin\Debug\LinqKit.xml
 C:\Users\José\Documents\UNAPEC\UNAPEC-ISO605\Unapec.HumanResourcesM\obj\Debug\Unapec.HumanResourcesM.Forms.Learning.CoursesView.resources
 C:\Users\José\Documents\UNAPEC\UNAPEC-ISO605\Unapec.HumanResourcesM\obj\Debug\Unapec.HumanResourcesM.Forms.Learning.NewLearningOffer.resources
+C:\Users\José\Documents\UNAPEC\UNAPEC-ISO605\Unapec.HumanResourcesM\obj\Debug\Unapec.HumanResourcesM.Forms.Utilities.AboutBox.resources
+C:\Users\José\Documents\UNAPEC\UNAPEC-ISO605\Unapec.HumanResourcesM\obj\Debug\Unapec.HumanResourcesM.Forms.Utilities.CatalogManagement.resources
+C:\Users\José\Documents\UNAPEC\UNAPEC-ISO605\Unapec.HumanResourcesM\obj\Debug\Unapec.HumanResourcesM.Forms.Candidates.EmployeeSelectionFromCandidate.resources
+C:\Users\José\Documents\UNAPEC\UNAPEC-ISO605\Unapec.HumanResourcesM\obj\Debug\Unapec.HumanResourcesM.Forms.Reports.RptEmployees.resources

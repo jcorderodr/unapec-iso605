@@ -9,11 +9,12 @@ namespace Unapec.HumanResourcesM.Framework.Entities
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        public int PersonId { get; set; }
         public PersonLinkedType Type { get; set; }
+        [Required]
         [StringLength(10)]
         public string Category { get; set; }
+        [Required]
         public int SubCategoryId { get; set; }
-        public int LevelSubCategoryId { get; set; }
+        public int? LevelSubCategoryId { get; set; }
     }
 }

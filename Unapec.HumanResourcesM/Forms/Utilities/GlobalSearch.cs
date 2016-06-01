@@ -10,7 +10,7 @@ using Unapec.HumanResourcesM.Resources;
 
 namespace Unapec.HumanResourcesM.Forms.Utilities
 {
-    public partial class GlobalSearch : Form
+    public partial class GlobalSearch : FormBaseUtility
     {
 
         enum SearchResultType

@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using Unapec.HumanResourcesM.Framework.Entities;
 using Unapec.HumanResourcesM.Framework.Services;
 using Unapec.HumanResourcesM.Models;
@@ -34,6 +28,7 @@ namespace Unapec.HumanResourcesM.Forms.Jobs
             columns["ColumnName"].DataPropertyName = "Name";
             columns["ColumnDate"].DataPropertyName = "CreationDate";
             columns["ColumnTotalApplicants"].DataPropertyName = "TotalApplicants";
+            ColumnDate.SetDateDataGridViewTextBoxColumnFormat();
         }
 
         private void FillComponents()

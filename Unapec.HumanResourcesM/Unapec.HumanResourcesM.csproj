@@ -122,6 +122,18 @@
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\MessagesExtensions.cs" />
+    <Compile Include="Forms\Reports\RptApplicantsHistory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Reports\RptApplicantsHistory.Designer.cs">
+      <DependentUpon>RptApplicantsHistory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Reports\RptEmployees.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Reports\RptEmployees.Designer.cs">
+      <DependentUpon>RptEmployees.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Security\ChangePassword.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -153,6 +165,18 @@
       <DependentUpon>UsersView.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\UIExtensions.cs" />
+    <Compile Include="Forms\Utilities\AboutBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Utilities\AboutBox.Designer.cs">
+      <DependentUpon>AboutBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Utilities\CatalogManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Utilities\CatalogManagement.Designer.cs">
+      <DependentUpon>CatalogManagement.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Utilities\GlobalSearch.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -166,11 +190,15 @@
     <Compile Include="Forms\Utilities\Options.Designer.cs">
       <DependentUpon>Options.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\ApplicantModel.cs" />
     <Compile Include="Models\CourseModel.cs" />
     <Compile Include="Models\EmployeeViewModel.cs" />
     <Compile Include="Models\JobsViewModel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\Candidates\EmployeeSelectionFromCandidate.resx">
+      <DependentUpon>EmployeeSelectionFromCandidate.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Candidates\NewApplicationWizard.resx">
       <DependentUpon>NewApplicationWizard.cs</DependentUpon>
     </EmbeddedResource>
@@ -198,6 +226,9 @@
     <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Reports\RptEmployees.resx">
+      <DependentUpon>RptEmployees.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Security\NewUser.resx">
       <DependentUpon>NewUser.cs</DependentUpon>
     </EmbeddedResource>
@@ -206,6 +237,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Security\UsersPermissions.resx">
       <DependentUpon>UsersPermissions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Utilities\AboutBox.resx">
+      <DependentUpon>AboutBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Utilities\CatalogManagement.resx">
+      <DependentUpon>CatalogManagement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Utilities\GlobalSearch.resx">
       <DependentUpon>GlobalSearch.cs</DependentUpon>
@@ -220,7 +257,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\Unapec.HumanResourcesM.Framework.Entities.Catalog.datasource" />
     <None Include="Properties\DataSources\Unapec.HumanResourcesM.Framework.Entities.PersonLinkedGrading.datasource" />
+    <None Include="Properties\DataSources\Unapec.HumanResourcesM.Models.ApplicantModel.datasource" />
     <None Include="Properties\DataSources\Unapec.HumanResourcesM.Models.CourseModel.datasource" />
     <None Include="Properties\DataSources\Unapec.HumanResourcesM.Models.EmployeeViewModel.datasource" />
     <None Include="Properties\Settings.settings">
@@ -246,9 +285,7 @@
       <Name>Unapec.HumanResourcesM.Framework</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Forms\Reports\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

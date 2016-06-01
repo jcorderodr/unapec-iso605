@@ -10,7 +10,7 @@ namespace Unapec.HumanResourcesM.Framework.Helpers
 
         public const String DATE_FULL_FORMAT = "dd MMMM yyyy";
 
-        public const String DATE_TIME_FULL_FORMAT = "D";
+        public const String DATE_TIME_FULL_FORMAT = "dddd dd MMMM yyyy, hh:mm";
 
         public const String MONEY_CURRENCY_LETTER = "C2";
         

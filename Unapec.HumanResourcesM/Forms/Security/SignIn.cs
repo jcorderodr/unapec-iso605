@@ -1,4 +1,5 @@
 ﻿using System;
+using Unapec.HumanResourcesM.Framework.Entities;
 using Unapec.HumanResourcesM.Framework.Services;
 using Unapec.HumanResourcesM.Resources;
 
@@ -7,11 +8,31 @@ namespace Unapec.HumanResourcesM.Forms.Security
     public partial class SignIn : FormBaseUtility
     {
         private readonly UserService _userService;
+        private Employee _user;
 
         public SignIn()
         {
             InitializeComponent();
+            ShowApplicantFooter = true;
+            //
             _userService = new UserService();
+        }
+
+        public bool ShowApplicantFooter
+        {
+
+            set
+            {
+                label1.Visible = value;
+                label2.Visible = value;
+                linkLabelRegisterCandidate.Visible = value;
+            }
+        }
+
+
+        public Employee GetSigned()
+        {
+            return _user;
         }
 
         private void SignIn_Load(object sender, EventArgs e)
@@ -33,7 +54,7 @@ namespace Unapec.HumanResourcesM.Forms.Security
             //    this.ShowErrorMessage(Strings.Message_WrongCredentials);
             //    return;
             //}
-            //Program.SignedUser = tryLogin;
+            //_user = tryLogin;
             this.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.Close();
         }

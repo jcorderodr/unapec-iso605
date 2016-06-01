@@ -21,7 +21,12 @@ namespace Unapec.HumanResourcesM.Framework.Services
 
         public Employee Create(Employee employee)
         {
+            //employee.Status = EmployeeStatus.Normal;
             _context.Employees.Add(employee);
+            _context.SaveChanges();
+            //
+            employee.Details.EmployeeId = employee.Id;
+            _context.EmployeeDetails.Add(employee.Details);
             _context.SaveChanges();
             return employee;
         }
@@ -43,21 +48,43 @@ namespace Unapec.HumanResourcesM.Framework.Services
             return employee;
         }
 
-        public Employee TransformApplicantToEmployee(Applicant applicant)
+        public void TransformApplicantToEmployee(IEnumerable<Applicant> applicants)
         {
-            applicant = _context.Applicants.SingleOrDefault(p => p.Id == applicant.Id);
-            if (applicant == null) return null;
-
-            applicant.Status = EmployeeStatus.Normal;
-            _context.Applicants.AddOrUpdate(applicant);
-
-            var employee = new Employee
+            
+            foreach (var applicant in applicants)
             {
-                Name = applicant.Name,
-                Identification = applicant.Username,
-            };
 
-            return Create(employee);
+                applicant.Status = EmployeeStatus.Normal;
+                _context.Applicants.AddOrUpdate(applicant);
+
+                var employee = new Employee
+                {
+                    RegisteredDate = DateTimeOffset.Now,
+                    BirthDate = applicant.BirthDate,
+                    Identification = applicant.Username,
+                    LastName = applicant.LastName,
+                    Name = applicant.Name,
+                    PhoneCell = applicant.PhoneCell,
+                    PhoneHouse = applicant.PhoneHouse,
+                    Address = applicant.Address,
+                    BirthPlace = applicant.BirthPlace,
+                    DepartmentId = applicant.JobOffer.Position.Department.Id,
+                    PositionId = applicant.JobOffer.PositionId,
+                    Nationality = applicant.Nationality,
+                    Sex = applicant.Sex,
+                    Status = EmployeeStatus.Normal,
+                    Details = new EmployeeDetail
+                    {
+                        GradingLvlId = applicant.Details.GradingLvlId,
+                        Salary = applicant.JobOffer.MixOfferSalary,
+                        Gradings = applicant.Details.Gradings,
+                        LinkedDetails = applicant.Details.LinkedDetails,
+                        WorkingExperience = applicant.Details.WorkingExperience
+                    }
+                };
+
+                Create(employee);
+            }
         }
 
         public IEnumerable<Employee> DoEmployeeSearch(string name, EmployeeStatus status, int departmentId, int positionId)

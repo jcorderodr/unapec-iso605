@@ -22,7 +22,10 @@ namespace Unapec.HumanResourcesM.Forms.Learning
         private void FillComponents()
         {
             var courses = _courseService.GetCourses().Select(To);
-            dataGridView1.DataSource = courses;
+            dataGridView1.DataSource = courses.ToList();
+
+            endDateDataGridViewTextBoxColumn.SetDateDataGridViewTextBoxColumnFormat();
+            startDateDataGridViewTextBoxColumn.SetDateDataGridViewTextBoxColumnFormat();
         }
 
         private CourseModel To(Course course)

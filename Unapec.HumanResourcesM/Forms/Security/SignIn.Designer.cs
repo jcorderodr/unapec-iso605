@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtUsername = new System.Windows.Forms.TextBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -37,7 +38,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.linkLabelRegisterCandidate = new System.Windows.Forms.LinkLabel();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtUsername = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -57,13 +57,21 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Inicio de sesión para empleados";
             // 
+            // txtUsername
+            // 
+            this.txtUsername.Location = new System.Drawing.Point(156, 29);
+            this.txtUsername.Name = "txtUsername";
+            this.txtUsername.Size = new System.Drawing.Size(187, 20);
+            this.txtUsername.TabIndex = 0;
+            this.txtUsername.Validated += new System.EventHandler(this.txtUsername_Validated);
+            // 
             // txtPassword
             // 
             this.txtPassword.Location = new System.Drawing.Point(156, 62);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(187, 20);
-            this.txtPassword.TabIndex = 3;
+            this.txtPassword.TabIndex = 1;
             this.txtPassword.UseSystemPasswordChar = true;
             // 
             // label4
@@ -139,14 +147,6 @@
             this.label2.TabIndex = 5;
             this.label2.Text = "para registrarte y aplicar para un puesto.";
             // 
-            // txtUsername
-            // 
-            this.txtUsername.Location = new System.Drawing.Point(156, 29);
-            this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(187, 20);
-            this.txtUsername.TabIndex = 4;
-            this.txtUsername.Validated += new System.EventHandler(this.txtUsername_Validated);
-            // 
             // SignIn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -160,7 +160,6 @@
             this.Controls.Add(this.btnAccept);
             this.Controls.Add(this.groupBox1);
             this.Name = "SignIn";
-            this.Text = "";
             this.Load += new System.EventHandler(this.SignIn_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

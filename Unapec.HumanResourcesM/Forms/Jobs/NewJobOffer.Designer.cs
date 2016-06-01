@@ -28,19 +28,75 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.txtBoxMinSalary = new System.Windows.Forms.MaskedTextBox();
+            this.txtBoxMaxSalary = new System.Windows.Forms.MaskedTextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.btnCancel = new System.Windows.Forms.Button();
+            this.btnAccept = new System.Windows.Forms.Button();
             this.label31 = new System.Windows.Forms.Label();
             this.departmentComboBox = new System.Windows.Forms.ComboBox();
             this.label30 = new System.Windows.Forms.Label();
             this.txtBoxJobOfferDescription = new System.Windows.Forms.TextBox();
             this.jobPositionComboBox = new System.Windows.Forms.ComboBox();
             this.label29 = new System.Windows.Forms.Label();
-            this.btnAccept = new System.Windows.Forms.Button();
-            this.btnCancel = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtBoxMaxSalary = new System.Windows.Forms.MaskedTextBox();
-            this.txtBoxMinSalary = new System.Windows.Forms.MaskedTextBox();
             this.SuspendLayout();
+            // 
+            // txtBoxMinSalary
+            // 
+            this.txtBoxMinSalary.Location = new System.Drawing.Point(158, 250);
+            this.txtBoxMinSalary.Mask = "$000,000.00";
+            this.txtBoxMinSalary.Name = "txtBoxMinSalary";
+            this.txtBoxMinSalary.Size = new System.Drawing.Size(255, 20);
+            this.txtBoxMinSalary.TabIndex = 4;
+            // 
+            // txtBoxMaxSalary
+            // 
+            this.txtBoxMaxSalary.Location = new System.Drawing.Point(158, 213);
+            this.txtBoxMaxSalary.Mask = "$000,000.00";
+            this.txtBoxMaxSalary.Name = "txtBoxMaxSalary";
+            this.txtBoxMaxSalary.Size = new System.Drawing.Size(255, 20);
+            this.txtBoxMaxSalary.TabIndex = 3;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(10, 253);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(130, 13);
+            this.label3.TabIndex = 25;
+            this.label3.Text = "Mínimo salario del puesto:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(9, 216);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(131, 13);
+            this.label2.TabIndex = 25;
+            this.label2.Text = "Máximo salario del puesto:";
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCancel.Location = new System.Drawing.Point(341, 292);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(75, 23);
+            this.btnCancel.TabIndex = 6;
+            this.btnCancel.Text = "&Cancelar";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
+            // btnAccept
+            // 
+            this.btnAccept.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAccept.Location = new System.Drawing.Point(260, 292);
+            this.btnAccept.Name = "btnAccept";
+            this.btnAccept.Size = new System.Drawing.Size(75, 23);
+            this.btnAccept.TabIndex = 5;
+            this.btnAccept.Text = "Guardar";
+            this.btnAccept.UseVisualStyleBackColor = true;
+            this.btnAccept.Click += new System.EventHandler(this.btnAccept_Click);
             // 
             // label31
             // 
@@ -58,7 +114,7 @@
             this.departmentComboBox.Location = new System.Drawing.Point(158, 23);
             this.departmentComboBox.Name = "departmentComboBox";
             this.departmentComboBox.Size = new System.Drawing.Size(255, 21);
-            this.departmentComboBox.TabIndex = 19;
+            this.departmentComboBox.TabIndex = 0;
             this.departmentComboBox.SelectedValueChanged += new System.EventHandler(this.departmentComboBox_SelectedValueChanged);
             // 
             // label30
@@ -76,7 +132,7 @@
             this.txtBoxJobOfferDescription.Multiline = true;
             this.txtBoxJobOfferDescription.Name = "txtBoxJobOfferDescription";
             this.txtBoxJobOfferDescription.Size = new System.Drawing.Size(255, 98);
-            this.txtBoxJobOfferDescription.TabIndex = 17;
+            this.txtBoxJobOfferDescription.TabIndex = 2;
             // 
             // jobPositionComboBox
             // 
@@ -85,7 +141,7 @@
             this.jobPositionComboBox.Location = new System.Drawing.Point(158, 61);
             this.jobPositionComboBox.Name = "jobPositionComboBox";
             this.jobPositionComboBox.Size = new System.Drawing.Size(255, 21);
-            this.jobPositionComboBox.TabIndex = 16;
+            this.jobPositionComboBox.TabIndex = 1;
             this.jobPositionComboBox.SelectedValueChanged += new System.EventHandler(this.jobPositionComboBox_SelectedValueChanged);
             // 
             // label29
@@ -96,64 +152,6 @@
             this.label29.Size = new System.Drawing.Size(50, 13);
             this.label29.TabIndex = 15;
             this.label29.Text = "Posición:";
-            // 
-            // btnAccept
-            // 
-            this.btnAccept.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAccept.Location = new System.Drawing.Point(260, 292);
-            this.btnAccept.Name = "btnAccept";
-            this.btnAccept.Size = new System.Drawing.Size(75, 23);
-            this.btnAccept.TabIndex = 21;
-            this.btnAccept.Text = "Guardar";
-            this.btnAccept.UseVisualStyleBackColor = true;
-            this.btnAccept.Click += new System.EventHandler(this.btnAccept_Click);
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCancel.Location = new System.Drawing.Point(341, 292);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(75, 23);
-            this.btnCancel.TabIndex = 22;
-            this.btnCancel.Text = "&Cancelar";
-            this.btnCancel.UseVisualStyleBackColor = true;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(9, 216);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(131, 13);
-            this.label2.TabIndex = 25;
-            this.label2.Text = "Máximo salario del puesto:";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(10, 253);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(130, 13);
-            this.label3.TabIndex = 25;
-            this.label3.Text = "Mínimo salario del puesto:";
-            // 
-            // txtBoxMaxSalary
-            // 
-            this.txtBoxMaxSalary.Location = new System.Drawing.Point(158, 213);
-            this.txtBoxMaxSalary.Mask = "$000,000.00";
-            this.txtBoxMaxSalary.Name = "txtBoxMaxSalary";
-            this.txtBoxMaxSalary.Size = new System.Drawing.Size(255, 20);
-            this.txtBoxMaxSalary.TabIndex = 26;
-            this.txtBoxMaxSalary.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
-            // 
-            // txtBoxMinSalary
-            // 
-            this.txtBoxMinSalary.Location = new System.Drawing.Point(158, 250);
-            this.txtBoxMinSalary.Mask = "$000,000.00";
-            this.txtBoxMinSalary.Name = "txtBoxMinSalary";
-            this.txtBoxMinSalary.Size = new System.Drawing.Size(255, 20);
-            this.txtBoxMinSalary.TabIndex = 26;
-            this.txtBoxMinSalary.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
             // 
             // NewJobOffer
             // 

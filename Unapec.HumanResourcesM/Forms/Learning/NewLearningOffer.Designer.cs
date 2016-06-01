@@ -115,7 +115,7 @@
             this.txtBoxName.Location = new System.Drawing.Point(180, 22);
             this.txtBoxName.Name = "txtBoxName";
             this.txtBoxName.Size = new System.Drawing.Size(226, 20);
-            this.txtBoxName.TabIndex = 7;
+            this.txtBoxName.TabIndex = 0;
             // 
             // txtBoxDescription
             // 
@@ -123,28 +123,28 @@
             this.txtBoxDescription.Multiline = true;
             this.txtBoxDescription.Name = "txtBoxDescription";
             this.txtBoxDescription.Size = new System.Drawing.Size(226, 77);
-            this.txtBoxDescription.TabIndex = 7;
+            this.txtBoxDescription.TabIndex = 1;
             // 
             // dateTimePickerStartDate
             // 
             this.dateTimePickerStartDate.Location = new System.Drawing.Point(180, 146);
             this.dateTimePickerStartDate.Name = "dateTimePickerStartDate";
             this.dateTimePickerStartDate.Size = new System.Drawing.Size(226, 20);
-            this.dateTimePickerStartDate.TabIndex = 8;
+            this.dateTimePickerStartDate.TabIndex = 2;
             // 
             // dateTimePickerEndDate
             // 
             this.dateTimePickerEndDate.Location = new System.Drawing.Point(180, 181);
             this.dateTimePickerEndDate.Name = "dateTimePickerEndDate";
             this.dateTimePickerEndDate.Size = new System.Drawing.Size(226, 20);
-            this.dateTimePickerEndDate.TabIndex = 8;
+            this.dateTimePickerEndDate.TabIndex = 3;
             // 
             // txtBoxCapacity
             // 
             this.txtBoxCapacity.Location = new System.Drawing.Point(180, 222);
             this.txtBoxCapacity.Name = "txtBoxCapacity";
             this.txtBoxCapacity.Size = new System.Drawing.Size(79, 20);
-            this.txtBoxCapacity.TabIndex = 9;
+            this.txtBoxCapacity.TabIndex = 4;
             // 
             // NewLearningOffer
             // 

@@ -4,12 +4,20 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Unapec.HumanResourcesM.Framework.Entities
 {
+
+    public enum JobStatus
+    {
+        Open = 1,
+        Close = 2
+    }
+
     [Table("JobOffers")]
     public class Job
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
+        public JobStatus Status { get; set; }
         public int PositionId { get; set; }
         public DateTimeOffset RegisteredDate { get; set; }
         [StringLength(50)]

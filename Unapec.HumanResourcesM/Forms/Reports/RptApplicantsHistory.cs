@@ -8,14 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Unapec.HumanResourcesM.Forms.Security
+namespace Unapec.HumanResourcesM.Forms.Reports
 {
-    public partial class ChangePassword : FormBase
+    public partial class RptApplicantsHistory : Form
     {
-        public ChangePassword()
+        public RptApplicantsHistory()
         {
             InitializeComponent();
-            this.Text += "Cambio de Contraseña";
         }
     }
 }

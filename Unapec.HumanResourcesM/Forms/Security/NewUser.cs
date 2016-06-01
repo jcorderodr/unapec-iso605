@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Unapec.HumanResourcesM.Forms.Security
 {
-    public partial class NewUser : Form
+    public partial class NewUser : FormBase
     {
         public NewUser()
         {

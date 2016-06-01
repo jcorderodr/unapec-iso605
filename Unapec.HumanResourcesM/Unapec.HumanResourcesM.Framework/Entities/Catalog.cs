@@ -13,12 +13,13 @@ namespace Unapec.HumanResourcesM.Framework.Entities
         [Key]
         [Column(Order = 2)]
         public int SubCategoryId { get; set; }
-        [StringLength(50)]
+        [StringLength(500)]
         public string Value { get; set; }
 
         public const String GRADE_LVL = "GRADE_LVL";
         public const String LANGUAGE = "LANGUAGE";
         public const String SKILL_LVL = "SKILL_LVL";
+        public const String COMPETENCES = "COMPETENCE";
 
         public const String Prop = "LANG_LVL";
 

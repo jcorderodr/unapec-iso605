@@ -9,13 +9,14 @@ namespace Unapec.HumanResourcesM.Framework.Entities
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
+        [StringLength(50)]
+        [Required]
         public string Name { get; set; }
+        [StringLength(500)]
         public string Description { get; set; }
         public DateTimeOffset StartDate { get; set; }
         public DateTimeOffset EndDate { get; set; }
         public int Capacity { get; set; }
-
-        public virtual CourseQuorum Quorum { get; set; }
     }
 
 }

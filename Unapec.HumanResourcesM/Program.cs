@@ -19,7 +19,9 @@ namespace Unapec.HumanResourcesM
             System.Globalization.CultureInfo.CurrentUICulture = Application.CurrentCulture;
             System.Globalization.CultureInfo.DefaultThreadCurrentCulture = Application.CurrentCulture;
             System.Globalization.CultureInfo.DefaultThreadCurrentUICulture = Application.CurrentCulture;
-            InputLanguage.CurrentInputLanguage = InputLanguage.FromCulture(Application.CurrentCulture); 
+            InputLanguage.CurrentInputLanguage = InputLanguage.FromCulture(Application.CurrentCulture);
+
+            Application.ThreadException += Application_ThreadException;
 
             var signIn = new Forms.Security.SignIn();
             var signInResult = signIn.ShowDialog();
@@ -40,5 +42,10 @@ namespace Unapec.HumanResourcesM
         public readonly static string AppName = Resources.Strings.AppName;
 
         public static Employee SignedUser { get; internal set; }
+
+        private static void Application_ThreadException(object sender, System.Threading.ThreadExceptionEventArgs e)
+        {
+            Forms.MessagesExtensions.ShowErrorMessage(null, e.Exception.Message);
+        }
     }
 }

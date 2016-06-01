@@ -12,6 +12,7 @@ namespace Unapec.HumanResourcesM.Framework.Services
     {
 
         private readonly DataContext _context;
+        private EmployeeService _employeeService;
 
         public JobService()
         {
@@ -28,11 +29,12 @@ namespace Unapec.HumanResourcesM.Framework.Services
 
         public Applicant Create(Applicant applicant)
         {
+            applicant.Status = EmployeeStatus.Applicant;
             _context.Applicants.Add(applicant);
-            _context.ApplicantDetails.Add(applicant.Details);
             _context.SaveChanges();
-            var linkedDetails = GetAllLinkedDetailFromApplicationDetail(applicant.Details);
-            _context.PersonLinkedDetails.AddRange(linkedDetails);
+            //
+            applicant.Details.ApplicantId = applicant.Id;
+            _context.ApplicantDetails.Add(applicant.Details);
             _context.SaveChanges();
             return applicant;
         }
@@ -42,9 +44,14 @@ namespace Unapec.HumanResourcesM.Framework.Services
             return _context.JobOffers.ToList();
         }
 
-        public IEnumerable<Applicant> GetApplicants()
+        public IEnumerable<Applicant> GetApplicantsByJob(int jobOfferId)
         {
-            return _context.Applicants.Where(p => p.Status == EmployeeStatus.Applicant).ToList();
+            var entities = _context.Applicants.Where(p => p.Status == EmployeeStatus.Applicant && p.JobOffer.Id == jobOfferId);
+            foreach (var p in entities)
+            {
+                p.Details = _context.ApplicantDetails.SingleOrDefault(i => i.ApplicantId == p.Id);
+            }
+            return entities;
         }
 
         public int GetApplicantsCountForJob(int jobId)
@@ -52,15 +59,34 @@ namespace Unapec.HumanResourcesM.Framework.Services
             return _context.Applicants.Where(p => p.JobOffer.Id == jobId && p.Status == EmployeeStatus.Applicant).Count();
         }
 
-        public IEnumerable<Applicant> GetPreselection()
+        public IEnumerable<Applicant> DoApplicantsSearch(string name, int jobOfferId)
         {
-            return _context.Applicants.Where(p => p.Status == EmployeeStatus.Applicant).ToList();
+            return _context.Applicants.Where(p => p.Name.Contains(name) && p.JobOffer.Id == jobOfferId).ToList();
         }
 
-        public Employee CloseJobOffer(int jobOfferId, Applicant applicant)
+        public void CloseJobOffer(IEnumerable<int> selectedApplicants, int jobOfferId)
         {
-            return null;
-            //var jobOffer = _context.JobOffers.SingleOrDefault(p => p.Id == jobOfferId);
+            var applicants = _context.Applicants.Where(p => selectedApplicants.Contains(p.Id));
+
+            foreach (var p in applicants)
+            {
+                p.Status = EmployeeStatus.Normal;
+                _context.Applicants.AddOrUpdate(p);
+            }
+            _context.SaveChanges();
+
+            {
+                _employeeService = new EmployeeService();
+                _employeeService.TransformApplicantToEmployee(applicants);
+            }
+
+
+            var applicantsToReject = _context.Applicants.Where(p => p.Status == EmployeeStatus.Applicant && p.JobOffer.Id == jobOfferId).Select(p => p.Id);
+            DiscardApplicantsByJobOffer(applicantsToReject, jobOfferId);
+
+            var jobOffer = _context.JobOffers.SingleOrDefault(p => p.Id == jobOfferId);
+            jobOffer.Status = JobStatus.Close;
+            _context.SaveChanges();
 
             //if (jobOffer == null) return null;
             //var employee = TransformApplicantToEmployee(applicant);
@@ -69,30 +95,17 @@ namespace Unapec.HumanResourcesM.Framework.Services
             //return employee;
         }
 
-        public IEnumerable<Applicant> DoApplicantsSearch(string name, int jobOfferId)
+        public void DiscardApplicantsByJobOffer(IEnumerable<int> selectedApplicants, int jobOfferId)
         {
-            return _context.Applicants.Where(p => p.Name.Contains(name) && p.JobOffer.Id == jobOfferId).ToList();
-        }
+            var applicants = _context.Applicants.Where(p => selectedApplicants.Contains(p.Id));
 
-        public void DiscardApplicantsByJobOffer(int jobOfferId)
-        {
-            var applicants = _context.Applicants.Where(p => p.JobOffer.Id == jobOfferId).ToArray();
             foreach (var p in applicants)
-                p.Status = EmployeeStatus.Rejected;
-            _context.Set<Applicant>().AddOrUpdate(applicants);
-            _context.SaveChanges();
-        }
-
-        private IEnumerable<PersonLinkedDetail> GetAllLinkedDetailFromApplicationDetail(ApplicantDetail detail)
-        {
-            var result = new List<PersonLinkedDetail>();
-            foreach (var item in detail.Languages)
             {
-                item.PersonId = detail.Applicant_Id;
-                result.Add(item);
+                p.Status = EmployeeStatus.Rejected;
+                _context.Applicants.AddOrUpdate(p);
             }
-
-            return result;
+            
+            _context.SaveChanges();
         }
 
     }

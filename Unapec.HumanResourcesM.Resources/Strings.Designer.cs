@@ -142,6 +142,15 @@ namespace Unapec.HumanResourcesM.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Los datos se han guardado exitosamente..
+        /// </summary>
+        public static string Message_FormSubmitSuccess {
+            get {
+                return ResourceManager.GetString("Message_FormSubmitSuccess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Nueva oferta de empleo registrada correctamente..
         /// </summary>
         public static string Message_JobOfferCreated {

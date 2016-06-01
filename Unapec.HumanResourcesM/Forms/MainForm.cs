@@ -1,12 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Diagnostics;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Unapec.HumanResourcesM.Forms
@@ -22,12 +16,14 @@ namespace Unapec.HumanResourcesM.Forms
             this.Text = Program.AppName;
             this.WindowState = FormWindowState.Maximized;
             _forms = new List<Form>();
+            //
+            //toolStripSignedUserLabel.Text = Program.SignedUser.Fullname;
         }
 
         private void CloseChildForm(object s, FormClosedEventArgs args)
         {
             var form = s as Form;
-            form = _forms.SingleOrDefault(i => i.CompanyName == form.CompanyName);
+            form = _forms.SingleOrDefault(i => i.Name == form.Name);
             if (form != null)
             {
                 _forms.Remove(form);
@@ -37,11 +33,12 @@ namespace Unapec.HumanResourcesM.Forms
         private Form ShowForm<T>() where T : Form, new()
         {
             var form = new T();
-
-            if (_forms.Any(i => i.CompanyName == form.CompanyName))
+            
+            if (_forms.Any(i => i.Name == form.Name))
             {
-                var tempForm = _forms.Single(i => i.CompanyName == form.CompanyName);
-                return form;
+                var tempForm = _forms.Single(i => i.Name == form.Name);
+                tempForm.Focus();
+                return tempForm;
             };
 
             _forms.Add(form);
@@ -53,7 +50,7 @@ namespace Unapec.HumanResourcesM.Forms
 
         private void LoadPermissions()
         {
-            
+
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -63,7 +60,7 @@ namespace Unapec.HumanResourcesM.Forms
 
         private void txtGlobalSearch_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if((Keys)e.KeyChar == Keys.Enter)
+            if ((Keys)e.KeyChar == Keys.Enter)
             {
                 var form = ShowForm<Utilities.GlobalSearch>() as Utilities.GlobalSearch;
                 form.SetInitialSearch(txtGlobalSearch.Text);
@@ -125,6 +122,51 @@ namespace Unapec.HumanResourcesM.Forms
             ShowForm<Utilities.Options>();
         }
 
+        private void helpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            helpProvider.SetHelpString(this, $"El sistema {Program.AppName} le permite gestión completa de su Departamento de Recursos Humanos.");
+            helpProvider.SetShowHelp(this, true);
+        }
 
+        private void aboutToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            using (var form = new Utilities.AboutBox())
+            {
+                form.ShowDialog(this);
+            }
+        }
+
+        private void changeSessionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (var signIn = new Security.SignIn())
+            {
+                signIn.ShowApplicantFooter = false;
+                var signInResult = signIn.ShowDialog();
+                if (signInResult == DialogResult.OK)
+                {
+                    Program.SignedUser = signIn.GetSigned();
+                    toolStripSignedUserLabel.Text = Program.SignedUser.Fullname;
+                }
+            }
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void competencesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = ShowForm<Utilities.CatalogManagement>() as Utilities.CatalogManagement;
+            form.SetTitle("Competencias");
+            form.LoadCategory(Framework.Entities.Catalog.COMPETENCES);
+        }
+
+        private void languagesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form =  ShowForm<Utilities.CatalogManagement>() as Utilities.CatalogManagement;
+            form.SetTitle("Idiomas");
+            form.LoadCategory(Framework.Entities.Catalog.LANGUAGE);
+        }
     }
 }

@@ -27,7 +27,7 @@ namespace Unapec.HumanResourcesM.Forms.Employees
         public NewEmployeeWizard()
         {
             InitializeComponent();
-            this.Text = "Vista de Emplados";
+            this.Text = "Creación de Empleados";
             _employeeService = new EmployeeService();
             _departmentService = new DepartmentService();
             _userService = new UserService();
@@ -40,9 +40,22 @@ namespace Unapec.HumanResourcesM.Forms.Employees
 
         private void FillComponents()
         {
+            //  wizardTab1
+            wizardTab1_dateTimeBornDate.SetDateTimePickerFormat();
+
             //  wizardTab2
             wizardTab2_gradesDataGridView.AutoGenerateColumns = false;
             wizardTab2_gradingLvl.SetComboBoxDatasourceWithCatalogs(_catalogService.Get(Catalog.GRADE_LVL));
+            wizardTab2_FromDateTimePicker.SetDateTimePickerFormat();
+            wizardTab2_ToDateTimePicker.SetDateTimePickerFormat();
+
+            //  wizardTab3
+            wizardTab3_panel1_dateTimePickerEnd.SetDateTimePickerFormat();
+            wizardTab3_panel1_dateTimePickerStart.SetDateTimePickerFormat();
+            wizardTab3_panel2_dateTimePickerEnd.SetDateTimePickerFormat();
+            wizardTab3_panel2_dateTimePickerStart.SetDateTimePickerFormat();
+            wizardTab3_panel3_dateTimePickerEnd.SetDateTimePickerFormat();
+            wizardTab3_panel3_dateTimePickerStart.SetDateTimePickerFormat();
 
             //  wizardTab4
             var languages = _catalogService.Get(Catalog.LANGUAGE);
@@ -68,6 +81,7 @@ namespace Unapec.HumanResourcesM.Forms.Employees
                 wizardTab4_languageDataGridView.Rows.Add(row);
             }
 
+            competencesBindingSource.DataSource = _catalogService.Get(Catalog.COMPETENCES);
 
             //  wizardTab5
             var departments = _departmentService.GetDepartments();
@@ -125,6 +139,7 @@ namespace Unapec.HumanResourcesM.Forms.Employees
                 employee.BirthDate = wizardTab1_dateTimeBornDate.Value;
                 employee.Sex = wizardTab1_radioButton1.Checked ? PersonSexType.Female : PersonSexType.Male;
                 employee.BirthPlace = wizardTab1_txtBornPlace.Text;
+                employee.Nationality = string.Empty;
                 employee.Name = wizardTab1_txtFirstName.Text;
                 employee.LastName = wizardTab1_txtLastName.Text;
                 employee.Identification = wizardTab1_txtIdentification.Text;
@@ -190,12 +205,25 @@ namespace Unapec.HumanResourcesM.Forms.Employees
                 foreach (var row in selectedLanguages)
                 {
                     var value = row.Tag as Catalog;
-                    employee.Details.Languages.Add(new PersonLinkedDetail
+                    employee.Details.LinkedDetails.Add(new PersonLinkedDetail
                     {
                         Category = value.Category,
                         SubCategoryId = value.SubCategoryId,
-                        PersonId = employee.Id,
-                        Type = PersonLinkedType.Candidate
+                        Type = PersonLinkedType.Employee,
+                        LevelSubCategoryId = 1
+                    });
+                }
+
+                var markedCompetences = wizardTab4_competenceDataGridView.Rows.Cast<DataGridViewRow>()
+                                                .Where(k => Convert.ToBoolean(k.Cells[ColumnCompetenceMark.Name].Value) == true);
+                foreach (var row in markedCompetences)
+                {
+                    var value = competencesBindingSource[row.Index] as Catalog;
+                    employee.Details.LinkedDetails.Add(new PersonLinkedDetail
+                    {
+                        Category = value.Category,
+                        SubCategoryId = value.SubCategoryId,
+                        Type = PersonLinkedType.Employee
                     });
                 }
             }
@@ -295,7 +323,8 @@ namespace Unapec.HumanResourcesM.Forms.Employees
                 FromDate = wizardTab2_FromDateTimePicker.Value,
                 ToDate = wizardTab2_ToDateTimePicker.Value,
                 Description = wizardTab2_txtDescription.Text,
-                Institution = wizardTab2_Institution.Text
+                Institution = wizardTab2_Institution.Text,
+                Type = PersonLinkedType.Employee
             };
             wizardTab2_txtDescription.Clear();
             wizardTab2_Institution.Clear();
@@ -310,7 +339,6 @@ namespace Unapec.HumanResourcesM.Forms.Employees
                     RemoveGradingToGradingGridView(e.RowIndex);
             }
         }
-
 
         private void wizardTab5_DepartmentComboBox_SelectedValueChanged(object sender, EventArgs e)
         {

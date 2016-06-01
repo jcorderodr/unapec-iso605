@@ -59,6 +59,8 @@ namespace Unapec.HumanResourcesM.Forms.Employees
             var departments = _departmentService.GetDepartments();
             departmentComboBox.SetComboBoxDatasource(departments, "Name", true);
             jobPositionComboBox.SetComboBoxDatasource(new EmployeePosition[0], "Name", true);
+
+            registeredDateDataGridViewTextBoxColumn.SetDateDataGridViewTextBoxColumnFormat();
         }
 
         private void RefreshComponents()
