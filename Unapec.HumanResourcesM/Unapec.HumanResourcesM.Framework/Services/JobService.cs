@@ -29,6 +29,7 @@ namespace Unapec.HumanResourcesM.Framework.Services
 
         public Applicant Create(Applicant applicant)
         {
+            applicant.ApplicationDate = DateTimeOffset.Now;
             applicant.Status = EmployeeStatus.Applicant;
             _context.Applicants.Add(applicant);
             _context.SaveChanges();
@@ -46,7 +47,7 @@ namespace Unapec.HumanResourcesM.Framework.Services
 
         public IEnumerable<Applicant> GetApplicantsByJob(int jobOfferId)
         {
-            var entities = _context.Applicants.Where(p => p.Status == EmployeeStatus.Applicant && p.JobOffer.Id == jobOfferId);
+            var entities = _context.Applicants.Where(p => p.Status == EmployeeStatus.Applicant && p.JobOffer.Id == jobOfferId).ToList();
             foreach (var p in entities)
             {
                 p.Details = _context.ApplicantDetails.SingleOrDefault(i => i.ApplicantId == p.Id);
@@ -66,6 +67,7 @@ namespace Unapec.HumanResourcesM.Framework.Services
 
         public void CloseJobOffer(IEnumerable<int> selectedApplicants, int jobOfferId)
         {
+            // 1.- From Applicant to Employee
             var applicants = _context.Applicants.Where(p => selectedApplicants.Contains(p.Id));
 
             foreach (var p in applicants)
@@ -80,10 +82,11 @@ namespace Unapec.HumanResourcesM.Framework.Services
                 _employeeService.TransformApplicantToEmployee(applicants);
             }
 
-
+            // 2.- Discard others
             var applicantsToReject = _context.Applicants.Where(p => p.Status == EmployeeStatus.Applicant && p.JobOffer.Id == jobOfferId).Select(p => p.Id);
             DiscardApplicantsByJobOffer(applicantsToReject, jobOfferId);
 
+            // 3.- Close Job
             var jobOffer = _context.JobOffers.SingleOrDefault(p => p.Id == jobOfferId);
             jobOffer.Status = JobStatus.Close;
             _context.SaveChanges();

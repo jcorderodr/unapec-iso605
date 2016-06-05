@@ -24,7 +24,7 @@ namespace Unapec.HumanResourcesM.Forms.Security
             _permissions = _userService.GetPermissions();
             foreach (var item in _permissions)
             {
-                dataGridView1.Rows.Add(item.Id, false);
+                dataGridView1.Rows.Add(item.Name, false);
             }
         }
 

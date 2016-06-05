@@ -6,6 +6,7 @@ using System.Windows.Forms;
 using Unapec.HumanResourcesM.Framework.Entities;
 using Unapec.HumanResourcesM.Framework.Helpers;
 using Unapec.HumanResourcesM.Framework.Services;
+using Unapec.HumanResourcesM.Resources;
 
 namespace Unapec.HumanResourcesM.Forms.Candidates
 {
@@ -23,9 +24,6 @@ namespace Unapec.HumanResourcesM.Forms.Candidates
 
         private EmployeePosition _position;
 
-        private IList<PersonLinkedGrading> _dataSourceGradingView;
-
-
         public NewApplicationWizard()
         {
             InitializeComponent();
@@ -38,7 +36,6 @@ namespace Unapec.HumanResourcesM.Forms.Candidates
             FillComponents();
 
             lastStep = (wizardTabControl.TabPages.Count - 1);
-            _dataSourceGradingView = new List<PersonLinkedGrading>();
         }
 
         private void FillComponents()
@@ -106,13 +103,15 @@ namespace Unapec.HumanResourcesM.Forms.Candidates
 
             if (step > lastStep) // finish and save
             {
-                var actionResult = this.ShowQuestionMessage(Resources.Strings.Question_WizardNewApplicationSubmit);
+                var actionResult = this.ShowQuestionMessage(Strings.Question_WizardNewApplicationSubmit);
                 if (actionResult == DialogResult.Yes)
                 {
                     if (CheckUIValidations())
                     {
                         SaveAndClose();
+                        this.ShowInformationMessage(Strings.Message_ApplicationWizardConfirmation);
                         this.Close();
+                        return;
                     }
                 }
             }
@@ -122,7 +121,7 @@ namespace Unapec.HumanResourcesM.Forms.Candidates
 
         private bool CheckUIValidations()
         {
-
+            //TODO: Do UI's data validations 
 
             return true;
         }
@@ -158,7 +157,8 @@ namespace Unapec.HumanResourcesM.Forms.Candidates
                 var gradingCatalog = wizardTab2_gradingLvl.SelectedValue as Catalog;
                 application.Details.GradingLvlId = gradingCatalog.SubCategoryId;
 
-                foreach (var grading in _dataSourceGradingView)
+                IList<PersonLinkedGrading> _addedGrades = personLinkedGradingBindingSource.List as IList<PersonLinkedGrading>;
+                foreach (var grading in _addedGrades)
                 {
                     application.Details.Gradings.Add(grading);
                 }
@@ -242,14 +242,12 @@ namespace Unapec.HumanResourcesM.Forms.Candidates
 
         private void AddGradingToGradingGridView(PersonLinkedGrading grading)
         {
-            _dataSourceGradingView.Add(grading);
-            wizardTab2_gradesDataGridView.DataSource = _dataSourceGradingView;
+            personLinkedGradingBindingSource.Add(grading);
         }
 
         private void RemoveGradingToGradingGridView(int position)
         {
-            _dataSourceGradingView.RemoveAt(position);
-            wizardTab2_gradesDataGridView.DataSource = _dataSourceGradingView;
+            personLinkedGradingBindingSource.RemoveAt(position);
         }
 
         private void btnContinue_Click(object sender, EventArgs e)
@@ -329,7 +327,7 @@ namespace Unapec.HumanResourcesM.Forms.Candidates
 
         private void wizardTab2_gradesDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex != wizardTab2_gradesDataGridView.Columns.Count - 1)
+            if (e.ColumnIndex == ColumnActionDelete.Index)
             {
                 if (e.RowIndex >= 0)
                     RemoveGradingToGradingGridView(e.RowIndex);

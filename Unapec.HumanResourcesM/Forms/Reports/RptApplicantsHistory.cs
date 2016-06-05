@@ -15,6 +15,7 @@ namespace Unapec.HumanResourcesM.Forms.Reports
         public RptApplicantsHistory()
         {
             InitializeComponent();
+            this.Text = "Reporte de Candidatos";
         }
     }
 }

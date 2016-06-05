@@ -17,7 +17,7 @@ namespace Unapec.HumanResourcesM.Forms
             this.WindowState = FormWindowState.Maximized;
             _forms = new List<Form>();
             //
-            //toolStripSignedUserLabel.Text = Program.SignedUser.Fullname;
+            toolStripSignedUserLabel.Text = Program.SignedUser.Name;
         }
 
         private void CloseChildForm(object s, FormClosedEventArgs args)
@@ -145,7 +145,7 @@ namespace Unapec.HumanResourcesM.Forms
                 if (signInResult == DialogResult.OK)
                 {
                     Program.SignedUser = signIn.GetSigned();
-                    toolStripSignedUserLabel.Text = Program.SignedUser.Fullname;
+                    toolStripSignedUserLabel.Text = Program.SignedUser.Name;
                 }
             }
         }
@@ -167,6 +167,11 @@ namespace Unapec.HumanResourcesM.Forms
             var form =  ShowForm<Utilities.CatalogManagement>() as Utilities.CatalogManagement;
             form.SetTitle("Idiomas");
             form.LoadCategory(Framework.Entities.Catalog.LANGUAGE);
+        }
+
+        private void rptApplicantHistoryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowForm<Reports.RptApplicantsHistory>();
         }
     }
 }

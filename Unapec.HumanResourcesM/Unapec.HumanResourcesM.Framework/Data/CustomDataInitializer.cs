@@ -13,6 +13,14 @@ namespace Unapec.HumanResourcesM.Framework.Data
         {
             base.Seed(context);
 
+            context.Users.Add(new User
+            {
+                CreateDate = DateTimeOffset.Now,
+                Name = "System Administrator",
+                Password = "manager",
+                Username = "99999",
+            });
+
             var catalogs = new List<Catalog>
                 {
                     new Catalog { Category = Catalog.GRADE_LVL, SubCategoryId = 1, Value = "Nivel Básico" },
@@ -78,6 +86,7 @@ namespace Unapec.HumanResourcesM.Framework.Data
             try
             {
                 context.SaveChanges();
+                context.Database.ExecuteSqlCommand(SampleData);
             }
             catch (System.Data.Entity.Validation.DbEntityValidationException ex)
             {
@@ -98,5 +107,24 @@ namespace Unapec.HumanResourcesM.Framework.Data
                 throw new Exception(ex.Message + Environment.NewLine + ex.InnerException.Message);
             }
         }
+
+        private const String SampleData = @"
+                    INSERT [dbo].[Catalogs] ([Category], [SubCategoryId], [Value]) VALUES (N'COMPETENCE', 1, N'Independencia')
+                    INSERT [dbo].[Catalogs] ([Category], [SubCategoryId], [Value]) VALUES (N'COMPETENCE', 2, N'Perseverancia')
+                    INSERT [dbo].[Catalogs] ([Category], [SubCategoryId], [Value]) VALUES (N'COMPETENCE', 3, N'Liderazgo')
+                    
+                    SET IDENTITY_INSERT [dbo].[Courses] ON; 
+                    INSERT [dbo].[Courses] ([Id], [Name], [Description], [StartDate], [EndDate], [Capacity]) VALUES (1, N'Curso-Taller Excel', N'Curso-Taller Excel Basico', CAST(N'2016-06-01T00:50:42.0000000-04:00' AS DateTimeOffset), CAST(N'2016-06-04T00:50:42.0000000-04:00' AS DateTimeOffset), 10)
+                    INSERT [dbo].[Courses] ([Id], [Name], [Description], [StartDate], [EndDate], [Capacity]) VALUES (2, N'Curso-Taller Excel Avanzado', N'Curso-Taller Excel Avanzado', CAST(N'2016-06-08T00:50:42.0000000-04:00' AS DateTimeOffset), CAST(N'2016-06-08T16:50:42.0000000-04:00' AS DateTimeOffset), 20)
+                    INSERT [dbo].[Courses] ([Id], [Name], [Description], [StartDate], [EndDate], [Capacity]) VALUES (3, N'Diplomado Gestión Humana', N'', CAST(N'2016-07-04T00:50:42.0000000-04:00' AS DateTimeOffset), CAST(N'2016-07-08T16:50:42.0000000-04:00' AS DateTimeOffset), 30)
+                    SET IDENTITY_INSERT [dbo].[Courses] OFF;
+                    
+                    SET IDENTITY_INSERT [dbo].[JobOffers] ON ;
+                    INSERT [dbo].[JobOffers] ([Id],[Status], [PositionId], [RegisteredDate], [Name], [MaxOfferSalary], [MixOfferSalary], [Description]) VALUES (1,1, 13, CAST(N'2016-06-01T00:01:13.5524182-04:00' AS DateTimeOffset), N'Encargado de Seguridad Física', CAST(35500.00 AS Decimal(18, 2)), CAST(30000.00 AS Decimal(18, 2)), N'Se encarga de coordinar el personal de seguridad física.')
+                    INSERT [dbo].[JobOffers] ([Id],[Status], [PositionId], [RegisteredDate], [Name], [MaxOfferSalary], [MixOfferSalary], [Description]) VALUES (2,1, 14, CAST(N'2016-06-01T00:06:09.3635648-04:00' AS DateTimeOffset), N'Personal de Seguridad Física', CAST(30500.00 AS Decimal(18, 2)), CAST(20000.00 AS Decimal(18, 2)), N'Se encarga de coordinar el personal de seguridad física.')
+                    INSERT [dbo].[JobOffers] ([Id],[Status], [PositionId], [RegisteredDate], [Name], [MaxOfferSalary], [MixOfferSalary], [Description]) VALUES (3, 1, 10, CAST(N'2016-06-01T00:17:45.9372049-04:00' AS DateTimeOffset), N'Analista Desarrollador', CAST(62000.00 AS Decimal(18, 2)), CAST(45000.00 AS Decimal(18, 2)), N'Analiza, diseña y da mantenimiento a los sistemas de la insticución.')
+                    INSERT [dbo].[JobOffers] ([Id],[Status], [PositionId], [RegisteredDate], [Name], [MaxOfferSalary], [MixOfferSalary], [Description]) VALUES (4, 1, 8, CAST(N'2016-06-01T00:17:56.2072478-04:00' AS DateTimeOffset), N'Auxiliar de Contabilidad', CAST(25000.00 AS Decimal(18, 2)), CAST(18000.00 AS Decimal(18, 2)), N'Se encarga de analizar y procesar los registros contables de la institución.')
+                    SET IDENTITY_INSERT [dbo].[JobOffers] OFF;";
+
     }
 }

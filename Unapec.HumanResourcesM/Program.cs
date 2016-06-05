@@ -34,6 +34,7 @@ namespace Unapec.HumanResourcesM
             }
             else
             {
+                Program.SignedUser = signIn.GetSigned();
                 Application.Run(new Forms.MainForm());
             }
             
@@ -41,7 +42,7 @@ namespace Unapec.HumanResourcesM
 
         public readonly static string AppName = Resources.Strings.AppName;
 
-        public static Employee SignedUser { get; internal set; }
+        public static User SignedUser { get; internal set; }
 
         private static void Application_ThreadException(object sender, System.Threading.ThreadExceptionEventArgs e)
         {

@@ -24,8 +24,8 @@ namespace Unapec.HumanResourcesM.Forms.Learning
             var courses = _courseService.GetCourses().Select(To);
             dataGridView1.DataSource = courses.ToList();
 
-            endDateDataGridViewTextBoxColumn.SetDateDataGridViewTextBoxColumnFormat();
-            startDateDataGridViewTextBoxColumn.SetDateDataGridViewTextBoxColumnFormat();
+            endDateDataGridViewTextBoxColumn.SetFullDateStringDataGridViewTextBoxColumnFormat();
+            startDateDataGridViewTextBoxColumn.SetFullDateStringDataGridViewTextBoxColumnFormat();
         }
 
         private CourseModel To(Course course)

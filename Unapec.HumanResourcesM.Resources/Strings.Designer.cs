@@ -124,6 +124,15 @@ namespace Unapec.HumanResourcesM.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Felicitaciones! Has finalizado correctamente el formulario de aplicación para nuestro puesto de trabajo. En un periodo de 2 a 3 días estarás recibiendo una respuesta a tu solicitud..
+        /// </summary>
+        public static string Message_ApplicationWizardConfirmation {
+            get {
+                return ResourceManager.GetString("Message_ApplicationWizardConfirmation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Para continuar, debe completar / corregir los valores..
         /// </summary>
         public static string Message_CreationFormInvalidFields {

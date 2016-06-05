@@ -34,3 +34,7 @@ C:\Users\José\Documents\UNAPEC\UNAPEC-ISO605\Unapec.HumanResourcesM\obj\Debug\U
 C:\Users\José\Documents\UNAPEC\UNAPEC-ISO605\Unapec.HumanResourcesM\obj\Debug\Unapec.HumanResourcesM.Forms.Utilities.CatalogManagement.resources
 C:\Users\José\Documents\UNAPEC\UNAPEC-ISO605\Unapec.HumanResourcesM\obj\Debug\Unapec.HumanResourcesM.Forms.Candidates.EmployeeSelectionFromCandidate.resources
 C:\Users\José\Documents\UNAPEC\UNAPEC-ISO605\Unapec.HumanResourcesM\obj\Debug\Unapec.HumanResourcesM.Forms.Reports.RptEmployees.resources
+C:\Users\José\Documents\UNAPEC\UNAPEC-ISO605\Unapec.HumanResourcesM\bin\Debug\Microsoft.ReportViewer.Common.dll
+C:\Users\José\Documents\UNAPEC\UNAPEC-ISO605\Unapec.HumanResourcesM\obj\Debug\Unapec.HumanResourcesM.Forms.Reports.RptApplicantsHistory.resources
+C:\Users\José\Documents\UNAPEC\UNAPEC-ISO605\Unapec.HumanResourcesM\bin\Debug\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+C:\Users\José\Documents\UNAPEC\UNAPEC-ISO605\Unapec.HumanResourcesM\bin\Debug\Microsoft.ReportViewer.WebForms.DLL

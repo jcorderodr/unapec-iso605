@@ -16,13 +16,14 @@ namespace Unapec.HumanResourcesM.Framework.Services
             _context = new DataContext();
         }
 
-        public Employee DoLogin(string username, string password)
+        public User DoLogin(string username, string password)
         {
-            var id = int.Parse(username);
+            var id = 0;
+            int.TryParse(username, out id);
             username = UserNamePadding(id);
             var decrypted = Decrypt(password);
             var user = _context.Users.SingleOrDefault(p => p.Username == username && p.Password == decrypted);
-            return user?.Employee;
+            return user;
         }
 
         public bool IsFirstLoginAttempt(string username)

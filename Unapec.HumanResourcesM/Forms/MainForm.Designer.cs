@@ -61,6 +61,8 @@
             this.aboutToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.txtGlobalSearch = new System.Windows.Forms.ToolStripTextBox();
             this.searchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.rptApplicantHistoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpProvider = new System.Windows.Forms.HelpProvider();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripSignedUserLabel = new System.Windows.Forms.ToolStripStatusLabel();
@@ -74,6 +76,7 @@
             this.fileToolStripMenuItem,
             this.employeesToolStripMenuItem,
             this.learningToolStripMenuItem,
+            this.reportsToolStripMenuItem,
             this.toolsToolStripMenuItem,
             this.aboutToolStripMenuItem,
             this.txtGlobalSearch,
@@ -322,6 +325,21 @@
             this.searchToolStripMenuItem.Text = "Búsqueda:";
             this.searchToolStripMenuItem.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
             // 
+            // reportsToolStripMenuItem
+            // 
+            this.reportsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.rptApplicantHistoryToolStripMenuItem});
+            this.reportsToolStripMenuItem.Name = "reportsToolStripMenuItem";
+            this.reportsToolStripMenuItem.Size = new System.Drawing.Size(65, 23);
+            this.reportsToolStripMenuItem.Text = "Reportes";
+            // 
+            // rptApplicantHistoryToolStripMenuItem
+            // 
+            this.rptApplicantHistoryToolStripMenuItem.Name = "rptApplicantHistoryToolStripMenuItem";
+            this.rptApplicantHistoryToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
+            this.rptApplicantHistoryToolStripMenuItem.Text = "Historial de Candidatos";
+            this.rptApplicantHistoryToolStripMenuItem.Click += new System.EventHandler(this.rptApplicantHistoryToolStripMenuItem_Click);
+            // 
             // statusStrip1
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -397,5 +415,7 @@
         private System.Windows.Forms.HelpProvider helpProvider;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripSignedUserLabel;
+        private System.Windows.Forms.ToolStripMenuItem reportsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem rptApplicantHistoryToolStripMenuItem;
     }
 }

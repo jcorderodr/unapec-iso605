@@ -1,11 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Unapec.HumanResourcesM.Framework.Entities;
 using Unapec.HumanResourcesM.Framework.Services;
@@ -26,8 +22,15 @@ namespace Unapec.HumanResourcesM.Forms.Candidates
             this.Text = "Selección de Candidatos para Vacante";
             _jobService = new JobService();
             _catalogService = new CatalogService();
+            FormatComponents();
             //
             FillComponents();
+        }
+
+        private void FormatComponents()
+        {
+            birthDateDataGridViewTextBoxColumn.SetDateDataGridViewTextBoxColumnFormat();
+            applicationDateDataGridViewTextBoxColumn.SetFullDateStringDataGridViewTextBoxColumnFormat();
         }
 
         private void FillComponents()
@@ -62,6 +65,7 @@ namespace Unapec.HumanResourcesM.Forms.Candidates
             
             var entities = _jobService.GetApplicantsByJob(jobOffer.Id);
             var applicants = entities.Select(To);
+            dataGridView1.DataSource = applicants.ToList();
         }
 
         private void markAsDiscardedToolStripMenuItem_Click(object sender, EventArgs e)

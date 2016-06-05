@@ -66,7 +66,14 @@ namespace Unapec.HumanResourcesM.Forms
 
         public static void SetDateDataGridViewTextBoxColumnFormat(this DataGridViewTextBoxColumn dateColumn)
         {
-            dateColumn.DefaultCellStyle.Format = "s";
+            dateColumn.ValueType = typeof(DateTime);
+            dateColumn.DefaultCellStyle.Format = "D";
+        }
+
+        public static void SetFullDateStringDataGridViewTextBoxColumnFormat(this DataGridViewTextBoxColumn dateColumn)
+        {
+            dateColumn.ValueType = typeof(DateTime);
+            dateColumn.DefaultCellStyle.Format = "f";
         }
 
         public static Form ShowFormWithParent<T>(this Form parentForm, bool showAsDialog = false) where T : Form, new()
