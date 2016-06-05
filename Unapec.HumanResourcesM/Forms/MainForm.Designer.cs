@@ -39,13 +39,14 @@
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.employeesViewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.candidatesViewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.registerEmployeeFromCandidateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.learningToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.availableCoursesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newLearningOfferToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             this.courseQuorumToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.rptApplicantHistoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.managementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.competencesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -61,8 +62,6 @@
             this.aboutToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.txtGlobalSearch = new System.Windows.Forms.ToolStripTextBox();
             this.searchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.reportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.rptApplicantHistoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpProvider = new System.Windows.Forms.HelpProvider();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripSignedUserLabel = new System.Windows.Forms.ToolStripStatusLabel();
@@ -124,7 +123,6 @@
             this.toolStripSeparator6,
             this.employeesViewToolStripMenuItem,
             this.toolStripSeparator3,
-            this.candidatesViewToolStripMenuItem,
             this.registerEmployeeFromCandidateToolStripMenuItem});
             this.employeesToolStripMenuItem.Name = "employeesToolStripMenuItem";
             this.employeesToolStripMenuItem.Size = new System.Drawing.Size(77, 23);
@@ -160,14 +158,6 @@
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
             this.toolStripSeparator3.Size = new System.Drawing.Size(223, 6);
-            // 
-            // candidatesViewToolStripMenuItem
-            // 
-            this.candidatesViewToolStripMenuItem.Name = "candidatesViewToolStripMenuItem";
-            this.candidatesViewToolStripMenuItem.Size = new System.Drawing.Size(226, 22);
-            this.candidatesViewToolStripMenuItem.Text = "Vista de Candidatos";
-            this.candidatesViewToolStripMenuItem.Visible = false;
-            this.candidatesViewToolStripMenuItem.Click += new System.EventHandler(this.candidatesViewToolStripMenuItem_Click);
             // 
             // registerEmployeeFromCandidateToolStripMenuItem
             // 
@@ -212,6 +202,21 @@
             this.courseQuorumToolStripMenuItem.Size = new System.Drawing.Size(225, 22);
             this.courseQuorumToolStripMenuItem.Text = "Quorum de Cursos";
             this.courseQuorumToolStripMenuItem.Click += new System.EventHandler(this.courseQuorumToolStripMenuItem_Click);
+            // 
+            // reportsToolStripMenuItem
+            // 
+            this.reportsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.rptApplicantHistoryToolStripMenuItem});
+            this.reportsToolStripMenuItem.Name = "reportsToolStripMenuItem";
+            this.reportsToolStripMenuItem.Size = new System.Drawing.Size(65, 23);
+            this.reportsToolStripMenuItem.Text = "Reportes";
+            // 
+            // rptApplicantHistoryToolStripMenuItem
+            // 
+            this.rptApplicantHistoryToolStripMenuItem.Name = "rptApplicantHistoryToolStripMenuItem";
+            this.rptApplicantHistoryToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
+            this.rptApplicantHistoryToolStripMenuItem.Text = "Historial de Candidatos";
+            this.rptApplicantHistoryToolStripMenuItem.Click += new System.EventHandler(this.rptApplicantHistoryToolStripMenuItem_Click);
             // 
             // toolsToolStripMenuItem
             // 
@@ -325,21 +330,6 @@
             this.searchToolStripMenuItem.Text = "Búsqueda:";
             this.searchToolStripMenuItem.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
             // 
-            // reportsToolStripMenuItem
-            // 
-            this.reportsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.rptApplicantHistoryToolStripMenuItem});
-            this.reportsToolStripMenuItem.Name = "reportsToolStripMenuItem";
-            this.reportsToolStripMenuItem.Size = new System.Drawing.Size(65, 23);
-            this.reportsToolStripMenuItem.Text = "Reportes";
-            // 
-            // rptApplicantHistoryToolStripMenuItem
-            // 
-            this.rptApplicantHistoryToolStripMenuItem.Name = "rptApplicantHistoryToolStripMenuItem";
-            this.rptApplicantHistoryToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
-            this.rptApplicantHistoryToolStripMenuItem.Text = "Historial de Candidatos";
-            this.rptApplicantHistoryToolStripMenuItem.Click += new System.EventHandler(this.rptApplicantHistoryToolStripMenuItem_Click);
-            // 
             // statusStrip1
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -388,7 +378,6 @@
         private System.Windows.Forms.ToolStripMenuItem jobsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem employeesViewToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
-        private System.Windows.Forms.ToolStripMenuItem candidatesViewToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem registerEmployeeFromCandidateToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem learningToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem availableCoursesToolStripMenuItem;

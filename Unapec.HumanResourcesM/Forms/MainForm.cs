@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -55,6 +56,8 @@ namespace Unapec.HumanResourcesM.Forms
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            Icon icon = Icon.FromHandle(Properties.Resources.icon.GetHicon());
+            this.Icon = icon;
             LoadPermissions();
         }
 
@@ -80,11 +83,6 @@ namespace Unapec.HumanResourcesM.Forms
         private void employeesViewToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ShowForm<Employees.EmployeesView>();
-        }
-
-        private void candidatesViewToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            ShowForm<Candidates.CandidatesView>();
         }
 
         private void registerEmployeeFromCandidateToolStripMenuItem_Click(object sender, EventArgs e)

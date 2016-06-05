@@ -68,12 +68,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Forms\Candidates\CandidatesView.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Candidates\CandidatesView.Designer.cs">
-      <DependentUpon>CandidatesView.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\Candidates\EmployeeSelectionFromCandidate.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -152,12 +146,6 @@
     </Compile>
     <Compile Include="Forms\Security\ChangePassword.Designer.cs">
       <DependentUpon>ChangePassword.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\Security\NewUser.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Security\NewUser.Designer.cs">
-      <DependentUpon>NewUser.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Security\SignIn.cs">
       <SubType>Form</SubType>
@@ -245,9 +233,6 @@
     <EmbeddedResource Include="Forms\Reports\RptEmployees.resx">
       <DependentUpon>RptEmployees.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Security\NewUser.resx">
-      <DependentUpon>NewUser.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Security\SignIn.resx">
       <DependentUpon>SignIn.cs</DependentUpon>
     </EmbeddedResource>
@@ -271,6 +256,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Unapec.HumanResourcesM.Framework.Entities.Catalog.datasource" />
@@ -301,7 +287,42 @@
       <Name>Unapec.HumanResourcesM.Framework</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\close-16px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\interface-16px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user-29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrows.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\interface.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\plus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\play.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_128px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search-32.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

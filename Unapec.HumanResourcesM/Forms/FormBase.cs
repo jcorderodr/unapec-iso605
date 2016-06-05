@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace Unapec.HumanResourcesM.Forms
@@ -13,7 +14,8 @@ namespace Unapec.HumanResourcesM.Forms
 
         private void InitializeProperties()
         {
-            
+            Icon icon = Icon.FromHandle(Properties.Resources.icon.GetHicon());
+            this.Icon = icon;
         }
 
         private void FormBase_Load(object sender, EventArgs e)

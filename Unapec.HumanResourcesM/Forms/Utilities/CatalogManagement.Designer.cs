@@ -33,11 +33,11 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.catalogDataGridView = new System.Windows.Forms.DataGridView();
+            this.catalogBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.categoryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.subCategoryIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.valueDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnDelete = new System.Windows.Forms.DataGridViewImageColumn();
-            this.catalogBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.catalogDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.catalogBindingSource)).BeginInit();
@@ -46,22 +46,28 @@
             // btnAccept
             // 
             this.btnAccept.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAccept.Location = new System.Drawing.Point(265, 189);
+            this.btnAccept.Image = global::Unapec.HumanResourcesM.Properties.Resources.interface_16px;
+            this.btnAccept.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAccept.Location = new System.Drawing.Point(262, 189);
             this.btnAccept.Name = "btnAccept";
-            this.btnAccept.Size = new System.Drawing.Size(75, 23);
+            this.btnAccept.Size = new System.Drawing.Size(78, 23);
             this.btnAccept.TabIndex = 1;
             this.btnAccept.Text = "Guardar";
+            this.btnAccept.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAccept.UseVisualStyleBackColor = true;
             this.btnAccept.Click += new System.EventHandler(this.btnAccept_Click);
             // 
             // btnCancel
             // 
             this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCancel.Image = global::Unapec.HumanResourcesM.Properties.Resources.close_16px;
+            this.btnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCancel.Location = new System.Drawing.Point(346, 189);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 2;
             this.btnCancel.Text = "Cancelar";
+            this.btnCancel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
@@ -94,6 +100,10 @@
             this.catalogDataGridView.TabIndex = 0;
             this.catalogDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.catalogDataGridView_CellContentClick);
             // 
+            // catalogBindingSource
+            // 
+            this.catalogBindingSource.DataSource = typeof(Unapec.HumanResourcesM.Framework.Entities.Catalog);
+            // 
             // categoryDataGridViewTextBoxColumn
             // 
             this.categoryDataGridViewTextBoxColumn.DataPropertyName = "Category";
@@ -118,12 +128,9 @@
             // ColumnDelete
             // 
             this.ColumnDelete.HeaderText = "";
+            this.ColumnDelete.Image = global::Unapec.HumanResourcesM.Properties.Resources.close_16px;
             this.ColumnDelete.Name = "ColumnDelete";
             this.ColumnDelete.Width = 32;
-            // 
-            // catalogBindingSource
-            // 
-            this.catalogBindingSource.DataSource = typeof(Unapec.HumanResourcesM.Framework.Entities.Catalog);
             // 
             // CatalogManagement
             // 

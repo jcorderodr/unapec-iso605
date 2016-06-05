@@ -30,16 +30,16 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.courseModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnCancel = new System.Windows.Forms.Button();
-            this.addQuorumBUtton = new System.Windows.Forms.Button();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.startDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.endDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.quorumDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.capacityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.courseModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnCancel = new System.Windows.Forms.Button();
+            this.addQuorumBUtton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.courseModelBindingSource)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -66,45 +66,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(588, 216);
             this.dataGridView1.TabIndex = 0;
             // 
-            // courseModelBindingSource
-            // 
-            this.courseModelBindingSource.DataSource = typeof(Unapec.HumanResourcesM.Models.CourseModel);
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox1.Controls.Add(this.dataGridView1);
-            this.groupBox1.Location = new System.Drawing.Point(0, 1);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(594, 235);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Listado de Cursos y Capacitaciones";
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCancel.Location = new System.Drawing.Point(507, 242);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(75, 23);
-            this.btnCancel.TabIndex = 2;
-            this.btnCancel.Text = "Cerrar";
-            this.btnCancel.UseVisualStyleBackColor = true;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            // 
-            // addQuorumBUtton
-            // 
-            this.addQuorumBUtton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.addQuorumBUtton.Location = new System.Drawing.Point(12, 242);
-            this.addQuorumBUtton.Name = "addQuorumBUtton";
-            this.addQuorumBUtton.Size = new System.Drawing.Size(104, 23);
-            this.addQuorumBUtton.TabIndex = 1;
-            this.addQuorumBUtton.Text = "Agregar Quorum";
-            this.addQuorumBUtton.UseVisualStyleBackColor = true;
-            this.addQuorumBUtton.Click += new System.EventHandler(this.addQuorumBUtton_Click);
-            // 
             // nameDataGridViewTextBoxColumn
             // 
             this.nameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
@@ -122,7 +83,6 @@
             this.descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
             this.descriptionDataGridViewTextBoxColumn.ReadOnly = true;
             this.descriptionDataGridViewTextBoxColumn.Visible = false;
-            this.descriptionDataGridViewTextBoxColumn.Width = 70;
             // 
             // startDateDataGridViewTextBoxColumn
             // 
@@ -159,6 +119,51 @@
             this.capacityDataGridViewTextBoxColumn.Name = "capacityDataGridViewTextBoxColumn";
             this.capacityDataGridViewTextBoxColumn.ReadOnly = true;
             this.capacityDataGridViewTextBoxColumn.Width = 83;
+            // 
+            // courseModelBindingSource
+            // 
+            this.courseModelBindingSource.DataSource = typeof(Unapec.HumanResourcesM.Models.CourseModel);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.dataGridView1);
+            this.groupBox1.Location = new System.Drawing.Point(0, 1);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(594, 235);
+            this.groupBox1.TabIndex = 0;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Listado de Cursos y Capacitaciones";
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCancel.Image = global::Unapec.HumanResourcesM.Properties.Resources.close_16px;
+            this.btnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCancel.Location = new System.Drawing.Point(507, 242);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(75, 23);
+            this.btnCancel.TabIndex = 2;
+            this.btnCancel.Text = "Cerrar";
+            this.btnCancel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
+            // addQuorumBUtton
+            // 
+            this.addQuorumBUtton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.addQuorumBUtton.Image = global::Unapec.HumanResourcesM.Properties.Resources.add;
+            this.addQuorumBUtton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.addQuorumBUtton.Location = new System.Drawing.Point(12, 242);
+            this.addQuorumBUtton.Name = "addQuorumBUtton";
+            this.addQuorumBUtton.Size = new System.Drawing.Size(112, 23);
+            this.addQuorumBUtton.TabIndex = 1;
+            this.addQuorumBUtton.Text = "Agregar Quorum";
+            this.addQuorumBUtton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.addQuorumBUtton.UseVisualStyleBackColor = true;
+            this.addQuorumBUtton.Click += new System.EventHandler(this.addQuorumBUtton_Click);
             // 
             // CoursesView
             // 

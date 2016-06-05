@@ -29,15 +29,15 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.availableJobsComboBox = new System.Windows.Forms.ComboBox();
+            this.txtName = new System.Windows.Forms.TextBox();
+            this.searchTypeComboBox = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.searchDataGridView = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.searchTypeComboBox = new System.Windows.Forms.ComboBox();
-            this.txtName = new System.Windows.Forms.TextBox();
             this.actionButton = new System.Windows.Forms.Button();
-            this.availableJobsComboBox = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.searchDataGridView)).BeginInit();
@@ -59,6 +59,58 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Criterios de búsqueda";
+            // 
+            // availableJobsComboBox
+            // 
+            this.availableJobsComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.availableJobsComboBox.FormattingEnabled = true;
+            this.availableJobsComboBox.Location = new System.Drawing.Point(66, 44);
+            this.availableJobsComboBox.Name = "availableJobsComboBox";
+            this.availableJobsComboBox.Size = new System.Drawing.Size(188, 21);
+            this.availableJobsComboBox.TabIndex = 6;
+            // 
+            // txtName
+            // 
+            this.txtName.Location = new System.Drawing.Point(66, 17);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(188, 20);
+            this.txtName.TabIndex = 4;
+            // 
+            // searchTypeComboBox
+            // 
+            this.searchTypeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.searchTypeComboBox.FormattingEnabled = true;
+            this.searchTypeComboBox.Location = new System.Drawing.Point(415, 17);
+            this.searchTypeComboBox.Name = "searchTypeComboBox";
+            this.searchTypeComboBox.Size = new System.Drawing.Size(172, 21);
+            this.searchTypeComboBox.TabIndex = 3;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(298, 20);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(97, 13);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Tipo de Búsqueda:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(17, 47);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(43, 13);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Puesto:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(13, 20);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(47, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Nombre:";
             // 
             // groupBox2
             // 
@@ -84,67 +136,15 @@
             this.searchDataGridView.TabIndex = 0;
             this.searchDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.searchDataGridView_CellContentClick);
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 20);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(47, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Nombre:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(17, 47);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(43, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Puesto:";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(298, 20);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(97, 13);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Tipo de Búsqueda:";
-            // 
-            // searchTypeComboBox
-            // 
-            this.searchTypeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.searchTypeComboBox.FormattingEnabled = true;
-            this.searchTypeComboBox.Location = new System.Drawing.Point(415, 17);
-            this.searchTypeComboBox.Name = "searchTypeComboBox";
-            this.searchTypeComboBox.Size = new System.Drawing.Size(172, 21);
-            this.searchTypeComboBox.TabIndex = 3;
-            // 
-            // txtName
-            // 
-            this.txtName.Location = new System.Drawing.Point(66, 17);
-            this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(188, 20);
-            this.txtName.TabIndex = 4;
-            // 
             // actionButton
             // 
-            this.actionButton.Location = new System.Drawing.Point(512, 62);
+            this.actionButton.Image = global::Unapec.HumanResourcesM.Properties.Resources.search_32;
+            this.actionButton.Location = new System.Drawing.Point(536, 44);
             this.actionButton.Name = "actionButton";
-            this.actionButton.Size = new System.Drawing.Size(75, 23);
+            this.actionButton.Size = new System.Drawing.Size(51, 41);
             this.actionButton.TabIndex = 5;
-            this.actionButton.Text = "Buscar";
             this.actionButton.UseVisualStyleBackColor = true;
             this.actionButton.Click += new System.EventHandler(this.actionButton_Click);
-            // 
-            // availableJobsComboBox
-            // 
-            this.availableJobsComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.availableJobsComboBox.FormattingEnabled = true;
-            this.availableJobsComboBox.Location = new System.Drawing.Point(66, 44);
-            this.availableJobsComboBox.Name = "availableJobsComboBox";
-            this.availableJobsComboBox.Size = new System.Drawing.Size(188, 21);
-            this.availableJobsComboBox.TabIndex = 6;
             // 
             // GlobalSearch
             // 
