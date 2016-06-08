@@ -70,30 +70,12 @@ namespace Unapec.HumanResourcesM.Forms.Candidates
 
         private void markAsDiscardedToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var jobOffer = jobOfferComboBox.SelectedValue as Job;
 
-            var markedCompetences = dataGridView1.Rows.Cast<DataGridViewRow>().Where(j => Convert.ToBoolean(j.Cells[ColumnMark.Name].Value) == true);
-            var applicantKeys = new List<int>();
-            foreach (var row in markedCompetences)
-            {
-                var value = applicantModelBindingSource[row.Index] as ApplicantModel;
-                applicantKeys.Add(value.ApplicantId);
-            }
-            _jobService.DiscardApplicantsByJobOffer(applicantKeys, jobOffer.Id);
         }
 
         private void selectApplicantAndCloseJobOfferToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var jobOffer = jobOfferComboBox.SelectedValue as Job;
 
-            var markedCompetences = dataGridView1.Rows.Cast<DataGridViewRow>().Where(j => Convert.ToBoolean(j.Cells[ColumnMark.Name].Value) == true);
-            var applicantKeys = new List<int>();
-            foreach (var row in markedCompetences)
-            {
-                var value = applicantModelBindingSource[row.Index] as ApplicantModel;
-                applicantKeys.Add(value.ApplicantId);
-            }
-            _jobService.CloseJobOffer(applicantKeys, jobOffer.Id);
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)

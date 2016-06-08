@@ -16,7 +16,7 @@ namespace Unapec.HumanResourcesM.Framework.Entities
         public int Id { get; set; }
         [StringLength(11)]
         public string Username { get; set; }
-        public EmployeeStatus Status { get; set; }
+        public PersonStatus Status { get; set; }
         public DateTimeOffset ApplicationDate { get; set; }
         [StringLength(200)]
         public string Name { get; set; }

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Data.Entity.Migrations;
 using System.Linq;
 using Unapec.HumanResourcesM.Framework.Data;
@@ -23,6 +22,14 @@ namespace Unapec.HumanResourcesM.Framework.Services
             return course;
         }
 
+        public IEnumerable<CourseQuorum> AddQuorum(int id, IEnumerable<int> empKeys)
+        {
+            var quorums = empKeys.Select(p => new CourseQuorum { CourseId = id, EmployeeId = p });
+            _context.CourseQuorums.AddRange(quorums);
+            _context.SaveChanges();
+            return quorums;
+        }
+
         public void Update(Course course)
         {
             _context.Courses.AddOrUpdate(course);
@@ -39,13 +46,6 @@ namespace Unapec.HumanResourcesM.Framework.Services
             return _context.CourseQuorums.Count(p => p.CourseId == courseId);
         }
 
-        public CourseQuorum Create(CourseQuorum quorum)
-        {
-            _context.CourseQuorums.Add(quorum);
-            _context.SaveChanges();
-            return quorum;
-        }
-
         public void Update(CourseQuorum quorum)
         {
             _context.CourseQuorums.AddOrUpdate(quorum);
@@ -54,7 +54,6 @@ namespace Unapec.HumanResourcesM.Framework.Services
             _context.Courses.AddOrUpdate(quorum.Course);
             _context.SaveChanges();
         }
-
-
+        
     }
 }

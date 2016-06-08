@@ -71,6 +71,7 @@
     <Compile Include="Entities\PersonLinkedWorkingExperience.cs" />
     <Compile Include="Entities\Permission.cs" />
     <Compile Include="Entities\PersonSexType.cs" />
+    <Compile Include="Entities\PersonStatus.cs" />
     <Compile Include="Entities\User.cs" />
     <Compile Include="Entities\UserPermission.cs" />
     <Compile Include="Helpers\EnumHelper.cs" />

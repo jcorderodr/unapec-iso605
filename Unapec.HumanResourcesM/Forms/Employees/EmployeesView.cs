@@ -1,13 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using Unapec.HumanResourcesM.Forms;
 using Unapec.HumanResourcesM.Framework.Entities;
 using Unapec.HumanResourcesM.Framework.Helpers;
 using Unapec.HumanResourcesM.Framework.Services;
@@ -22,7 +17,7 @@ namespace Unapec.HumanResourcesM.Forms.Employees
         private readonly EmployeeService _employeeService;
         private readonly DepartmentService _departmentService;
 
-        DataGridViewCheckBoxColumn ColumnLanguageCheckBox;
+        DataGridViewCheckBoxColumn ColumnChkboxEmpSelection;
 
         public EmployeesView()
         {
@@ -31,28 +26,31 @@ namespace Unapec.HumanResourcesM.Forms.Employees
             _employeeService = new EmployeeService();
             _departmentService = new DepartmentService();
             //
+            btnAcceptSelection.Visible = false;
             FillComponents();
         }
 
         public void SetSelectionMode()
         {
-            ColumnLanguageCheckBox = new DataGridViewCheckBoxColumn();
-            ColumnLanguageCheckBox.HeaderText = "";
-            ColumnLanguageCheckBox.Name = "ColumnLanguageCheckBox";
-            ColumnLanguageCheckBox.ThreeState = false;
+            btnAcceptSelection.Visible = true;
+            actionButtonCreateNewEmployee.Visible = false;
+            ColumnChkboxEmpSelection = new DataGridViewCheckBoxColumn();
+            ColumnChkboxEmpSelection.HeaderText = "";
+            ColumnChkboxEmpSelection.Name = "ColumnLanguageCheckBox";
+            ColumnChkboxEmpSelection.ThreeState = false;
+            employeeDataGridView.Columns.Insert(0, ColumnChkboxEmpSelection);
         }
 
         public IEnumerable<int> GetSelection()
         {
-            var selectedEmployees = employeeDataGridView.Rows.Cast<DataGridViewRow>().Where(k => Convert.ToBoolean(k.Cells[ColumnLanguageCheckBox.Name].Value) == true);
-            //TODO: get empId
+            var selectedEmployees = employeeDataGridView.Rows.Cast<DataGridViewRow>().Where(k => Convert.ToBoolean(k.Cells[ColumnChkboxEmpSelection.Name].Value) == true);
 
-            return null;
+            return selectedEmployees.Select(p => p.DataBoundItem as EmployeeViewModel).Select(p => p.EmployeeId);
         }
 
         private void FillComponents()
         {
-            var status = EnumHelper.ToList(typeof(EmployeeStatus), true);
+            var status = EnumHelper.ToList(typeof(PersonStatus), true);
             employeeStatusComboBox.DataSource = status.ToList();
             employeeStatusComboBox.DisplayMember = "Value";
 
@@ -79,6 +77,7 @@ namespace Unapec.HumanResourcesM.Forms.Employees
         {
             return new EmployeeViewModel
             {
+                EmployeeId = employee.Id,
                 LastName = employee.LastName,
                 Name = employee.Name,
                 PhoneCell = employee.PhoneCell,
@@ -106,11 +105,11 @@ namespace Unapec.HumanResourcesM.Forms.Employees
             var department = departmentComboBox.SelectedValue as Department;
             var position = jobPositionComboBox.SelectedValue as EmployeePosition;
             var statusString = (KeyValuePair<int, string>)employeeStatusComboBox.SelectedValue;
-            EmployeeStatus status = 0;
+            PersonStatus status = 0;
 
             try
             {
-                status = EnumHelper.GetEnum<EmployeeStatus>(statusString.Value);
+                status = EnumHelper.GetEnum<PersonStatus>(statusString.Value);
             }
             catch { }
 
@@ -126,6 +125,13 @@ namespace Unapec.HumanResourcesM.Forms.Employees
 
         private void cancelButton_Click(object sender, EventArgs e)
         {
+            this.DialogResult = DialogResult.Cancel;
+            this.Close();
+        }
+
+        private void btnAcceptSelection_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.OK;
             this.Close();
         }
     }

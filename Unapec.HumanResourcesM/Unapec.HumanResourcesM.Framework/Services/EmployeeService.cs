@@ -21,7 +21,7 @@ namespace Unapec.HumanResourcesM.Framework.Services
 
         public Employee Create(Employee employee)
         {
-            //employee.Status = EmployeeStatus.Normal;
+            employee.Status = PersonStatus.Normal;
             _context.Employees.Add(employee);
             _context.SaveChanges();
             //
@@ -54,7 +54,7 @@ namespace Unapec.HumanResourcesM.Framework.Services
             foreach (var applicant in applicants)
             {
 
-                applicant.Status = EmployeeStatus.Normal;
+                applicant.Status = PersonStatus.Normal;
                 _context.Applicants.AddOrUpdate(applicant);
 
                 var employee = new Employee
@@ -72,7 +72,7 @@ namespace Unapec.HumanResourcesM.Framework.Services
                     PositionId = applicant.JobOffer.PositionId,
                     Nationality = applicant.Nationality,
                     Sex = applicant.Sex,
-                    Status = EmployeeStatus.Normal,
+                    Status = PersonStatus.Normal,
                     Details = new EmployeeDetail
                     {
                         GradingLvlId = applicant.Details.GradingLvlId,
@@ -87,7 +87,7 @@ namespace Unapec.HumanResourcesM.Framework.Services
             }
         }
 
-        public IEnumerable<Employee> DoEmployeeSearch(string name, EmployeeStatus status, int departmentId, int positionId)
+        public IEnumerable<Employee> DoEmployeeSearch(string name, PersonStatus status, int departmentId, int positionId)
         {
             Expression<Func<Employee, bool>> departmentExpr = null;
             if (departmentId > 0)

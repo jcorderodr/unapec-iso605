@@ -5,16 +5,6 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace Unapec.HumanResourcesM.Framework.Entities
 {
 
-    public enum EmployeeStatus
-    {
-        Applicant = 1,
-        PreSelected = 2,
-        Rejected = 3,
-        Normal = 5,
-        OnVacaction = 6,
-        UnderSupervision = 7,
-        Canceled = 9
-    }
 
     public class Employee
     {
@@ -29,7 +19,7 @@ namespace Unapec.HumanResourcesM.Framework.Entities
         [StringLength(5)]
         public string Code { get; set; }
         public DateTimeOffset RegisteredDate { get; set; }
-        public EmployeeStatus Status { get; set; }
+        public PersonStatus Status { get; set; }
         public int DepartmentId { get; set; }
 
         [StringLength(11)]
