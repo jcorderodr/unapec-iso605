@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LinqKit;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity.Migrations;
 using System.Linq;
@@ -67,45 +68,49 @@ namespace Unapec.HumanResourcesM.Framework.Services
 
         public void CloseJobOffer(IEnumerable<int> selectedApplicants, int jobOfferId)
         {
-            // 1.- From Applicant to Employee
-            var applicants = _context.Applicants.Include("ApplicantDetail").Where(p => selectedApplicants.Contains(p.Id));
+            var transaction = _context.Database.BeginTransaction();
 
-            foreach (var p in applicants)
+            // 1.- Update candidates
+            var applicants = _context.Applicants.Where(p => selectedApplicants.Contains(p.Id)).ToList();
+            
+            foreach (var app in applicants)
             {
-                p.Status = PersonStatus.Normal;
-                _context.Applicants.AddOrUpdate(p);
+                app.Status = PersonStatus.Normal;
+                _context.Entry(app).State = System.Data.Entity.EntityState.Modified;
             }
             _context.SaveChanges();
-
-            {
-                _employeeService = new EmployeeService();
-                _employeeService.TransformApplicantToEmployee(applicants);
-            }
-
+            
             // 2.- Discard others
             var applicantsToReject = _context.Applicants.Where(p => p.Status == PersonStatus.Applicant && p.JobOffer.Id == jobOfferId).Select(p => p.Id);
             DiscardApplicantsByJobOffer(applicantsToReject, jobOfferId);
 
-            // 3.- Close Job
+            // 3.- Create new Employees
+            {
+                _employeeService = new EmployeeService();
+                applicants.ForEach(app =>
+                {
+                    app.Details = _context.ApplicantDetails.SingleOrDefault(p => p.ApplicantId == app.Id);
+                    
+                });
+                _employeeService.TransformApplicantToEmployee(applicants, transaction);
+            }
+            
+            // 4.- Close Job
             var jobOffer = _context.JobOffers.SingleOrDefault(p => p.Id == jobOfferId);
             jobOffer.Status = JobStatus.Close;
-            _context.SaveChanges();
 
-            //if (jobOffer == null) return null;
-            //var employee = TransformApplicantToEmployee(applicant);
-            //DiscardApplicantsByJobOffer(jobOffer.Id);
-
-            //return employee;
+            _context.SecureSave();
+            transaction.Commit();
         }
 
         public void DiscardApplicantsByJobOffer(IEnumerable<int> selectedApplicants, int jobOfferId)
         {
-            var applicants = _context.Applicants.Where(p => selectedApplicants.Contains(p.Id));
+            var applicants = _context.Applicants.Where(p => selectedApplicants.Contains(p.Id)).ToList();
 
-            foreach (var p in applicants)
+            foreach (var app in applicants)
             {
-                p.Status = PersonStatus.Rejected;
-                _context.Applicants.AddOrUpdate(p);
+                app.Status = PersonStatus.Rejected;
+                _context.Entry(app).State = System.Data.Entity.EntityState.Modified;
             }
             
             _context.SaveChanges();

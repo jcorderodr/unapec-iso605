@@ -182,4 +182,10 @@ Está seguro que ha revisado y completado la información correctamente?</value>
   <data name="Message_ApplicationWizardConfirmation" xml:space="preserve">
     <value>Felicitaciones! Has finalizado correctamente el formulario de aplicación para nuestro puesto de trabajo. En un periodo de 2 a 3 días estarás recibiendo una respuesta a tu solicitud.</value>
   </data>
+  <data name="Message_EmployeesFromApplicantsCreated" xml:space="preserve">
+    <value>Se han registrado con éxito los nuevos empleados a partir de los candidatos seleccionados.</value>
+  </data>
+  <data name="Message_ApplicantsDiscarded" xml:space="preserve">
+    <value>Se han descartado todos los candidatos seleccionados.</value>
+  </data>
 </root>

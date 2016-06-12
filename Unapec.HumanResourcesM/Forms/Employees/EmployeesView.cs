@@ -38,14 +38,16 @@ namespace Unapec.HumanResourcesM.Forms.Employees
             ColumnChkboxEmpSelection.HeaderText = "";
             ColumnChkboxEmpSelection.Name = "ColumnLanguageCheckBox";
             ColumnChkboxEmpSelection.ThreeState = false;
+            ColumnChkboxEmpSelection.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            ColumnChkboxEmpSelection.DataPropertyName = "IsMark";
             employeeDataGridView.Columns.Insert(0, ColumnChkboxEmpSelection);
         }
 
         public IEnumerable<int> GetSelection()
         {
-            var selectedEmployees = employeeDataGridView.Rows.Cast<DataGridViewRow>().Where(k => Convert.ToBoolean(k.Cells[ColumnChkboxEmpSelection.Name].Value) == true);
+            var selectedEmployees = employeeViewModelBindingSource.List.Cast<EmployeeViewModel>().Where(k => k.IsMark);
 
-            return selectedEmployees.Select(p => p.DataBoundItem as EmployeeViewModel).Select(p => p.EmployeeId);
+            return selectedEmployees.Select(p => p.EmployeeId);
         }
 
         private void FillComponents()
@@ -133,6 +135,14 @@ namespace Unapec.HumanResourcesM.Forms.Employees
         {
             this.DialogResult = DialogResult.OK;
             this.Close();
+        }
+
+        private void employeeDataGridView_CurrentCellDirtyStateChanged(object sender, EventArgs e)
+        {
+            if (employeeDataGridView.IsCurrentCellDirty)
+            {
+                employeeDataGridView.CommitEdit(DataGridViewDataErrorContexts.Commit);
+            }
         }
     }
 }

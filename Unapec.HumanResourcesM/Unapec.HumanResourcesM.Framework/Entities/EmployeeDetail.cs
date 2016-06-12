@@ -21,7 +21,6 @@ namespace Unapec.HumanResourcesM.Framework.Entities
         public decimal Salary { get; set; }
         public int GradingLvlId { get; set; }
 
-
         public virtual ICollection<PersonLinkedWorkingExperience> WorkingExperience { get; set; }
         public virtual ICollection<PersonLinkedGrading> Gradings { get; set; }
         public virtual ICollection<PersonLinkedDetail> LinkedDetails { get; set; }

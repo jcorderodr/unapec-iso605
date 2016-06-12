@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Linq.Expressions;
@@ -48,15 +49,11 @@ namespace Unapec.HumanResourcesM.Framework.Services
             return employee;
         }
 
-        public void TransformApplicantToEmployee(IEnumerable<Applicant> applicants)
+        public IEnumerable<Employee> TransformApplicantToEmployee(IEnumerable<Applicant> applicants, DbContextTransaction dbTransaction = null)
         {
-            
+            var result = new List<Employee>();
             foreach (var applicant in applicants)
             {
-
-                applicant.Status = PersonStatus.Normal;
-                _context.Applicants.AddOrUpdate(applicant);
-
                 var employee = new Employee
                 {
                     RegisteredDate = DateTimeOffset.Now,
@@ -83,8 +80,9 @@ namespace Unapec.HumanResourcesM.Framework.Services
                     }
                 };
 
-                Create(employee);
+                result.Add(Create(employee));
             }
+            return result;
         }
 
         public IEnumerable<Employee> DoEmployeeSearch(string name, PersonStatus status, int departmentId, int positionId)

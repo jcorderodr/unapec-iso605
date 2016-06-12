@@ -8,6 +8,7 @@ namespace Unapec.HumanResourcesM.Models
     public class ApplicantModel
     {
         public int ApplicantId { get; set; }
+        public bool IsMark { get; set; }
         public string Identification { get; set; }
         public DateTimeOffset ApplicationDate { get; set; }
         public string Name { get; set; }

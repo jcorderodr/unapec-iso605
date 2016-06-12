@@ -7,7 +7,6 @@ namespace Unapec.HumanResourcesM.Framework.Entities
 {
     public class ApplicantDetail
     {
-
         public ApplicantDetail()
         {
             WorkingExperience = new Collection<PersonLinkedWorkingExperience>();
@@ -22,9 +21,9 @@ namespace Unapec.HumanResourcesM.Framework.Entities
         public int GradingLvlId { get; set; }
         public decimal ExpectedSalary { get; set; }
 
-        public ICollection<PersonLinkedWorkingExperience> WorkingExperience { get; set; }
-        public ICollection<PersonLinkedGrading> Gradings { get; set; }
-        public ICollection<PersonLinkedDetail> LinkedDetails { get; set; }
+        public virtual ICollection<PersonLinkedWorkingExperience> WorkingExperience { get; set; }
+        public virtual ICollection<PersonLinkedGrading> Gradings { get; set; }
+        public virtual ICollection<PersonLinkedDetail> LinkedDetails { get; set; }
 
     }
 }

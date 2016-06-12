@@ -93,14 +93,17 @@
             this.dataGridView1.DataSource = this.applicantModelBindingSource;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(3, 16);
+            this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(849, 259);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CurrentCellDirtyStateChanged += new System.EventHandler(this.dataGridView1_CurrentCellDirtyStateChanged);
             // 
             // ColumnMark
             // 
             this.ColumnMark.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.ColumnMark.DataPropertyName = "IsMark";
             this.ColumnMark.HeaderText = "Seleccionar";
             this.ColumnMark.Name = "ColumnMark";
             this.ColumnMark.Resizable = System.Windows.Forms.DataGridViewTriState.True;
@@ -305,6 +308,12 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.BindingSource applicantModelBindingSource;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem optionsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem markAsDiscardedToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem selectApplicantAndCloseJobOfferToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.DataGridViewCheckBoxColumn ColumnMark;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnId;
         private System.Windows.Forms.DataGridViewTextBoxColumn applicationDateDataGridViewTextBoxColumn;
@@ -315,11 +324,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn phoneHouseDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn phoneCellDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn gradingLevelDataGridViewTextBoxColumn;
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem optionsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem markAsDiscardedToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem selectApplicantAndCloseJobOfferToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
     }
 }

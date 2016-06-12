@@ -124,6 +124,15 @@ namespace Unapec.HumanResourcesM.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Se han descartado todos los candidatos seleccionados..
+        /// </summary>
+        public static string Message_ApplicantsDiscarded {
+            get {
+                return ResourceManager.GetString("Message_ApplicantsDiscarded", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Felicitaciones! Has finalizado correctamente el formulario de aplicación para nuestro puesto de trabajo. En un periodo de 2 a 3 días estarás recibiendo una respuesta a tu solicitud..
         /// </summary>
         public static string Message_ApplicationWizardConfirmation {
@@ -138,6 +147,15 @@ namespace Unapec.HumanResourcesM.Resources {
         public static string Message_CreationFormInvalidFields {
             get {
                 return ResourceManager.GetString("Message_CreationFormInvalidFields", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Se han registrado con éxito los nuevos empleados a partir de los candidatos seleccionados..
+        /// </summary>
+        public static string Message_EmployeesFromApplicantsCreated {
+            get {
+                return ResourceManager.GetString("Message_EmployeesFromApplicantsCreated", resourceCulture);
             }
         }
         

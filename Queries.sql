@@ -1,6 +1,7 @@
 
 
-SELECT ap.[Username]
+SELECT ap.Id
+,ap.[Username]
 ,ap.[Status]
 ,ap.[ApplicationDate]
 ,ap.[Name]
@@ -20,6 +21,24 @@ FROM [dbo].[Applicants] ap
 INNER JOIN [dbo].[ApplicantDetails] apd ON ap.Id = apd.ApplicantId
 INNER JOIN [dbo].[JobOffers] job ON ap.JobOffer_Id = job.Id
 
+SELECT emp.Id
+,emp.[Status]
+,emp.RegisteredDate
+,emp.[Name]
+,emp.[LastName]
+,emp.[BirthPlace]
+,emp.[Nationality]
+,emp.[BirthDate]
+,emp.[Sex]
+,emp.[Address]
+,emp.[PhoneHouse]
+,emp.[PhoneCell]
+,empd.Salary
+,empd.GradingLvlId
+,pos.Name
+FROM [dbo].Employees emp
+INNER JOIN [dbo].EmployeeDetails empd ON emp.Id = empd.[EmployeeId]
+INNER JOIN [dbo].EmployeePositions pos ON emp.PositionId = pos.Id
 
 SELECT *
 FROM dbo.PersonLinkedDetails
@@ -85,3 +104,7 @@ SELECT apd.ApplicantId
 ,pwe.ToDate
 FROM [dbo].[ApplicantDetails] apd
 INNER JOIN dbo.PersonLinkedWorkingExperiences pwe ON apd.ApplicantId = pwe.ApplicantDetail_ApplicantId
+
+
+delete from [dbo].[EmployeeDetails]
+delete from  [dbo].[Employees]

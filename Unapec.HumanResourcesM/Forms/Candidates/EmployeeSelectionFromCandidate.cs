@@ -1,11 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Windows.Forms;
 using Unapec.HumanResourcesM.Framework.Entities;
 using Unapec.HumanResourcesM.Framework.Services;
 using Unapec.HumanResourcesM.Models;
+using Unapec.HumanResourcesM.Resources;
 
 namespace Unapec.HumanResourcesM.Forms.Candidates
 {
@@ -31,14 +31,13 @@ namespace Unapec.HumanResourcesM.Forms.Candidates
         {
             birthDateDataGridViewTextBoxColumn.SetDateDataGridViewTextBoxColumnFormat();
             applicationDateDataGridViewTextBoxColumn.SetFullDateStringDataGridViewTextBoxColumnFormat();
+            applicationDateDataGridViewTextBoxColumn.SetDateDataGridViewTextBoxColumnFormat();
         }
 
         private void FillComponents()
         {
             var jobOffers = _jobService.GetAvailableJobs();
             jobOfferComboBox.SetComboBoxDatasource(jobOffers, "Name", false);
-
-            applicationDateDataGridViewTextBoxColumn.SetDateDataGridViewTextBoxColumnFormat();
         }
 
         private ApplicantModel To(Applicant applicant)
@@ -73,21 +72,30 @@ namespace Unapec.HumanResourcesM.Forms.Candidates
         {
             var jobOffer = jobOfferComboBox.SelectedValue as Job;
 
-            var gridSelection = dataGridView1.Rows.Cast<DataGridViewRow>().Where(j => Convert.ToBoolean(j.Cells[ColumnMark.Name].Value) == true);
+            var gridSelection = applicantModelBindingSource.List.Cast<ApplicantModel>().Where(k => k.IsMark);
+            var markedKeys = gridSelection.Select(p => p.ApplicantId);
+            if (markedKeys.Any())
+            {
+                _jobService.DiscardApplicantsByJobOffer(markedKeys, jobOffer.Id);
+                this.ShowInformationMessage(Strings.Message_ApplicantsDiscarded);
 
-            var markedKeys = gridSelection.Select(p => p.DataBoundItem as ApplicantModel).Select(p => p.ApplicantId);
-            _jobService.DiscardApplicantsByJobOffer(markedKeys, jobOffer.Id);
-
+                jobOfferComboBox_SelectedValueChanged(sender, e);
+            }
         }
 
         private void selectApplicantAndCloseJobOfferToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var jobOffer = jobOfferComboBox.SelectedValue as Job;
 
-            var gridSelection = dataGridView1.Rows.Cast<DataGridViewRow>().Where(j => Convert.ToBoolean(j.Cells[ColumnMark.Name].Value) == true);
+            var gridSelection = applicantModelBindingSource.List.Cast<ApplicantModel>().Where(k => k.IsMark);
+            var markedKeys = gridSelection.Select(p => p.ApplicantId);
+            if (markedKeys.Any())
+            {
+                _jobService.CloseJobOffer(markedKeys, jobOffer.Id);
+                this.ShowInformationMessage(Strings.Message_EmployeesFromApplicantsCreated);
 
-            var markedKeys = gridSelection.Select(p => p.DataBoundItem as ApplicantModel).Select(p => p.ApplicantId);
-            _jobService.CloseJobOffer(markedKeys, jobOffer.Id);
+                FillComponents();
+            }
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -96,6 +104,12 @@ namespace Unapec.HumanResourcesM.Forms.Candidates
             this.Close();
         }
 
-
+        private void dataGridView1_CurrentCellDirtyStateChanged(object sender, EventArgs e)
+        {
+            if (dataGridView1.IsCurrentCellDirty)
+            {
+                dataGridView1.CommitEdit(DataGridViewDataErrorContexts.Commit);
+            }
+        }
     }
 }

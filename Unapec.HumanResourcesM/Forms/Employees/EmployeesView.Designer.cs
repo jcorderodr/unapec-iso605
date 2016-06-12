@@ -107,6 +107,7 @@
             this.employeeDataGridView.ReadOnly = true;
             this.employeeDataGridView.Size = new System.Drawing.Size(766, 205);
             this.employeeDataGridView.TabIndex = 0;
+            this.employeeDataGridView.CurrentCellDirtyStateChanged += new System.EventHandler(this.employeeDataGridView_CurrentCellDirtyStateChanged);
             // 
             // lastNameDataGridViewTextBoxColumn
             // 
