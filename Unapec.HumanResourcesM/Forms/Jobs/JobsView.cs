@@ -25,16 +25,13 @@ namespace Unapec.HumanResourcesM.Forms.Jobs
         private void FormatComponent()
         {
             var columns = dataGridView1.Columns;
-            columns["ColumnName"].DataPropertyName = "Name";
-            columns["ColumnDate"].DataPropertyName = "CreationDate";
-            columns["ColumnTotalApplicants"].DataPropertyName = "TotalApplicants";
-            ColumnDate.SetDateDataGridViewTextBoxColumnFormat();
+            creationDateDataGridViewTextBoxColumn.SetDateDataGridViewTextBoxColumnFormat();
         }
 
         private void FillComponents()
         {
             var jobs = _jobService.GetAvailableJobs().Select(ToModel).ToList();
-            dataGridView1.DataSource = jobs;
+            jobsViewModelBindingSource.DataSource = jobs;
         }
 
         private JobsViewModel ToModel(Job jobOffer)
@@ -42,6 +39,7 @@ namespace Unapec.HumanResourcesM.Forms.Jobs
             return new JobsViewModel
             {
                 Name = jobOffer.Name,
+                State = jobOffer.Status == JobStatus.Open ? "Abierta" : "Cerrada",
                 CreationDate = jobOffer.RegisteredDate.DateTime,
                 TotalApplicants = _jobService.GetApplicantsCountForJob(jobOffer.Id)
             };

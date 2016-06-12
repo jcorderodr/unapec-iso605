@@ -33,13 +33,6 @@
             this.actionButtonCreateNewEmployee = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.employeeDataGridView = new System.Windows.Forms.DataGridView();
-            this.lastNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.statusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.registeredDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.phoneCellDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.positionNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.departmentNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.employeeViewModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.refreshSearchButton = new System.Windows.Forms.Button();
@@ -53,6 +46,13 @@
             this.label29 = new System.Windows.Forms.Label();
             this.cancelButton = new System.Windows.Forms.Button();
             this.btnAcceptSelection = new System.Windows.Forms.Button();
+            this.lastNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.statusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.registeredDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.phoneCellDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.positionNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.departmentNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.employeeDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeeViewModelBindingSource)).BeginInit();
@@ -104,66 +104,9 @@
             this.employeeDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.employeeDataGridView.Location = new System.Drawing.Point(3, 16);
             this.employeeDataGridView.Name = "employeeDataGridView";
-            this.employeeDataGridView.ReadOnly = true;
             this.employeeDataGridView.Size = new System.Drawing.Size(766, 205);
             this.employeeDataGridView.TabIndex = 0;
             this.employeeDataGridView.CurrentCellDirtyStateChanged += new System.EventHandler(this.employeeDataGridView_CurrentCellDirtyStateChanged);
-            // 
-            // lastNameDataGridViewTextBoxColumn
-            // 
-            this.lastNameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.lastNameDataGridViewTextBoxColumn.DataPropertyName = "LastName";
-            this.lastNameDataGridViewTextBoxColumn.HeaderText = "Apellidos";
-            this.lastNameDataGridViewTextBoxColumn.Name = "lastNameDataGridViewTextBoxColumn";
-            this.lastNameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.lastNameDataGridViewTextBoxColumn.Width = 74;
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Nombres";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.nameDataGridViewTextBoxColumn.Width = 74;
-            // 
-            // statusDataGridViewTextBoxColumn
-            // 
-            this.statusDataGridViewTextBoxColumn.DataPropertyName = "Status";
-            this.statusDataGridViewTextBoxColumn.HeaderText = "Estado";
-            this.statusDataGridViewTextBoxColumn.Name = "statusDataGridViewTextBoxColumn";
-            this.statusDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // registeredDateDataGridViewTextBoxColumn
-            // 
-            this.registeredDateDataGridViewTextBoxColumn.DataPropertyName = "RegisteredDate";
-            dataGridViewCellStyle1.Format = "D";
-            dataGridViewCellStyle1.NullValue = null;
-            this.registeredDateDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
-            this.registeredDateDataGridViewTextBoxColumn.HeaderText = "Fecha de Ingreso";
-            this.registeredDateDataGridViewTextBoxColumn.Name = "registeredDateDataGridViewTextBoxColumn";
-            this.registeredDateDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // phoneCellDataGridViewTextBoxColumn
-            // 
-            this.phoneCellDataGridViewTextBoxColumn.DataPropertyName = "PhoneCell";
-            this.phoneCellDataGridViewTextBoxColumn.HeaderText = "Celular";
-            this.phoneCellDataGridViewTextBoxColumn.Name = "phoneCellDataGridViewTextBoxColumn";
-            this.phoneCellDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // positionNameDataGridViewTextBoxColumn
-            // 
-            this.positionNameDataGridViewTextBoxColumn.DataPropertyName = "PositionName";
-            this.positionNameDataGridViewTextBoxColumn.HeaderText = "Puesto";
-            this.positionNameDataGridViewTextBoxColumn.Name = "positionNameDataGridViewTextBoxColumn";
-            this.positionNameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // departmentNameDataGridViewTextBoxColumn
-            // 
-            this.departmentNameDataGridViewTextBoxColumn.DataPropertyName = "DepartmentName";
-            this.departmentNameDataGridViewTextBoxColumn.HeaderText = "Departamento";
-            this.departmentNameDataGridViewTextBoxColumn.Name = "departmentNameDataGridViewTextBoxColumn";
-            this.departmentNameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // employeeViewModelBindingSource
             // 
@@ -296,6 +239,62 @@
             this.btnAcceptSelection.UseVisualStyleBackColor = true;
             this.btnAcceptSelection.Click += new System.EventHandler(this.btnAcceptSelection_Click);
             // 
+            // lastNameDataGridViewTextBoxColumn
+            // 
+            this.lastNameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.lastNameDataGridViewTextBoxColumn.DataPropertyName = "LastName";
+            this.lastNameDataGridViewTextBoxColumn.HeaderText = "Apellidos";
+            this.lastNameDataGridViewTextBoxColumn.Name = "lastNameDataGridViewTextBoxColumn";
+            this.lastNameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.lastNameDataGridViewTextBoxColumn.Width = 74;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Nombres";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.nameDataGridViewTextBoxColumn.Width = 74;
+            // 
+            // statusDataGridViewTextBoxColumn
+            // 
+            this.statusDataGridViewTextBoxColumn.DataPropertyName = "Status";
+            this.statusDataGridViewTextBoxColumn.HeaderText = "Estado";
+            this.statusDataGridViewTextBoxColumn.Name = "statusDataGridViewTextBoxColumn";
+            this.statusDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // registeredDateDataGridViewTextBoxColumn
+            // 
+            this.registeredDateDataGridViewTextBoxColumn.DataPropertyName = "RegisteredDate";
+            dataGridViewCellStyle1.Format = "D";
+            dataGridViewCellStyle1.NullValue = null;
+            this.registeredDateDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
+            this.registeredDateDataGridViewTextBoxColumn.HeaderText = "Fecha de Ingreso";
+            this.registeredDateDataGridViewTextBoxColumn.Name = "registeredDateDataGridViewTextBoxColumn";
+            this.registeredDateDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // phoneCellDataGridViewTextBoxColumn
+            // 
+            this.phoneCellDataGridViewTextBoxColumn.DataPropertyName = "PhoneCell";
+            this.phoneCellDataGridViewTextBoxColumn.HeaderText = "Celular";
+            this.phoneCellDataGridViewTextBoxColumn.Name = "phoneCellDataGridViewTextBoxColumn";
+            this.phoneCellDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // positionNameDataGridViewTextBoxColumn
+            // 
+            this.positionNameDataGridViewTextBoxColumn.DataPropertyName = "PositionName";
+            this.positionNameDataGridViewTextBoxColumn.HeaderText = "Puesto";
+            this.positionNameDataGridViewTextBoxColumn.Name = "positionNameDataGridViewTextBoxColumn";
+            this.positionNameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // departmentNameDataGridViewTextBoxColumn
+            // 
+            this.departmentNameDataGridViewTextBoxColumn.DataPropertyName = "DepartmentName";
+            this.departmentNameDataGridViewTextBoxColumn.HeaderText = "Departamento";
+            this.departmentNameDataGridViewTextBoxColumn.Name = "departmentNameDataGridViewTextBoxColumn";
+            this.departmentNameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
             // EmployeesView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -333,6 +332,8 @@
         private System.Windows.Forms.ComboBox jobPositionComboBox;
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.Button refreshSearchButton;
+        private System.Windows.Forms.BindingSource employeeViewModelBindingSource;
+        private System.Windows.Forms.Button btnAcceptSelection;
         private System.Windows.Forms.DataGridViewTextBoxColumn lastNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn;
@@ -340,7 +341,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn phoneCellDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn positionNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn departmentNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource employeeViewModelBindingSource;
-        private System.Windows.Forms.Button btnAcceptSelection;
     }
 }

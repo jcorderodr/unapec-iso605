@@ -40,6 +40,7 @@ namespace Unapec.HumanResourcesM.Forms.Employees
             ColumnChkboxEmpSelection.ThreeState = false;
             ColumnChkboxEmpSelection.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
             ColumnChkboxEmpSelection.DataPropertyName = "IsMark";
+            ColumnChkboxEmpSelection.ReadOnly = false;
             employeeDataGridView.Columns.Insert(0, ColumnChkboxEmpSelection);
         }
 
@@ -75,20 +76,6 @@ namespace Unapec.HumanResourcesM.Forms.Employees
             jobPositionComboBox.SetComboBoxDatasource(positions, "Name", true);
         }
 
-        private EmployeeViewModel To(Employee employee)
-        {
-            return new EmployeeViewModel
-            {
-                EmployeeId = employee.Id,
-                LastName = employee.LastName,
-                Name = employee.Name,
-                PhoneCell = employee.PhoneCell,
-                Status = Strings.ResourceManager.GetString(employee.Status.ToString()),
-                RegisteredDate = employee.RegisteredDate,
-                DepartmentName = employee.Department.Name,
-                PositionName = employee.Position.Name,
-            };
-        }
 
         private void departmentComboBox_SelectedValueChanged(object sender, EventArgs e)
         {
@@ -111,12 +98,15 @@ namespace Unapec.HumanResourcesM.Forms.Employees
 
             try
             {
-                status = EnumHelper.GetEnum<PersonStatus>(statusString.Value);
+                status = (PersonStatus) statusString.Key;
             }
             catch { }
 
             var matches = _employeeService.DoEmployeeSearch(txtBoxName.Text, status, department.Id, position.Id);
-            employeeDataGridView.DataSource = matches.Select(To).ToList();
+            if(matches.Any())
+            {
+                employeeViewModelBindingSource.DataSource = matches.Select(To);
+            }
         }
 
         private void actionButtonCreateNewEmployee_Click(object sender, EventArgs e)
@@ -143,6 +133,21 @@ namespace Unapec.HumanResourcesM.Forms.Employees
             {
                 employeeDataGridView.CommitEdit(DataGridViewDataErrorContexts.Commit);
             }
+        }
+
+        private EmployeeViewModel To(Employee employee)
+        {
+            return new EmployeeViewModel
+            {
+                EmployeeId = employee.Id,
+                LastName = employee.LastName,
+                Name = employee.Name,
+                PhoneCell = employee.PhoneCell,
+                Status = Strings.ResourceManager.GetString(employee.Status.ToString()),
+                RegisteredDate = employee.RegisteredDate,
+                DepartmentName = employee.Department.Name,
+                PositionName = employee.Position.Name,
+            };
         }
     }
 }

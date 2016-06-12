@@ -17,6 +17,9 @@ namespace Unapec.HumanResourcesM.Forms.Learning
             InitializeComponent();
             this.Text = "Capacitaciones";
             _courseService = new CourseService();
+
+            endDateDataGridViewTextBoxColumn.SetFullDateStringDataGridViewTextBoxColumnFormat();
+            startDateDataGridViewTextBoxColumn.SetFullDateStringDataGridViewTextBoxColumnFormat();
             FillComponents();
         }
 
@@ -25,8 +28,6 @@ namespace Unapec.HumanResourcesM.Forms.Learning
             var courses = _courseService.GetCourses().Select(To);
             courseModelBindingSource.DataSource = courses.ToList();
 
-            endDateDataGridViewTextBoxColumn.SetFullDateStringDataGridViewTextBoxColumnFormat();
-            startDateDataGridViewTextBoxColumn.SetFullDateStringDataGridViewTextBoxColumnFormat();
         }
 
         private CourseModel To(Course course)
@@ -56,7 +57,6 @@ namespace Unapec.HumanResourcesM.Forms.Learning
 
             if (selectedCourse == null) return;
 
-            //TODO: get SelectedRow and open a list of employees
             using (var frm = new Employees.EmployeesView())
             {
                 frm.SetSelectionMode();
@@ -64,8 +64,13 @@ namespace Unapec.HumanResourcesM.Forms.Learning
                 if (dResult == System.Windows.Forms.DialogResult.OK)
                 {
                     var empKeys = frm.GetSelection();
-                    _courseService.AddQuorum(selectedCourse.Id, empKeys);
-                    this.ShowInformationMessage(Strings.Message_FormSubmitSuccess);
+                    if(empKeys.Any())
+                    {
+                        _courseService.AddQuorum(selectedCourse.Id, empKeys);
+                        this.ShowInformationMessage(string.Format(Strings.Message_QuorumSuccessWithCount, empKeys.Count()));
+
+                        FillComponents();
+                    }
                 }
             }
 

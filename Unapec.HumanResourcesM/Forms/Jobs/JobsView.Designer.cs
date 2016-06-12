@@ -28,22 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.components = new System.ComponentModel.Container();
             this.createJobOfferButton = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.ColumnName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnTotalApplicants = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.jobsViewModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.stateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.creationDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.totalApplicantsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.jobsViewModelBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // createJobOfferButton
             // 
             this.createJobOfferButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.createJobOfferButton.Location = new System.Drawing.Point(13, 229);
+            this.createJobOfferButton.Location = new System.Drawing.Point(13, 255);
             this.createJobOfferButton.Name = "createJobOfferButton";
             this.createJobOfferButton.Size = new System.Drawing.Size(119, 23);
             this.createJobOfferButton.TabIndex = 0;
@@ -56,7 +59,7 @@
             this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancel.Image = global::Unapec.HumanResourcesM.Properties.Resources.close_16px;
             this.btnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancel.Location = new System.Drawing.Point(359, 229);
+            this.btnCancel.Location = new System.Drawing.Point(482, 255);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 2;
@@ -73,7 +76,7 @@
             this.groupBox1.Controls.Add(this.dataGridView1);
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(445, 223);
+            this.groupBox1.Size = new System.Drawing.Size(568, 249);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Listado de Vacantes";
@@ -82,48 +85,64 @@
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ColumnName,
-            this.ColumnDate,
-            this.ColumnTotalApplicants});
+            this.nameDataGridViewTextBoxColumn,
+            this.stateDataGridViewTextBoxColumn,
+            this.creationDateDataGridViewTextBoxColumn,
+            this.totalApplicantsDataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.jobsViewModelBindingSource;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(3, 16);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(439, 204);
+            this.dataGridView1.Size = new System.Drawing.Size(562, 230);
             this.dataGridView1.TabIndex = 0;
             // 
-            // ColumnName
+            // jobsViewModelBindingSource
             // 
-            this.ColumnName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ColumnName.HeaderText = "Nombre del puesto";
-            this.ColumnName.Name = "ColumnName";
-            this.ColumnName.ReadOnly = true;
+            this.jobsViewModelBindingSource.DataSource = typeof(Unapec.HumanResourcesM.Models.JobsViewModel);
             // 
-            // ColumnDate
+            // nameDataGridViewTextBoxColumn
             // 
-            this.ColumnDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            dataGridViewCellStyle1.Format = "f";
-            dataGridViewCellStyle1.NullValue = null;
-            this.ColumnDate.DefaultCellStyle = dataGridViewCellStyle1;
-            this.ColumnDate.HeaderText = "Fecha de Creación";
-            this.ColumnDate.Name = "ColumnDate";
-            this.ColumnDate.ReadOnly = true;
-            this.ColumnDate.Width = 112;
+            this.nameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Nombre del Puesto";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.nameDataGridViewTextBoxColumn.Width = 82;
             // 
-            // ColumnTotalApplicants
+            // stateDataGridViewTextBoxColumn
             // 
-            this.ColumnTotalApplicants.HeaderText = "Cantidad de Aplicantes";
-            this.ColumnTotalApplicants.Name = "ColumnTotalApplicants";
-            this.ColumnTotalApplicants.ReadOnly = true;
-            this.ColumnTotalApplicants.Width = 50;
+            this.stateDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.stateDataGridViewTextBoxColumn.DataPropertyName = "State";
+            this.stateDataGridViewTextBoxColumn.HeaderText = "Estado";
+            this.stateDataGridViewTextBoxColumn.Name = "stateDataGridViewTextBoxColumn";
+            this.stateDataGridViewTextBoxColumn.ReadOnly = true;
+            this.stateDataGridViewTextBoxColumn.Width = 65;
+            // 
+            // creationDateDataGridViewTextBoxColumn
+            // 
+            this.creationDateDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.creationDateDataGridViewTextBoxColumn.DataPropertyName = "CreationDate";
+            this.creationDateDataGridViewTextBoxColumn.HeaderText = "Fecha de Creación";
+            this.creationDateDataGridViewTextBoxColumn.Name = "creationDateDataGridViewTextBoxColumn";
+            this.creationDateDataGridViewTextBoxColumn.ReadOnly = true;
+            this.creationDateDataGridViewTextBoxColumn.Width = 112;
+            // 
+            // totalApplicantsDataGridViewTextBoxColumn
+            // 
+            this.totalApplicantsDataGridViewTextBoxColumn.DataPropertyName = "TotalApplicants";
+            this.totalApplicantsDataGridViewTextBoxColumn.HeaderText = "Aplicantes al Puesto";
+            this.totalApplicantsDataGridViewTextBoxColumn.Name = "totalApplicantsDataGridViewTextBoxColumn";
+            this.totalApplicantsDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // JobsView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(446, 264);
+            this.ClientSize = new System.Drawing.Size(569, 290);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.createJobOfferButton);
@@ -131,6 +150,7 @@
             this.Text = "JobsView";
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.jobsViewModelBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -141,8 +161,10 @@
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTotalApplicants;
+        private System.Windows.Forms.BindingSource jobsViewModelBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn stateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn creationDateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn totalApplicantsDataGridViewTextBoxColumn;
     }
 }

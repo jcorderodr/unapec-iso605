@@ -1,7 +1,5 @@
-﻿using LinqKit;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Data.Entity.Migrations;
 using System.Linq;
 using Unapec.HumanResourcesM.Framework.Data;
 using Unapec.HumanResourcesM.Framework.Entities;
@@ -43,7 +41,7 @@ namespace Unapec.HumanResourcesM.Framework.Services
 
         public IEnumerable<Job> GetAvailableJobs()
         {
-            return _context.JobOffers.ToList();
+            return _context.JobOffers.Where(p=> p.Status == JobStatus.Open).ToList();
         }
 
         public IEnumerable<Applicant> GetApplicantsByJob(int jobOfferId)

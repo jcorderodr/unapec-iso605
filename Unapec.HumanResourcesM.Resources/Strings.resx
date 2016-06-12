@@ -188,4 +188,7 @@ Está seguro que ha revisado y completado la información correctamente?</value>
   <data name="Message_ApplicantsDiscarded" xml:space="preserve">
     <value>Se han descartado todos los candidatos seleccionados.</value>
   </data>
+  <data name="Message_QuorumSuccessWithCount" xml:space="preserve">
+    <value>Se han registrado {0} empleados para la capacitación.</value>
+  </data>
 </root>

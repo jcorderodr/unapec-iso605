@@ -264,6 +264,7 @@
     <None Include="Properties\DataSources\Unapec.HumanResourcesM.Models.ApplicantModel.datasource" />
     <None Include="Properties\DataSources\Unapec.HumanResourcesM.Models.CourseModel.datasource" />
     <None Include="Properties\DataSources\Unapec.HumanResourcesM.Models.EmployeeViewModel.datasource" />
+    <None Include="Properties\DataSources\Unapec.HumanResourcesM.Models.JobsViewModel.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

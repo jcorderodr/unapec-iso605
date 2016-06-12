@@ -28,7 +28,7 @@ namespace Unapec.HumanResourcesM.Framework.Services
             //
             employee.Details.EmployeeId = employee.Id;
             _context.EmployeeDetails.Add(employee.Details);
-            _context.SaveChanges();
+            _context.SecureSave();
             return employee;
         }
 
@@ -74,9 +74,9 @@ namespace Unapec.HumanResourcesM.Framework.Services
                     {
                         GradingLvlId = applicant.Details.GradingLvlId,
                         Salary = applicant.JobOffer.MixOfferSalary,
-                        Gradings = applicant.Details.Gradings,
-                        LinkedDetails = applicant.Details.LinkedDetails,
-                        WorkingExperience = applicant.Details.WorkingExperience
+                        Gradings = applicant.Details.Gradings.Select(ToGrading).ToList(),
+                        LinkedDetails = applicant.Details.LinkedDetails.Select(ToLinkedDetail).ToList(),
+                        WorkingExperience = applicant.Details.WorkingExperience.Select(ToWorkingExperience).ToList()
                     }
                 };
 
@@ -84,6 +84,7 @@ namespace Unapec.HumanResourcesM.Framework.Services
             }
             return result;
         }
+
 
         public IEnumerable<Employee> DoEmployeeSearch(string name, PersonStatus status, int departmentId, int positionId)
         {
@@ -112,8 +113,42 @@ namespace Unapec.HumanResourcesM.Framework.Services
                 statusExpr = p => true;
 
             var finalExpr = ExpressionBinder.BuildAndExpression(departmentExpr, positionExpr, nameExpr, statusExpr);
-            return _context.Employees.Where(finalExpr);
+            return _context.Employees.Where(finalExpr).ToList();
 
+        }
+
+
+        private PersonLinkedWorkingExperience ToWorkingExperience(PersonLinkedWorkingExperience arg)
+        {
+            return new PersonLinkedWorkingExperience
+            {
+                CompanyName = arg.CompanyName,
+                Description = arg.Description,
+                FromDate = arg.FromDate,
+                ToDate = arg.ToDate,
+            };
+        }
+
+        private PersonLinkedDetail ToLinkedDetail(PersonLinkedDetail arg)
+        {
+            return new PersonLinkedDetail
+            {
+                Category = arg.Category,
+                LevelSubCategoryId = arg.LevelSubCategoryId,
+                SubCategoryId = arg.SubCategoryId,
+                Type = arg.Type,
+            };
+        }
+
+        private PersonLinkedGrading ToGrading(PersonLinkedGrading arg)
+        {
+            return new PersonLinkedGrading
+            {
+                Institution = arg.Institution,
+                Description = arg.Description,
+                FromDate = arg.FromDate,
+                ToDate = arg.ToDate,
+            };
         }
     }
 }

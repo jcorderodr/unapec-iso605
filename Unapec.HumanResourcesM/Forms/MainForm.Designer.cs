@@ -43,8 +43,6 @@
             this.learningToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.availableCoursesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newLearningOfferToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
-            this.courseQuorumToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rptApplicantHistoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -170,9 +168,7 @@
             // 
             this.learningToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.availableCoursesToolStripMenuItem,
-            this.newLearningOfferToolStripMenuItem,
-            this.toolStripSeparator7,
-            this.courseQuorumToolStripMenuItem});
+            this.newLearningOfferToolStripMenuItem});
             this.learningToolStripMenuItem.Name = "learningToolStripMenuItem";
             this.learningToolStripMenuItem.Size = new System.Drawing.Size(99, 23);
             this.learningToolStripMenuItem.Text = "Capacitaciones";
@@ -190,18 +186,6 @@
             this.newLearningOfferToolStripMenuItem.Size = new System.Drawing.Size(225, 22);
             this.newLearningOfferToolStripMenuItem.Text = "Registrar nueva capacitación";
             this.newLearningOfferToolStripMenuItem.Click += new System.EventHandler(this.registrarNuevaCapacitaciónToolStripMenuItem_Click);
-            // 
-            // toolStripSeparator7
-            // 
-            this.toolStripSeparator7.Name = "toolStripSeparator7";
-            this.toolStripSeparator7.Size = new System.Drawing.Size(222, 6);
-            // 
-            // courseQuorumToolStripMenuItem
-            // 
-            this.courseQuorumToolStripMenuItem.Name = "courseQuorumToolStripMenuItem";
-            this.courseQuorumToolStripMenuItem.Size = new System.Drawing.Size(225, 22);
-            this.courseQuorumToolStripMenuItem.Text = "Quorum de Cursos";
-            this.courseQuorumToolStripMenuItem.Click += new System.EventHandler(this.courseQuorumToolStripMenuItem_Click);
             // 
             // reportsToolStripMenuItem
             // 
@@ -381,7 +365,6 @@
         private System.Windows.Forms.ToolStripMenuItem registerEmployeeFromCandidateToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem learningToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem availableCoursesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem courseQuorumToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem managementToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem competencesToolStripMenuItem;
@@ -400,7 +383,6 @@
         private System.Windows.Forms.ToolStripMenuItem createNewJobToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
         private System.Windows.Forms.ToolStripMenuItem newLearningOfferToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
         private System.Windows.Forms.HelpProvider helpProvider;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripSignedUserLabel;

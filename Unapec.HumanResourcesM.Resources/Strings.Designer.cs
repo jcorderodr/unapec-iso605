@@ -187,6 +187,15 @@ namespace Unapec.HumanResourcesM.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Se han registrado {0} empleados para la capacitación..
+        /// </summary>
+        public static string Message_QuorumSuccessWithCount {
+            get {
+                return ResourceManager.GetString("Message_QuorumSuccessWithCount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Las credenciales de acceso introducidas son incorrectas..
         /// </summary>
         public static string Message_WrongCredentials {
