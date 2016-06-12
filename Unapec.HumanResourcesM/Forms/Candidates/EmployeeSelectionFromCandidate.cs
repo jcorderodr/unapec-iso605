@@ -14,6 +14,7 @@ namespace Unapec.HumanResourcesM.Forms.Candidates
 
 
         private readonly JobService _jobService;
+        private readonly EmployeeService _employeeService;
         private readonly CatalogService _catalogService;
 
         public EmployeeSelectionFromCandidate()
@@ -23,7 +24,6 @@ namespace Unapec.HumanResourcesM.Forms.Candidates
             _jobService = new JobService();
             _catalogService = new CatalogService();
             FormatComponents();
-            //
             FillComponents();
         }
 
@@ -46,6 +46,7 @@ namespace Unapec.HumanResourcesM.Forms.Candidates
             var gradingLevel = _catalogService.Get(Catalog.GRADE_LVL, applicant.Details.GradingLvlId);
             var entity = new ApplicantModel
             {
+                ApplicantId = applicant.Id,
                 ApplicationDate = applicant.ApplicationDate,
                 BirthDate = applicant.BirthDate,
                 Identification = applicant.Username,
@@ -62,20 +63,31 @@ namespace Unapec.HumanResourcesM.Forms.Candidates
         private void jobOfferComboBox_SelectedValueChanged(object sender, EventArgs e)
         {
             var jobOffer = jobOfferComboBox.SelectedValue as Job;
-            
+
             var entities = _jobService.GetApplicantsByJob(jobOffer.Id);
             var applicants = entities.Select(To);
-            dataGridView1.DataSource = applicants.ToList();
+            applicantModelBindingSource.DataSource = applicants.ToList();
         }
 
         private void markAsDiscardedToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            var jobOffer = jobOfferComboBox.SelectedValue as Job;
+
+            var gridSelection = dataGridView1.Rows.Cast<DataGridViewRow>().Where(j => Convert.ToBoolean(j.Cells[ColumnMark.Name].Value) == true);
+
+            var markedKeys = gridSelection.Select(p => p.DataBoundItem as ApplicantModel).Select(p => p.ApplicantId);
+            _jobService.DiscardApplicantsByJobOffer(markedKeys, jobOffer.Id);
 
         }
 
         private void selectApplicantAndCloseJobOfferToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            var jobOffer = jobOfferComboBox.SelectedValue as Job;
 
+            var gridSelection = dataGridView1.Rows.Cast<DataGridViewRow>().Where(j => Convert.ToBoolean(j.Cells[ColumnMark.Name].Value) == true);
+
+            var markedKeys = gridSelection.Select(p => p.DataBoundItem as ApplicantModel).Select(p => p.ApplicantId);
+            _jobService.CloseJobOffer(markedKeys, jobOffer.Id);
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
