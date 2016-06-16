@@ -106,5 +106,17 @@ FROM [dbo].[ApplicantDetails] apd
 INNER JOIN dbo.PersonLinkedWorkingExperiences pwe ON apd.ApplicantId = pwe.ApplicantDetail_ApplicantId
 
 
+delete from dbo.PersonLinkedDetails
+WHERE EmployeeDetail_EmployeeId = 4;
+
+delete from dbo.PersonLinkedGradings
+WHERE EmployeeDetail_EmployeeId = 4;
+
+delete from dbo.PersonLinkedWorkingExperiences
+WHERE EmployeeDetail_EmployeeId = 4;
+
 delete from [dbo].[EmployeeDetails]
+WHERE EmployeeId = 4;
+
 delete from  [dbo].[Employees]
+WHERE Id =4;

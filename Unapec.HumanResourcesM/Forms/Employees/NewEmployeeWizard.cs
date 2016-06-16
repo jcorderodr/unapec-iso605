@@ -6,6 +6,7 @@ using System.Windows.Forms;
 using Unapec.HumanResourcesM.Framework.Entities;
 using Unapec.HumanResourcesM.Framework.Helpers;
 using Unapec.HumanResourcesM.Framework.Services;
+using Unapec.HumanResourcesM.Resources;
 
 namespace Unapec.HumanResourcesM.Forms.Employees
 {
@@ -99,7 +100,7 @@ namespace Unapec.HumanResourcesM.Forms.Employees
                 var actionResult = this.ShowQuestionMessage(Resources.Strings.Question_WizardNewApplicationSubmit);
                 if (actionResult == DialogResult.Yes)
                 {
-                    if (CheckUIValidations())
+                    if (!CheckUIInvalidations())
                         SaveAndClose();
                 }
             }
@@ -119,9 +120,66 @@ namespace Unapec.HumanResourcesM.Forms.Employees
             wizardTab2_gradesDataGridView.DataSource = _dataSourceGradingView;
         }
 
-        private bool CheckUIValidations()
+        private bool CheckUIInvalidations()
         {
+            var empPosition = wizardTab5_jobPositionComboBox.SelectedValue as EmployeePosition;
+            if (empPosition == null || empPosition.Id <= 0)
+            {
+                this.ShowErrorMessage(Strings.Message_InvalidFieldEmployeePosition);
+                wizardTabControl.SelectedTab = wizardTabPage5;
+                wizardTab5_jobPositionComboBox.Focus();
+                return false;
+            }
 
+            if (String.IsNullOrEmpty(wizardTab1_txtIdentification.Text) || FormatHelper.IsInvalidIdentification(wizardTab1_txtIdentification.Text))
+            {
+                this.ShowErrorMessage(Strings.Message_InvalidFieldIdentification);
+                wizardTabControl.SelectedTab = wizardTabPage1;
+                wizardTab1_txtIdentification.Focus();
+                return false;
+            }
+
+            if (String.IsNullOrEmpty(wizardTab1_txtFirstName.Text) || String.IsNullOrEmpty(wizardTab1_txtLastName.Text))
+            {
+                this.ShowErrorMessage(Strings.Message_InvalidFieldNames);
+                wizardTabControl.SelectedTab = wizardTabPage1;
+                wizardTab1_txtFirstName.Focus();
+                return false;
+            }
+
+            if (wizardTab1_dateTimeBornDate.Value > DateTime.Now)
+            {
+                this.ShowErrorMessage(Strings.Message_InvalidFieldBornDate);
+                wizardTabControl.SelectedTab = wizardTabPage1;
+                wizardTab1_dateTimeBornDate.Focus();
+                return false;
+            }
+
+            //We use 14 since the UI control has a mask...
+            if (wizardTab1_txtPhoneCell.TextLength != 14 || wizardTab1_txtPhoneHouse.TextLength != 14)
+            {
+                this.ShowErrorMessage(Strings.Message_InvalidFieldPhoneFields);
+                wizardTabControl.SelectedTab = wizardTabPage1;
+                wizardTab1_txtPhoneCell.Focus();
+                return false;
+            }
+
+            var gradingCatalog = wizardTab2_gradingLvl.SelectedValue as Catalog;
+            if (gradingCatalog == null || gradingCatalog.SubCategoryId <= 0)
+            {
+                this.ShowErrorMessage(Strings.Message_InvalidFieldGrading);
+                wizardTabControl.SelectedTab = wizardTabPage2;
+                wizardTab2_gradingLvl.Focus();
+                return false;
+            }
+
+            if (wizardTab5_txtBoxSalary.TextLength <= 0)
+            {
+                this.ShowErrorMessage(Strings.Message_InvalidFieldExpectedSalary);
+                wizardTabControl.SelectedTab = wizardTabPage5;
+                wizardTab5_txtBoxSalary.Focus();
+                return false;
+            }
 
             return true;
         }

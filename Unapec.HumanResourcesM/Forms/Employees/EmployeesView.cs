@@ -98,14 +98,18 @@ namespace Unapec.HumanResourcesM.Forms.Employees
 
             try
             {
-                status = (PersonStatus) statusString.Key;
+                status = (PersonStatus)statusString.Key;
             }
             catch { }
 
             var matches = _employeeService.DoEmployeeSearch(txtBoxName.Text, status, department.Id, position.Id);
-            if(matches.Any())
+            if (matches.Any())
             {
                 employeeViewModelBindingSource.DataSource = matches.Select(To);
+            }
+            else
+            {
+                employeeViewModelBindingSource.Clear();
             }
         }
 

@@ -121,7 +121,65 @@ namespace Unapec.HumanResourcesM.Forms.Candidates
 
         private bool CheckUIValidations()
         {
-            //TODO: Do UI's data validations 
+
+            var jobOffer = wizardTab1_jobOfferComboBox.SelectedValue as Job;
+            if (jobOffer == null || jobOffer.Id <= 0)
+            {
+                this.ShowErrorMessage(Strings.Message_InvalidFieldJobOffer);
+                wizardTabControl.SelectedTab = wizardTabPage1;
+                wizardTab1_jobOfferComboBox.Focus();
+                return false;
+            }
+
+            if (String.IsNullOrEmpty(wizardTab1_txtIdentification.Text) || FormatHelper.IsInvalidIdentification(wizardTab1_txtIdentification.Text))
+            {
+                this.ShowErrorMessage(Strings.Message_InvalidFieldIdentification);
+                wizardTabControl.SelectedTab = wizardTabPage1;
+                wizardTab1_txtIdentification.Focus();
+                return false;
+            }
+
+            if (String.IsNullOrEmpty(wizardTab1_txtFirstName.Text) || String.IsNullOrEmpty(wizardTab1_txtLastName.Text))
+            {
+                this.ShowErrorMessage(Strings.Message_InvalidFieldNames);
+                wizardTabControl.SelectedTab = wizardTabPage1;
+                wizardTab1_txtFirstName.Focus();
+                return false;
+            }
+
+            if (wizardTab1_dateTimeBornDate.Value > DateTime.Now)
+            {
+                this.ShowErrorMessage(Strings.Message_InvalidFieldBornDate);
+                wizardTabControl.SelectedTab = wizardTabPage1;
+                wizardTab1_dateTimeBornDate.Focus();
+                return false;
+            }
+
+            //We use 14 since the UI control has a mask...
+            if (wizardTab1_txtPhoneCell.TextLength != 14  || wizardTab1_txtPhoneHouse.TextLength != 14)
+            {
+                this.ShowErrorMessage(Strings.Message_InvalidFieldPhoneFields);
+                wizardTabControl.SelectedTab = wizardTabPage1;
+                wizardTab1_txtPhoneCell.Focus();
+                return false;
+            }
+
+            var gradingCatalog = wizardTab2_gradingLvl.SelectedValue as Catalog;
+            if (gradingCatalog  == null || gradingCatalog.SubCategoryId <= 0)
+            {
+                this.ShowErrorMessage(Strings.Message_InvalidFieldGrading);
+                wizardTabControl.SelectedTab = wizardTabPage2;
+                wizardTab2_gradingLvl.Focus();
+                return false;
+            }
+            
+            if (txtExpectedSalary.TextLength <= 0)
+            {
+                this.ShowErrorMessage(Strings.Message_InvalidFieldExpectedSalary);
+                wizardTabControl.SelectedTab = wizardTabPage4;
+                txtExpectedSalary.Focus();
+                return false;
+            }
 
             return true;
         }
@@ -336,8 +394,19 @@ namespace Unapec.HumanResourcesM.Forms.Candidates
 
         private void txtExpectedSalary_Validated(object sender, EventArgs e)
         {
-            var numberString = System.Text.RegularExpressions.Regex.Replace(txtExpectedSalary.Text, "[^0-9.]", "");
+            var numberString = System.Text.RegularExpressions.Regex.Replace(txtExpectedSalary.Text, "[^0-9.-]", "");
             txtExpectedSalary.Text = numberString;
+
+           if(numberString.Length > 0)
+            {
+                var tempSalary = txtExpectedSalary.Text.As<decimal>();
+                if (tempSalary <= 0)
+                {
+                    this.ShowErrorMessage("El Salario indicado no puede ser en valores negativos. Por favor, revise.");
+                    wizardTabControl.SelectedTab = wizardTabPage4;
+                    txtExpectedSalary.Focus();
+                }
+            }
         }
     }
 }

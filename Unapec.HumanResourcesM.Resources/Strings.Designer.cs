@@ -178,6 +178,105 @@ namespace Unapec.HumanResourcesM.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to La Fecha de Nacimiento no puede ser igual o mayor que la fecha actual. Por favor, revise..
+        /// </summary>
+        public static string Message_InvalidFieldBornDate {
+            get {
+                return ResourceManager.GetString("Message_InvalidFieldBornDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Debe indicar un nombre para la capacitación..
+        /// </summary>
+        public static string Message_InvalidFieldCourseName {
+            get {
+                return ResourceManager.GetString("Message_InvalidFieldCourseName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to La cantidad de participantes debe ser mayor de cero (0)..
+        /// </summary>
+        public static string Message_InvalidFieldCourseParticipants {
+            get {
+                return ResourceManager.GetString("Message_InvalidFieldCourseParticipants", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Para continuar, debe seleccionar el puesto de trabajo de ocupará el empleado. Por favor, revise..
+        /// </summary>
+        public static string Message_InvalidFieldEmployeePosition {
+            get {
+                return ResourceManager.GetString("Message_InvalidFieldEmployeePosition", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Debe indicar un monto de salario deseado. Por favor, revise..
+        /// </summary>
+        public static string Message_InvalidFieldExpectedSalary {
+            get {
+                return ResourceManager.GetString("Message_InvalidFieldExpectedSalary", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Para continuar, debe seleccionar su Nivel Académico actual. Por favor, revise..
+        /// </summary>
+        public static string Message_InvalidFieldGrading {
+            get {
+                return ResourceManager.GetString("Message_InvalidFieldGrading", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to La cédula introducida es inválida. Por favor, revise..
+        /// </summary>
+        public static string Message_InvalidFieldIdentification {
+            get {
+                return ResourceManager.GetString("Message_InvalidFieldIdentification", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Para continuar, debe seleccionar el puesto de trabajo o vacante al que desea aplicar. Por favor, revise..
+        /// </summary>
+        public static string Message_InvalidFieldJobOffer {
+            get {
+                return ResourceManager.GetString("Message_InvalidFieldJobOffer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Los campos &apos;Nombres&apos; y &apos;Apellidos&apos; no pueden estar en blanco. Por favor, revise..
+        /// </summary>
+        public static string Message_InvalidFieldNames {
+            get {
+                return ResourceManager.GetString("Message_InvalidFieldNames", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Los contactos telefónicos deben ser números válidos de diez dígitos. Por favor, revise..
+        /// </summary>
+        public static string Message_InvalidFieldPhoneFields {
+            get {
+                return ResourceManager.GetString("Message_InvalidFieldPhoneFields", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to La Fecha de Inicio no puede ser mayor o más reciente a la Fecha de Finalización..
+        /// </summary>
+        public static string Message_InvalidFieldStartEndingDates {
+            get {
+                return ResourceManager.GetString("Message_InvalidFieldStartEndingDates", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Nueva oferta de empleo registrada correctamente..
         /// </summary>
         public static string Message_JobOfferCreated {

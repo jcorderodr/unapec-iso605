@@ -191,4 +191,37 @@ Está seguro que ha revisado y completado la información correctamente?</value>
   <data name="Message_QuorumSuccessWithCount" xml:space="preserve">
     <value>Se han registrado {0} empleados para la capacitación.</value>
   </data>
+  <data name="Message_InvalidFieldBornDate" xml:space="preserve">
+    <value>La Fecha de Nacimiento no puede ser igual o mayor que la fecha actual. Por favor, revise.</value>
+  </data>
+  <data name="Message_InvalidFieldEmployeePosition" xml:space="preserve">
+    <value>Para continuar, debe seleccionar el puesto de trabajo de ocupará el empleado. Por favor, revise.</value>
+  </data>
+  <data name="Message_InvalidFieldExpectedSalary" xml:space="preserve">
+    <value>Debe indicar un monto de salario deseado. Por favor, revise.</value>
+  </data>
+  <data name="Message_InvalidFieldGrading" xml:space="preserve">
+    <value>Para continuar, debe seleccionar su Nivel Académico actual. Por favor, revise.</value>
+  </data>
+  <data name="Message_InvalidFieldIdentification" xml:space="preserve">
+    <value>La cédula introducida es inválida. Por favor, revise.</value>
+  </data>
+  <data name="Message_InvalidFieldJobOffer" xml:space="preserve">
+    <value>Para continuar, debe seleccionar el puesto de trabajo o vacante al que desea aplicar. Por favor, revise.</value>
+  </data>
+  <data name="Message_InvalidFieldNames" xml:space="preserve">
+    <value>Los campos 'Nombres' y 'Apellidos' no pueden estar en blanco. Por favor, revise.</value>
+  </data>
+  <data name="Message_InvalidFieldPhoneFields" xml:space="preserve">
+    <value>Los contactos telefónicos deben ser números válidos de diez dígitos. Por favor, revise.</value>
+  </data>
+  <data name="Message_InvalidFieldCourseName" xml:space="preserve">
+    <value>Debe indicar un nombre para la capacitación.</value>
+  </data>
+  <data name="Message_InvalidFieldCourseParticipants" xml:space="preserve">
+    <value>La cantidad de participantes debe ser mayor de cero (0).</value>
+  </data>
+  <data name="Message_InvalidFieldStartEndingDates" xml:space="preserve">
+    <value>La Fecha de Inicio no puede ser mayor o más reciente a la Fecha de Finalización.</value>
+  </data>
 </root>

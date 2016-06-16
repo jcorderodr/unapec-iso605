@@ -38,19 +38,19 @@ namespace Unapec.HumanResourcesM.Forms.Learning
         {
             if(string.IsNullOrEmpty(txtBoxName.Text))
             {
-                this.ShowErrorMessage("Debe indicar un nombre para la capacitación.");
+                this.ShowErrorMessage(Strings.Message_InvalidFieldCourseName);
                 return true;
             }
 
-            if(txtBoxCapacity.Value <= 1)
+            if(txtBoxCapacity.Value < 1)
             {
-                this.ShowErrorMessage("La cantidad de participantes debe ser mayor de cero (0).");
+                this.ShowErrorMessage(Strings.Message_InvalidFieldCourseParticipants);
                 return true;
             }
 
             if (dateTimePickerStartDate.Value >= dateTimePickerEndDate.Value)
             {
-                this.ShowErrorMessage("La Fecha de Inicio no puede  mayor o más reciente a la Fecha de Finalización.");
+                this.ShowErrorMessage(Strings.Message_InvalidFieldStartEndingDates);
                 return true;
             }
 

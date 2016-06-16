@@ -37,10 +37,21 @@ namespace Unapec.HumanResourcesM.Forms.Jobs
             var department = departmentComboBox.SelectedValue as Department;
             var position = jobPositionComboBox.SelectedValue as EmployeePosition;
 
-            if (department == null || position == null)
+            if (department.Id == 0 || position.Id == 0)
             {
-                this.ShowErrorMessage(Strings.Message_CreationFormInvalidFields);
+                this.ShowErrorMessage(Strings.Message_InvalidFieldEmployeePosition);
                 return true; 
+            }
+
+            var maxString = Regex.Replace(txtBoxMaxSalary.Text, "[^0-9.]", "");
+            var minString = Regex.Replace(txtBoxMinSalary.Text, "[^0-9.]", "");
+            decimal max = maxString.As<decimal>();
+            decimal min = minString.As<decimal>();
+
+            if(min > max)
+            {
+                this.ShowErrorMessage("El Salario mínimo del puesto no puede ser mayor que el máximo.");
+                return true;
             }
 
             return false;
